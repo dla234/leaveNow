@@ -355,59 +355,46 @@
 			<div class="modal-body">
 
 				<form role="form">
-					<table>
-					
 						<div class="form-group">
-							<tr>
-								<td>
-									<label for="InputEmail" style="width: 150px">이메일 주소</label>
-								</td>
-								<td>
+									<label for="InputEmail">이메일 주소</label>
+								
 									<div class="input-group">
-										<input class="form-control" id="InputEmail" type="email" placeholder="이메일 주소" style="width: 300px"> 
+										<input class="form-control" id="InputEmail" type="email" placeholder="이메일 주소"> 
 											<span class="input-group-btn">
 											<button class="btn btn-success" type="button" style="border-radius: 3px">메일인증<i class="fa fa-edit spaceLeft"></i></button>
 										</span>
-										
 									</div>
-									<br>
-								</td>
-							</tr>
 						</div>
 						
 						
 						
 						<div class="form-group">
-							<tr>
-								<td><label for="InputPassword1">비밀번호</label></td>
-								<td><input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호"></td>
-							</tr>
+							
+								<label for="InputPassword1">비밀번호</label>
+								<input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
+							
 						</div>
 						
 						<div class="form-group">
-							<tr>
-								<td><label for="InputPassword2">비밀번호 확인</label></td>
-								<td><input type="password" class="form-control"
-									id="InputPassword2" placeholder="비밀번호 확인"></td>
-							</tr>
-							<tr>
-								<td colspan="2" style="">
+							
+								<label for="InputPassword2">비밀번호 확인</label>
+								<input type="password" class="form-control"
+									id="InputPassword2" placeholder="비밀번호 확인">
+							
+								
 									<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-								</td>
-							</tr>
+								
+							
 						</div>
 						
 						<div class="form-group">
-							<tr>
-								<td>
+							
 									<label for="username">이름</label>
-								</td>
-								<td>
+								
 									<input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
-								</td>
-							</tr>
+								
 						</div>
-					</table>
+				
 					<div class="form-group">
 						<label>약관 동의</label>
 						<div data-toggle="buttons">
