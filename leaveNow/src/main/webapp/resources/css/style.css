@@ -1567,3 +1567,14 @@ ul.social-icons li a:hover {
 	.menu_bar {height: 0; padding-bottom: 0px;}
 }
 
+
+
+/* 회원가입 */
+
+.btn span.fa {
+	opacity: 0;
+}
+.btn.active span.fa {
+	opacity: 1;
+}
+
