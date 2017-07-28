@@ -44,8 +44,8 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
 
 			<ul class="nav navbar-nav ">
-				<li><a href="#"><i class="glyphicon glyphicon-user"></i> Sign Up</a></li>
-				<li><a data-toggle="modal"  data-target="#myModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li><a data-toggle="modal" data-target="#signup_modal" href="#"><i class="glyphicon glyphicon-user"></i>Sign Up</a></li>
+				<li><a data-toggle="modal"  data-target="#login_modal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
 
 			<form class="navbar-form navbar-right">
@@ -261,24 +261,29 @@
 </body>
 </html>
 
-<div class="modal fade" id="myModal" role="dialog">
+
+
+<!-- =========================== loginForm =========================== -->
+
+<div class="modal fade" id="login_modal" role="dialog">
         <div class="modal-dialog modal-sm">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">로그인</h4>
+                    <h4 class="modal-title" style="font-size:30px">로그인</h4>
                 </div>
                 <div class="modal-body">
 
                     <form id="loginfrm" action="login.do" method="post" onsubmit="alert('성공')">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                            <input id="email" type="text" class="form-control" name="email" placeholder="이메일 주소">
                         </div>
+                        <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                            <input id="password" type="password" class="form-control" name="password" placeholder="비밀번호">
                         </div>
                     </form>
                 </div>
@@ -290,5 +295,96 @@
 
         </div>
     </div>
+
+<!-- =========================== SignUpForm  =========================== -->
+
+ <div class="modal fade" id="signup_modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="font-size: 30px; ">회원가입</h4>
+                </div>
+                <div class="modal-body">
+
+
+                        <!--<div class="col-md-6 col-md-offset-3">-->
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="InputEmail">이메일 주소</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="InputEmail" type="email" placeholder="이메일 주소">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button" style="border-radius:3px">메일인증<i class="fa fa-edit spaceLeft"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputPassword1">비밀번호</label>
+                                    <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputPassword2">비밀번호 확인</label>
+                                    <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호 확인">
+                                    <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">이름</label>
+                                    <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label>약관 동의</label>
+                                    <div data-toggle="buttons">
+                                        <label class="btn btn-primary active">
+                                            <span class="fa fa-check"></span>
+                                            <input id="agree" type="checkbox" autocomplete="off" checked>
+                                        </label>
+                                        <a href="#" data-toggle="collapse" data-target="#demo" >이용약관</a>에 동의합니다.
+                                        <div id="demo" class="collapse">
+                                        	<div class="col-xs-12">
+                                        		<br>
+                                                <textarea style="background-color: white; resize: none" rows="5" class="form-control" id="TextArea" readonly>
+                                                    ~~~~~~~~~~~~~~~~~ 이용약관 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 이용약관 ~~~~~~~~~~~~~~~~~
+                                                </textarea>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        <!--</div>-->
+
+
+                <div class="modal-footer">
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-info" style="border-radius:3px">회원가입<i class="fa fa-check spaceLeft"></i></button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" style="border-radius:3px">가입취소<i class="fa fa-times spaceLeft" ></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

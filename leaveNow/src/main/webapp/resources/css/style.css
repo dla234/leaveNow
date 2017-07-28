@@ -561,6 +561,15 @@ input,button,select,textarea {
 	position:relative;
 	padding-bottom:90px;
 }
+
+/* 20170727 수정 */
+.menu_bar {
+	height: 10px;
+	position:relative;
+	padding-bottom:90px;
+}
+
+
 .whitebox {
 	background:#fff;
 	margin:0px;
@@ -874,10 +883,10 @@ input,button,select,textarea {
 	opacity:0;
 	filter:alpha(opacity=0);
 }
-.carousel.fadeing .active.item {
+/* .carousel.fadeing .active.item {
 	opacity:1;
 	filter:alpha(opacity=100);
-}
+} */
 .carousel.fadeing .active.left,.carousel.fadeing .active.right {
 	left:0;
 	z-index:2;
@@ -894,7 +903,7 @@ input,button,select,textarea {
 .carousel.vertical .carousel-inner {
 	height:100%;
 }
-.carousel.vertical .item {
+.carousel.vertical . {
 	-webkit-transition:0.6s ease-in-out top;
 	-moz-transition:0.6s ease-in-out top;
 	-ms-transition:0.6s ease-in-out top;
@@ -1495,6 +1504,15 @@ ul.social-icons li a:hover {
 
 
 		/*************** @media ******************/
+@media (min-width:980px) and (max-width:991px)  {
+	
+	.menu_bar {
+		padding-bottom: 140px;
+	}
+}	
+		
+		
+		
 @media (max-width:979px) {
 		body {
 						padding:0px;
@@ -1546,5 +1564,6 @@ ul.social-icons li a:hover {
 	
 	.boxservice {width:100%;border:1px solid rgba(255,255,255,0.3);}
 	.grid li {width:50%;}
+	.menu_bar {height: 0; padding-bottom: 0px;}
 }
 
