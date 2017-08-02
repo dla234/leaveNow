@@ -19,7 +19,6 @@
 <!-- Le fav -->
 <link rel="shortcut icon" href="resources/ico/favicon.png">
 <style>
-
 </style>
 </head>
 
@@ -31,54 +30,86 @@
 	<nav id="topnav" class="navbar navbar-fixed-top navbar-default"
 		role="navigation">
 		<div class="container">
+		
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header" style="margin-right: 20px;">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-ex1-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
 				</button>
+				
+				<!-- top_logo -->
 				<a class="navbar-brand" href="#top-section">LEAVE NOW</a>
 			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
+			
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
-
+				<!-- top_right_menu -->
 				<ul class="nav navbar-nav ">
 					<li class="active"><a href="#top-section">Home</a></li>
-					<li><a href="#Section-2">Schedule</a></li>
+					<li><a href="#Section-2">추천일정</a></li>
+					<li><a href="#Section-3">가볼만한 장소</a></li>
+					<li><a href="#Schedule_insert">일정만들기</a></li>
+					<li><a href="#Schedule_method">이용방법</a></li>
 				</ul>
-
-				<div
-					class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
-
+				
+				<!-- top_left_menu 
+				<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
+				
+					 <!--  login_before 
 					<ul class="nav navbar-nav ">
 						<li><a data-toggle="modal" data-target="#signup_modal"
-							href="#"><i class="glyphicon glyphicon-user"></i>Sign Up</a></li>
+							href="#"><i class="glyphicon glyphicon-user"></i> Sign Up</a></li>
 						<li><a data-toggle="modal" data-target="#login_modal"
 							href="#"><span class="glyphicon glyphicon-log-in"></span>
-								Login</a></li>
+								 Login</a></li>
 					</ul>
-
+					-->
+					  
+					  
+    					
+    					
+    					 
+    					
+					 <!-- Search -->
 					<form class="navbar-form navbar-right">
 						<div class="input-group" style="margin-top: 5px;">
 							<input type="text" class="form-control" placeholder="Search"></input>
 							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit">
+								<button class="btn btn-default" type="submit" style="width:38px; height:34px; border-radius: 3px">
 									<i class="glyphicon glyphicon-search"></i>
 								</button>
 							</div>
 
 						</div>
-					</form>
+					
+					
+					<!-- login after -->
+					  <div class="nav navbar-nav ">
+					  	<div class="dropdown" style="height: 30px;">
+        					<button style=" margin-top: 2px; background-color: white; border-style: none;" type="button" class="glyphicon glyphicon-user" data-toggle="dropdown">
+        					MyPage 
+        					</button>
+        					<ul class="dropdown-menu" style=" margin-top: 3px;">
+            					<li><a href="#">My Page</a></li>
+            					<li class="divider"></li>
+            					<li><a href="#">내가만든일정</a></li>
+            					<li><a href="#">북마크</a></li>
+            					<li class="divider"></li>
+            					<li><a href="#">로그아웃</a></li>
+        					</ul>
+    					</div>
+    				  </div>
+    				 </form>
 				</div>
 
 			</div>
 
 
 
-<!-- ============================= /.navbar-collapse ============================= -->
+			<!-- ============================= /.navbar-collapse ============================= -->
 
 		</div>
 	</nav>
@@ -93,10 +124,11 @@
 							<div class="animated fadeInDownBig">
 								<h1>나만의 일정을 작성해보세요.</h1>
 							</div>
-							<br /> <a href="#" class="buttonyellow animated fadeInLeftBig"><i
-								class="glyphicon glyphicon-calendar"></i>&nbsp; 여행 일정 보기</a> <a
-								href="#" class="buttoncolor animated fadeInRightBig"><i
-								class="glyphicon glyphicon-eye-open"></i>&nbsp; 여행 장소 보기</a>
+							<br/> 
+							<a href="#" class="buttonyellow animated fadeInLeftBig">
+								<i class="glyphicon glyphicon-calendar"></i>&nbsp; 여행 일정 보기</a> 
+							<a href="#" class="buttoncolor animated fadeInRightBig">
+								<i class="glyphicon glyphicon-eye-open"></i>&nbsp; 여행 장소 보기</a>
 
 						</div>
 					</div>
@@ -139,16 +171,15 @@
 
 
 
-<!-- ============================= SECTION-2(schedule) ============================= -->
-	
+	<!-- ============================= SECTION-2(schedule) ============================= -->
+
 	<section id="Section-2" class="fullbg color-white">
 		<div class="section-divider"></div>
 		<div class="container demo-3">
 			<div class="row">
-				<div
-					class="page-header text-center col-sm-12 col-lg-12 animated fade">
-					<h1>Schedule</h1>
-					<p class="lead">다른 사람들의 여행을 구경하세요.!</p>
+				<div class="page-header text-center col-sm-12 col-lg-12 animated fade">
+					<h1><a href="">추천일정</a></h1>
+					<p class="lead">다른 사람들의 여행일정을 구경하세요!</p>
 				</div>
 			</div>
 			<div class="row animated fadeInUpNow">
@@ -242,7 +273,111 @@
 	</section>
 	
 	
-<!-- ============================ footer ============================ -->
+	
+	
+	
+	<section id="Section-3" class="fullbg color-white">
+		<div class="section-divider"></div>
+		<div class="container demo-3">
+			<div class="row">
+				<div
+					class="page-header text-center col-sm-12 col-lg-12 animated fade">
+					<h1><a href="">가볼만한 장소</a></h1>
+					<p class="lead">어떤 장소가 있는지 더 알아볼까요?</p>
+				</div>
+			</div>
+			<div class="row animated fadeInUpNow">
+				<div class="col-sm-12 col-lg-12">
+					<ul class="grid cs-style-4">
+						<li>
+							<figure>
+								<div>
+									<!-- <img src="http://unsplash.it/400/266?random=10" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Safari</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<div>
+									<!-- <img src="http://unsplash.it/400/266?random=11" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Game Center</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<div>
+
+									<!-- <img src="http://unsplash.it/400/266?random=12" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Music</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+
+						<li>
+							<figure>
+								<div>
+									<!-- <img src="http://unsplash.it/400/266?random=13" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Settings</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+
+						<li>
+							<figure>
+								<div>
+									<!-- <img src="http://unsplash.it/400/266?random=14" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Camera</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<div>
+									<!-- <img src="http://unsplash.it/400/266?random=15" alt="premium-themes-templates"> -->
+									<img src="resources/img/seoul1.jpg"
+										alt="premium-themes-templates">
+								</div>
+								<figcaption>
+									<h3>Phone</h3>
+									<span>Wow Themes</span> <a href="#">Take a look</a>
+								</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ============================ footer ============================ -->
 
 	<footer id="foot-sec">
 		<div class="footerdivide"></div>
@@ -270,7 +405,7 @@
 
 
 
-<!-- ============================ Le javascript ============================ -->
+	<!-- ============================ Le javascript ============================ -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="resources/js/jquery.min.js" type="text/javascript"></script>
 	<!--<script src="assets/js/bootstrap.js"></script>-->
@@ -294,9 +429,9 @@
 
 <!-- ============================ loginForm ============================ -->
 
-<div class="modal fade" id="login_modal" role="dialog">
+ <div class="modal fade" id="login_modal" role="dialog">
 	<div class="modal-dialog modal-sm">
-		<!-- Modal content-->
+
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -320,9 +455,15 @@
 							placeholder="비밀번호">
 					</div>
 					<br>
-					<div>
-						<input type="checkbox">아이디 저장하기
-					</div>
+					<div class="col-sm-12" data-toggle="buttons" style="position: relative; padding-left: 0px;">
+                                <label class="btn btn-warning active" style="border-radius: 3px">
+                                    <input id="agree" type="checkbox" autocomplete="off">
+                                    <span class="fa fa-check"></span>
+                                </label> &nbsp; 아이디 저장하기
+                                
+                    </div>
+					<br>
+					
 				</form>
 			</div>
 			<div class="modal-footer"
@@ -335,7 +476,7 @@
 			</div>
 			<div align="right"
 				style="position: relative; padding-right: 15px; padding-bottom: 8px;">
-				<a href="">비밀번호 찾기</a>
+				<a href="" style="color: #595959;">비밀번호 찾기</a>
 			</div>
 		</div>
 
@@ -344,6 +485,7 @@
 
 <!-- ============================ SignUpForm ============================ -->
 
+<!-- 
 <div class="modal fade" id="signup_modal" role="dialog">
 	<div class="modal-dialog">
 
@@ -355,51 +497,53 @@
 			<div class="modal-body">
 
 				<form role="form">
-						<div class="form-group">
-									<label for="InputEmail">이메일 주소</label>
-								
-									<div class="input-group">
-										<input class="form-control" id="InputEmail" type="email" placeholder="이메일 주소"> 
-											<span class="input-group-btn">
-											<button class="btn btn-success" type="button" style="border-radius: 3px">메일인증<i class="fa fa-edit spaceLeft"></i></button>
-										</span>
-									</div>
+					<div class="form-group">
+						<label for="InputEmail">이메일 주소</label>
+
+						<div class="input-group">
+							<input class="form-control" id="InputEmail" type="email"
+								placeholder="이메일 주소"> <span class="input-group-btn">
+								<button class="btn btn-success" type="button"
+									style="border-radius: 3px">
+									메일인증<i class="fa fa-edit spaceLeft"></i>
+								</button>
+							</span>
 						</div>
-						
-						
-						
-						<div class="form-group">
-							
-								<label for="InputPassword1">비밀번호</label>
-								<input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
-							
-						</div>
-						
-						<div class="form-group">
-							
-								<label for="InputPassword2">비밀번호 확인</label>
-								<input type="password" class="form-control"
-									id="InputPassword2" placeholder="비밀번호 확인">
-							
-								
-									<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-								
-							
-						</div>
-						
-						<div class="form-group">
-							
-									<label for="username">이름</label>
-								
-									<input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
-								
-						</div>
-				
+					</div>
+
+
+
+					<div class="form-group">
+
+						<label for="InputPassword1">비밀번호</label> <input type="password"
+							class="form-control" id="InputPassword1" placeholder="비밀번호">
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="InputPassword2">비밀번호 확인</label> <input type="password"
+							class="form-control" id="InputPassword2" placeholder="비밀번호 확인">
+
+
+						<p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+
+
+					</div>
+
+					<div class="form-group">
+
+						<label for="username">이름</label> <input type="text"
+							class="form-control" id="username" placeholder="이름을 입력해 주세요">
+
+					</div>
+
 					<div class="form-group">
 						<label>약관 동의</label>
 						<div data-toggle="buttons">
-							<label class="btn btn-primary active"> <span class="fa fa-check"></span>
-							<input id="agree" type="checkbox" autocomplete="off">
+							<label class="btn btn-primary active"> <span
+								class="fa fa-check"></span> <input id="agree" type="checkbox"
+								autocomplete="off">
 							</label> <a href="#" data-toggle="collapse" data-target="#demo">이용약관</a>에
 							동의합니다.
 							<div id="demo" class="collapse">
@@ -416,18 +560,95 @@
 				</form>
 				<div class="modal-footer">
 					<div class="form-group text-center">
-						<button type="submit" class="btn btn-info"
-							style="border-radius: 3px">
-							회원가입<i class="fa fa-check spaceLeft"></i>
-						</button>
-						<button type="button" class="btn btn-warning" data-dismiss="modal"
-							style="border-radius: 3px">
-							가입취소<i class="fa fa-times spaceLeft"></i>
-						</button>
+						<button type="submit" class="btn btn-info"style="border-radius: 3px">회원가입<i class="fa fa-check spaceLeft"></i></button>
+						<button type="button" class="btn btn-warning" data-dismiss="modal" style="border-radius: 3px">가입취소<i class="fa fa-times spaceLeft"></i></button>
 					</div>
 
 				</div>
 			</div>
 
 		</div>
-	</div>
+	</div>  
+	-->
+
+
+	<div class="modal fade" id="signup_modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div >
+                        <h1>회원가입</h1>
+                    </div>
+                </div>
+                <br>
+                <!-- content -->
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input class="form-control" id="inputEmail" type="email" placeholder="이메일" style="width: 237px;">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button" style="border-radius: 3px">이메일 인증<i class="fa fa-mail-forward spaceLeft"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호" style="width: 351px;">
+                                <p class="help-block">숫자, 특수문자 포함 8자 이상</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인" style="width: 351px;">
+                                <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputName">이름</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="inputName" type="text" placeholder="이름" style="width: 351px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="inputAgree">약관 동의</label>
+                            <div class="col-sm-6" data-toggle="buttons">
+                                <label class="btn btn-warning active" style="border-radius: 3px">
+                                    <input id="agree" type="checkbox" autocomplete="off">
+                                    <span class="fa fa-check"></span>
+                                </label>
+                                <a href="#"  data-toggle="collapse" data-target="#demo">이용약관</a> 에 동의 합니다.
+                            </div>
+                        </div>
+                        <div class="form-group" align="center">
+                        <div id="demo" class="collapse">
+                            <div class="col-xs-12">
+                                <textarea style="background-color: white; width: 350px; resize: none"
+                                          rows="5" class="form-control" id="TextArea" readonly>
+~~~~~~~~~~~~~~~~~ 이용약관 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 이용약관 ~~~~~~~~~~~~~~~~~
+                                </textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+               </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-primary" type="submit" style="border-radius: 3px">회원가입<i class="fa fa-check spaceLeft"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

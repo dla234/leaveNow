@@ -11,7 +11,7 @@
 <!--<link href="assets/css/bootstrap.min.css" rel="stylesheet">-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="resources/css/font-awesome.min.css" rel="stylesheet">	
-<link href="resources/css/style.css" rel="stylesheet">
+<link href="resources/css/style.css?1" rel="stylesheet">
 <link href="resources/css/animate.css" rel="stylesheet">
 <link href="resources/css/skin-blue.css" rel="stylesheet">
 <!-- Le fav -->
@@ -36,8 +36,11 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 
 		<ul class="nav navbar-nav ">
-			<li class="active"><a href="#top-section">Home</a></li>
-			<li><a href="#Section-2">Schedule</a></li>
+			<li class="active"><a href="#Home">Home</a></li>
+			<li><a href="#Best_Schedule">추천일정</a></li>
+			<li><a href="#Hot_place">가볼만한 장소</a></li>
+			<li><a href="#Schedule_insert">일정만들기</a></li>
+			<li><a href="#Schedule_method">이용방법</a></li>
 		</ul>
 
 		<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
@@ -64,16 +67,13 @@
 
 	<!-- /.navbar-collapse -->
 
-
-
 </div>
 </nav>
-<section>
-	<div class="menu_bar">
-	</div>
-	<div class="container" style="background-color: red;"><input type="text" size="30" ></div>
-</section>
 
+
+<section id="Best_Schedule" src="resources/view/Best_Schedule.html" style="background-color: green;">
+	
+</section>
 
 
 
@@ -120,5 +120,10 @@
 <script src="resources/js/toucheffects.js"></script>
 <script src="resources/js/animations.js"></script>
 <script src="resources/js/init.js"></script>
+
+<script src="resources/js/contact-data.js"></script>
+
+
+
 </body>
 </html>
