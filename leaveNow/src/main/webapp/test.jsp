@@ -121,7 +121,7 @@
 <script src="resources/js/animations.js"></script>
 <script src="resources/js/init.js"></script>
 
-<script src="resources/js/contact-data.js"></script>
+
 
 
 
