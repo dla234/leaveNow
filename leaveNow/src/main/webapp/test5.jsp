@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Le styles -->
-<!--<link href="assets/css/bootstrap.min.css" rel="stylesheet">-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="resources/css/font-awesome.min.css" rel="stylesheet">	
 <link href="resources/css/style.css" rel="stylesheet">
@@ -76,133 +75,38 @@
 
 	<div class="row">
 		
-		<div class="col-md-2" id="searchForm" style="background-color: yellow; height: 100px; "><div id="drag2" draggable="true" ondragstart="drag(event)">secion</div></div>
-		<div class="col-md-9 col-md-offset-1" style="background-color: red; height: 300px;"> </div>
+		<div class="col-md-2" id="searchForm" style="background-color: yellow; height: 100px; ">
+		<!-- 장소 검색 -->
+			<div id="drag1" draggable="true" ondragstart="drag(event)" style="position: relative;">content1</div>
+			<div id="drag2" draggable="true" ondragstart="drag(event)" style="position: relative;">content2</div>
+			<div id="drag3" draggable="true" ondragstart="drag(event)" style="position: relative;">content3</div>
+		</div>
+		<div class="col-md-9 col-md-offset-1" style="background-color: red; height: 300px;"> 
+				<!--  다음 지도 -->
+		</div>
 
 	</div>
-	
 	<div class="row">
 		<div class="col-md-9 col-md-offset-3">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="row">
-					
-						<div class="col-md-12">
-							<table class="table" >
-								<thead class="thead-inverse">
-									<tr><th>1일</th></tr>
-								</thead>
-								<tbody>
-									<tr><td class="col-md-1">00:00</td><td ondrop="drop(event)" ondragover="allowDrop(event)"><div id="drag1" draggable="true" ondragstart="drag(event)">secion</div></td>
-									<tr><td >00:30</td><td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-									<tr><td >01:00</td><td>1day</td>
-									<tr><td >01:30</td><td>1day</td>
-									<tr><td >02:00</td><td>1day</td>
-									<tr><td >02:30</td><td>1day</td>
-									<tr><td >03:00</td><td>1day</td>
-									<tr><td >03:30</td><td>1day</td>
-									<tr><td >04:00</td><td>1day</td>
-									<tr><td >04:30</td><td>1day</td>
-									<tr><td >05:00</td><td>1day</td>
-									<tr><td >05:30</td><td>1day</td>
-									<tr><td >06:00</td><td>1day</td>
-									<tr><td >06:30</td><td>1day</td>
-									<tr><td >07:00</td><td>1day</td>
-									<tr><td >07:30</td><td>1day</td>
-									<tr><td >08:00</td><td>1day</td>
-									<tr><td >08:30</td><td>1day</td>
-									<tr><td >09:00</td><td>1day</td>
-									<tr><td >09:30</td><td>1day</td>
-								</tbody>
-									
-							</table>
-						</div>
-						
-					</div>
-				</div>
-				
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-12">
-							<table class="table" >
-									<thead class="thead-inverse">
-									<tr><th>2일</th></tr>
-								</thead>
-								<tbody>
-									<tr><td class="col-md-1">00:00</td><td>2day</td>
-									<tr><td >00:30</td><td>2day</td>
-									<tr><td >01:00</td><td>2day</td>
-									<tr><td >01:30</td><td>2day</td>
-									<tr><td >02:00</td><td>2day</td>
-									<tr><td >02:30</td><td>2day</td>
-									<tr><td >03:00</td><td>2day</td>
-									<tr><td >03:30</td><td>2day</td>
-									<tr><td >04:00</td><td>2day</td>
-									<tr><td >04:30</td><td>2day</td>
-									<tr><td >05:00</td><td>2day</td>
-									<tr><td >05:30</td><td>2day</td>
-									<tr><td >06:00</td><td>2day</td>
-									<tr><td >06:30</td><td>2day</td>
-									<tr><td >07:00</td><td>2day</td>
-									<tr><td >07:30</td><td>2day</td>
-									<tr><td >08:00</td><td>2day</td>
-									<tr><td >08:30</td><td>2day</td>
-									<tr><td >09:00</td><td>2day</td>
-									<tr><td >09:30</td><td>2day</td>
-								</tbody>
-							</table>
-						</div>
-						
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-12">
-							<table class="table" >
-									<thead class="thead-inverse">
-									<tr><th>3일</th></tr>
-									</thead>
-								<tbody>
-									<tr><td class="col-md-1">00:00</td><td>3day</td>
-									<tr><td >00:30</td><td>3day</td>
-									<tr><td >01:00</td><td>3day</td>
-									<tr><td >01:30</td><td>3day</td>
-									<tr><td >02:00</td><td>3day</td>
-									<tr><td >02:30</td><td>3day</td>
-									<tr><td >03:00</td><td>3day</td>
-									<tr><td >03:30</td><td>3day</td>
-									<tr><td >04:00</td><td>3day</td>
-									<tr><td >04:30</td><td>3day</td>
-									<tr><td >05:00</td><td>3day</td>
-									<tr><td >05:30</td><td>3day</td>
-									<tr><td >06:00</td><td>3day</td>
-									<tr><td >06:30</td><td>3day</td>
-									<tr><td >07:00</td><td>3day</td>
-									<tr><td >07:30</td><td>3day</td>
-									<tr><td >08:00</td><td>3day</td>
-									<tr><td >08:30</td><td>3day</td>
-									<tr><td >09:00</td><td>3day</td>
-									<tr><td >09:30</td><td>3day</td>
-								</tbody>
-							</table>
-						</div>
-						
-					</div>
-				</div>
-				
+			<div class='row'>
+				<!-- 여행일정 작성 옵션 -->
+				<input type="number" id="num-day" style="margin-bottom: 0;"/><input type="button" value="입력" id="dayInput"/>
+			</div>
+			
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-9 col-md-offset-3">
+			<div class="row" id="table-test">
+			<!-- 여행일정표 -->
 			</div> 
 		</div>
 	</div>
 	</div><!-- container end-->
-</section>
+</section><!-- section end -->
 
-
-
-
-
-
-
-	<!-- footer -->
+<!-- footer -->
 <footer id="foot-sec">
 <div class="footerdivide">
 </div>
@@ -243,6 +147,8 @@
 <script src="resources/js/animations.js"></script>
 <script src="resources/js/init.js"></script>
 
+
+
 <script>
 function allowDrop(ev) {
     ev.preventDefault();
@@ -255,10 +161,82 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("content");
-    //console.log(data);
     ev.target.appendChild(document.getElementById(data));
 }
 
+function test(){
+	var tbody="";
+	var time=0;
+	
+	for(var i=1; i <= 49;i++){
+		var min=0;
+		
+		if(i%2==0){
+			min+=30;
+			tbody+=
+			("<tr><th class='col-md-1' >"
+					+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
+					+"<td class='col-md-3' ondrop='drop(event)' ondragover='allowDrop(event)' onmouseover='$test()' style='text-align: center;'><i class='glyphicon glyphicon-plus'></i></td></tr>");
+			time+=1;
+		}
+		else{
+			tbody=tbody+("<tr><th class='col-md-1'>"
+					+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
+					+"<td class='col-md-3' ondrop='drop(event)' ondragover='allowDrop(event)' onmouseover='$test()' style='text-align: center;'><i class='glyphicon glyphicon-plus'></i></td></tr>");
+		}
+		
+	}
+	return tbody;
+}
+/*
+ * 숫자 자릿수 맛추기
+ */
+function leadingZeros(n, digits) {
+	  var zero = '';
+	  n = n.toString();
+
+	  if (n.length < digits) {
+	    for (var i = 0; i < digits - n.length; i++)
+	      zero += '0';
+	  }
+	  return zero + n;
+	}
+
+	
+$table1=function(){
+	
+		$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+				+"<table class='table'><thead class='thead-inverse'>"
+				+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+				+test()
+				+"</tbody></table></div></div></div></div>");		
+	
+};
+	
+$("#dayInput").click(function(){
+	var index=$("#num-day").val();
+	
+	$("#table-test > div").remove(); 
+	for(var i=0;i<index;i++){
+		$table1();
+	}
+});
+
+/* $("#num-day").bind('keyup',function(){
+	
+	var index=$("#num-day").val();
+	
+	$("#table-test > div").remove(); 
+	for(var i=0;i<index;i++){
+		$table1();
+	}
+});	 */	
+
+
+		
+$(document).ready(function() { 
+	
+});
 
 </script>
 

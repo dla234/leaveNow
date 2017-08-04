@@ -249,7 +249,7 @@
 <script src="resources/js/jquery.min.js" type="text/javascript"></script>
 <!--<script src="assets/js/bootstrap.js"></script>-->
 <script src="resources/js/jquery.parallax.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="resources/js/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script>
 <script src="resources/js/jquery.scrollTo-1.4.6-min.js" type="text/javascript"></script>
 <script src="resources/js/jquery.bxslider.min.js"></script>

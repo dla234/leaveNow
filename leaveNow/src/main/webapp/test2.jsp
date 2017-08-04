@@ -76,23 +76,35 @@
 
 	<div class="row">
 		
-		<div class="col-md-2" id="searchForm" style="background-color: yellow; height: 100px; "><div id="drag2" draggable="true" ondragstart="drag(event)">secion</div></div>
+		<div class="col-md-2" id="searchForm" style="background-color: yellow; height: 100px; ">
+			<div id="drag2" draggable="true" ondragstart="drag(event)" style="position: relative;">content</div>
+		</div>
 		<div class="col-md-9 col-md-offset-1" style="background-color: red; height: 300px;"> </div>
 
 	</div>
-	
 	<div class="row">
 		<div class="col-md-9 col-md-offset-3">
-			<div class="row">
-				<div class="col-md-4">
+			<div class='row'>
+				<input type="number" id="num-day" style="margin-bottom: 0;"/>
+			</div>
+			
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-9 col-md-offset-3">
+			<div class="row" id="table-test">
+				
+				<!-- <div class="col-md-4">
 					<div class="row">
 					
-						<div class="col-md-12">
-							<table class="table" >
+						<div class="col-md-12" >
+							<table class="table" id="1day-table">
+								
 								<thead class="thead-inverse">
 									<tr><th>1일</th></tr>
 								</thead>
-								<tbody>
+								<tbody >
 									<tr><td class="col-md-1">00:00</td><td ondrop="drop(event)" ondragover="allowDrop(event)"><div id="drag1" draggable="true" ondragstart="drag(event)">secion</div></td>
 									<tr><td >00:30</td><td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
 									<tr><td >01:00</td><td>1day</td>
@@ -186,9 +198,9 @@
 								</tbody>
 							</table>
 						</div>
-						
 					</div>
-				</div>
+				</div> -->
+				<!-- table end -->
 				
 			</div> 
 		</div>
@@ -260,7 +272,123 @@ function drop(ev) {
 }
 
 
-</script>
 
+function test(){
+	var tbody="";
+	var time=0;
+	
+	for(var i=1; i <= 49;i++){
+		var min=0;
+		
+		if(i%2==0){
+			min+=30;
+			tbody+=
+			("<tr><th class='col-md-1' >"
+					+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
+					/* +"<td  ondrop='drop(event)' ondragover='allowDrop(event)'><div draggable='true' ondragstart='drag(event)' id="+i+">section</div></td></tr>"); */
+					+"<td class='col-md-3' ondrop='drop(event)' ondragover='allowDrop(event)' onmouseover='$test()' style='text-align: center;'><i class='glyphicon glyphicon-plus'></i></td></tr>");
+			time+=1;
+		}
+		else{
+			tbody=tbody+("<tr><th class='col-md-1'>"
+					+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
+					/* +"<td ondrop='drop(event)' ondragover='allowDrop(event)'><div draggable='true' ondragstart='drag(event)' id="+i+">1day</div></td></tr>"); */
+					+"<td class='col-md-3' ondrop='drop(event)' ondragover='allowDrop(event)' onmouseover='$test()' style='text-align: center;'><i class='glyphicon glyphicon-plus'></i></td></tr>");
+		}
+		
+	}
+	return tbody;
+}
+
+function leadingZeros(n, digits) {
+	  var zero = '';
+	  n = n.toString();
+
+	  if (n.length < digits) {
+	    for (var i = 0; i < digits - n.length; i++)
+	      zero += '0';
+	  }
+	  return zero + n;
+	}
+
+
+/* $("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+		+"<table class='table'><thead class='thead-inverse'>"
+		+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+		
+		 
+		+test()
+		 
+		+"</tbody></table></div></div></div></div>");
+
+
+$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+		+"<table class='table'><thead class='thead-inverse'>"
+		+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+		
+		 
+		+test()
+		 
+		+"</tbody></table></div></div></div></div>");
+		
+$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+		+"<table class='table'><thead class='thead-inverse'>"
+		+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+		
+		 
+		+test()
+		 
+		+"</tbody></table></div></div></div></div>"); */
+
+/* var $table=$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+					+"<table class='table'><thead class='thead-inverse'>"
+					+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+					
+					 
+					+test()
+					 
+					+"</tbody></table></div></div></div></div>"); */	
+		
+$table1=function(){
+	
+		$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
+				+"<table class='table'><thead class='thead-inverse'>"
+				+"<tr><th colspan='2'>1일 day</th></tr></thead><tbody>"
+				+test()
+				+"</tbody></table></div></div></div></div>");		
+	
+};
+	
+
+
+$("#num-day").bind('keyup',function(){
+	//alert($("#num-day").val());
+	var index=$("#num-day").val();
+	
+	$("#table-test > div").remove(); 
+	for(var i=0;i<index;i++){
+		$table1();
+	}
+});		
+
+$test=function(){
+	//console.log("test");
+	
+}
+		
+$(document).ready(function() { 
+	//$table;
+	
+	//console.log($tbody);
+});
+
+
+</script>
+<i class='glyphicon glyphicon-plus' style="display: none; "></i>
+<table>
+<tr style="text-align: center;">
+
+</tr>
+</table>
 </body>
 </html>
