@@ -40,17 +40,18 @@ footer {
 		
 		overflow: visible;
 		width: 100%;
-		height: 35px; 
+		height: 36px; 
 		border: 1px solid red;
 		position: relative;
+		z-index: 2;
 		/* background-color: red; */
 	}
 
 	div.inner
 	{
 		width: 100%;
-		height: 30px; 
-		background-color: red;
+		height: 37px; 
+		background-color: skyblue;
 		position: relative;
 	}
 
@@ -58,6 +59,7 @@ footer {
 		vertical-align: top;
 		position: relative;
 		z-index: -1;
+		padding: 0;
 	}
 
 
@@ -197,12 +199,17 @@ function allowDrop(ev) {
 function drag(ev) {
 	ev.dataTransfer.setData("content", ev.target.id);
    	console.log("drag:"+ev.dataTransfer.getData("content"));
-}
-
+};
+/*
+ * 2017.08.17 임은섭
+ * 일정안의 내용을 이동할 때 하는 이벤트
+ */
 function dragDiv(ev) {
     ev.dataTransfer.setData("content", ev.target.id);
    	console.log("dragDiv:"+ev.dataTransfer.getData("content"));
-}
+   	$("#"+ev.target.id).parent().attr("ondrop","drop(event)");
+   	
+};
 
 //검색된 결과를 복사하여서 붙이기
 function drop(ev) {
@@ -213,7 +220,7 @@ function drop(ev) {
     
     var $target=$("#"+ev.target.id);
    	//console.log($target.children().html());
-    var innerHeught=$target.height();
+    var innerHeight=$target.height();
     
     
     //1. 일정에 기록된 장소가 아닌 경우
@@ -225,28 +232,76 @@ function drop(ev) {
    	    
    	    ev.target.appendChild(nodeCopy);
    	 	
+   		$("#"+nodeCopy.id).attr("ondragstart","dragDiv(event)");
+   		
    	 	var $inner=$("#"+nodeCopy.id).children();
+   	 	
+   	 	$inner.css("z-index","4");
+   	 	
+   	 	$inner.resizable({
+   	 		
+   	 		containment: "tbody",
+   	 		handles:"s",
+   	 		grid: 37,
+   	 		resize:function(event,ui){
+   	 			
+   	 		},
+   	 		stop:function(event,ui){
+   	 			console.log(ui);
+   	 			console.log($(this));
+   	 			
+   	 		}
+   	 	});
+   	 	
+		/*
    	    $inner.css("resize","vertical").css("overflow","overlay").css("z-index","4");
    	    
    	    $inner.on("mouseup",function(){
    	    	//alert("wow");
-   	    	console.log("높이:"+innerHeught);
+   	    	console.log("높이:"+innerHeight);
    	    	var $height=$(this).height();
-   	    	var xxx= Math.floor($height/innerHeught);
+   	    	var xxx= Math.floor($height/innerHeight);
    	    	
-   	    	console.log($(this).height());
-   	    	console.log(xxx);
-   	    	$(this).height((xxx+1)*innerHeught-1);
+   	    	//console.log($(this).height());
+   	    	//console.log(xxx);
+   	    	//console.log($(this).height()-1);
    	    	
-   	    	console.log($(this).height());
+   	    	var $startIndex=$(this).parent().parent().parent().index();//tr index
+   	    	var endIndex=$startIndex+xxx;
+   	    	var $table=$(this).parent().parent().parent().parent();//table selecter
+   	    	
+   	    	$table.eq(endIndex).find("td").html();
+   	    	
+   	    	//console.log($table.children().eq(endIndex).html());
+   	    	//console.log($table.children().eq(endIndex).find("td").find("div").html());
+   	    	
+   	    	if($table.children().eq(endIndex).find("td").find("div").html() != undefined){
+   	    		console.log("중복");
+   	    		
+   	    	}
+   	    	else{
+   	    		$(this).height((xxx+1)*innerHeight+(xxx-1)-1);
+   	    		console.log("실행");
+   	    	}
+   	    	
+   	    	
+   	    	
    	    });
+   	 	*/
+   	    
+   	    //일정 삭제
    	    
    	    $inner.append("<i class='glyphicon glyphicon-remove'></i>");
    	    
    	 	$(".glyphicon-remove").on("click",function(){
    	 		alert("삭제");
+   	 		var $outer=$(this).parent().parent().parent();
+   	 		console.log($outer.html());
+   	 		$outer.children().remove("div");
+   	 		$outer.parent().attr("ondrop","drop(event)");
    	 	});
    	 	
+   	 	$dropRemove($target);
    	}
     //2. 타겟에 div가 존재하는 경우(구현 해야함)
     /* 
@@ -258,17 +313,31 @@ function drop(ev) {
    	else{
    		console.log("drop측정:"+data.includes("drag"));
    		ev.target.appendChild(document.getElementById(data));
+   		$dropRemove($target);
+   		
+		
    	}
    	 
 
-}
+};
 
 function dropDiv(ev){
 	 
 	 var data = ev.dataTransfer.getData("content");
 	 console.log("dropDiv");
 	 ev.target.appendChild(document.getElementById(data));
-}
+};
+
+
+/*
+ * 2017.8.17 임은섭
+ * 드롭 이벤트 제거 
+ */
+$dropRemove=function(target){
+	console.log("$dropRemove:"+target.attr("ondrop"));
+	target.attr("ondrop","return false");
+};
+
 
 //24시 테이블 줄 작성
 function trCreate(day){
@@ -321,7 +390,7 @@ $tableCreate=function(day,date){
 		if(day < 4){
 			$("#table-test").append("<div class='col-md-4'><div class='row'><div class='col-md-12'><div class='row'>"
 					+"<table class='table'><thead class='thead-inverse'>"
-					+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody>"
+					+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody class='resilzed-tbody'>"
 					+trCreate(day)
 					+"</tbody></table></div></div></div></div>");
 			
@@ -329,7 +398,7 @@ $tableCreate=function(day,date){
 		else{
 			$("#table-test").append("<div class='col-md-4' style='display:none;'><div class='row'><div class='col-md-12'><div class='row'>"
 					+"<table class='table'><thead class='thead-inverse'>"
-					+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody>"
+					+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody class='resilzed-tbody'>"
 					+trCreate(day)
 					+"</tbody></table></div></div></div></div>");		
 		}
