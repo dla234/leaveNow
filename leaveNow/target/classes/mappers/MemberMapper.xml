@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="member.mapper">
+  	<insert id="memberJoin" parameterType="com.app.trip.member.MemberDTO">
+  		insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update) 
+			values(#{email},#{password},#{m_name},#{teil},#{m_image},'FF',now(),now())
+  	</insert>
+  	
+  	<insert id="codeCreate" parameterType="java.util.HashMap">
+  		insert into member_mail_check(email,m_check,mm_date)
+  			values(#{email},#{code},now())
+  	</insert>
+  	
+  	<select id="codeCheck" resultType="java.lang.String">
+
+  		select email from member_mail_check where m_check=#{code}
+  	</select>
+  	
+  	<select id="getCode" resultType="java.lang.String">
+
+  		select m_check from member_mail_check where email=#{email}
+  	</select>
+  	
+  	<update id="updateCode">
+  		update member set m_code=#{m_code} 
+  		where email=#{email}
+  	</update>
+  	
+  	<select id="login" resultType="com.app.trip.member.MemberDTO">
+  		select email,m_code from member where email=#{email} and password=#{password}
+  	
+  	</select>
+  	
+  	<update id="modify">
+  		update member set password=#{password},m_name=#{m_name},telephone=#{teil},
+  		<if test= 'm_image != null'>
+  			m_image=#{m_image},
+  		</if>
+
+  		rdate_update=now() where email=#{email}
+  	</update>
+  	
+  	<update id="updateM_check">
+  		update member_mail_check set m_check=#{code} where email=#{email}
+  	</update>
+  	
+  	<select id="selectM_check" resultType="java.lang.String">
+  		select m_check from member_mail_check where email=#{email}
+  	</select>
+  </mapper>
