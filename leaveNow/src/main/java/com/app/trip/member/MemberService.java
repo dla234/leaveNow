@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
 
 	public MemberDTO login(HashMap<String, Object> map);
+	public MemberDTO getMember(String email);
 	public String join(MemberDTO dto);
 	public boolean secession();
 	public boolean certification(HashMap<String, Object> map);

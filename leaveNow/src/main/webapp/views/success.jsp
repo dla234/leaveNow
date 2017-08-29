@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<c:if test="${email != null} ">
+<c:if test="${sessionScope.email != null}">
 ${email },${m_code}
 <form action="./logout">
 	<input type="submit" value="로그아웃"/>

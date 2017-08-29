@@ -86,4 +86,15 @@ public class MemberServiceImpl implements MemberService {
 		return dao.getM_check(email);
 	}
 	
+	/*
+	 * 2017.08.28 임은섭
+	 * 하나의 회원 정보 가져오기
+	 */
+	
+	@Override
+	public MemberDTO getMember(String email) {
+		
+		return null;
+	}
+	
 }

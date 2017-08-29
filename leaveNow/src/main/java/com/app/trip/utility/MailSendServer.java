@@ -77,11 +77,8 @@ public class MailSendServer {
 		try{
 			String to = email;
 			String from ="dms1tjq@gmail.com";
-			String subject ="원하시는 정보를 보내드립니다.";
-			String msgText ="";
-			
-			msgText+="id:";
-			msgText+=" passwd:";
+			String subject ="Leave Now에 가입해주셔서 갑사합니다.";
+			String msgText ="인증하기"+"http://localhost:9090/trip/views/member/certification?code="+code+"인증하기";
 			
 			msgText =Utility.convertChar(msgText);
 			

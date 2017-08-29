@@ -13,11 +13,13 @@ import org.springframework.stereotype.Component;
 public interface MemberDAO {
 
 	public MemberDTO login(HashMap<String, Object> map) ;
+	public MemberDTO getMember(String email) ;
 	public boolean join(MemberDTO dto) ;
-	public boolean secession() ;
+	public boolean secession();
 	public String codeCreate(String email);
 	public boolean certification(HashMap<String, Object> map);
 	public boolean modify(MemberDTO dto); 
 	public boolean updateM_check(HashMap<String, Object> map);
 	public String getM_check(String email);
+	
 }

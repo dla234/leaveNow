@@ -49,4 +49,12 @@
   	<select id="selectM_check" resultType="java.lang.String">
   		select m_check from member_mail_check where email=#{email}
   	</select>
+  	
+  	<select id="selectMember" resultType="com.app.trip.member.MemberDTO">
+  		select * from member where email=#{email}
+  	</select>
+  	
+  	<update id="secession">
+  		update member set m_code=${m_code} where email=#{email}
+  	</update>
   </mapper>

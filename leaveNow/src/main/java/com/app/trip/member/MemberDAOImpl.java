@@ -144,4 +144,16 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return sqlSession.selectOne(namespace+"selectM_check", email);
 	}
+	
+	/*
+	 * 2017.08.28 임은섭
+	 * 하나의 회원 정보 가져오기
+	 */
+
+	@Override
+	public MemberDTO getMember(String email) {
+		
+		return sqlSession.selectOne(namespace+"selectMember", email);
+	}
+	
 }

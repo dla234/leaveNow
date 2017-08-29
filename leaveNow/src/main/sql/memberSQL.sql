@@ -48,7 +48,8 @@ insert into m_level(m_code,m_detail) values('XX','탈퇴회원 코드');
 
 select * from m_level;
 
-select * from member_mail_check where m_check='y7874Qu!7(-4KeAk';
+select * from member_mail_check 
+where m_check='y7874Qu!7(-4KeAk';
 
 update member set m_code='M1' where email='email';
 
