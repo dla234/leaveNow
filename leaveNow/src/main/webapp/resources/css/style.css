@@ -825,6 +825,7 @@ input,button,select,textarea {
 			height:50px;
 			width:50px;
 			padding:5px;
+			
 	}
 }
 @media (max-width:319px) {
@@ -833,6 +834,7 @@ input,button,select,textarea {
 			height:40px;
 			width:40px;
 			padding:5px;
+			
 	}
 }
 .carousel-control.left {
@@ -1517,7 +1519,7 @@ ul.social-icons li a:hover {
 		
 		
 @media (max-width:979px) {
-		body {
+	body {
 						padding:0px;
 	}
 		.navbar-fixed-top {
@@ -1585,6 +1587,31 @@ ul.social-icons li a:hover {
 .btn.active span.fa {
 	opacity: 1;
 }
+
+
+
+/* 페이지 이동 */
+
+body > section { display:none; }
+
+body.Home > section#Home,
+body.Best_Schedule > section#Best_Schedule,
+body.Hot_place > section#Hot_place,
+body.Schedule_insert > section#Schedule_insert,
+body.Schedule_method > section#Schedule_method { display:block; }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="resources/css/font-awesome.min.css" rel="stylesheet">
-<link href="resources/css/style.css?1" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/animate.css" rel="stylesheet">
 <link href="resources/css/skin-blue.css" rel="stylesheet">
 <!-- Le fav -->
@@ -55,10 +55,10 @@
 					<li><a href="#Schedule_method">이용방법</a></li>
 				</ul>
 				
-				<!-- top_left_menu 
+				<!-- top_left_menu -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
 				
-					 <!--  login_before 
+					 <!--  login_before -->
 					<ul class="nav navbar-nav ">
 						<li><a data-toggle="modal" data-target="#signup_modal"
 							href="#"><i class="glyphicon glyphicon-user"></i> Sign Up</a></li>
@@ -66,7 +66,7 @@
 							href="#"><span class="glyphicon glyphicon-log-in"></span>
 								 Login</a></li>
 					</ul>
-					-->
+					
 					  
 					  
     					
@@ -86,7 +86,7 @@
 						</div>
 					
 					
-					<!-- login after -->
+					<!-- login after 
 					  <div class="nav navbar-nav ">
 					  	<div class="dropdown" style="height: 30px;">
         					<button style=" margin-top: 2px; background-color: white; border-style: none;" type="button" class="glyphicon glyphicon-user" data-toggle="dropdown">
@@ -101,7 +101,7 @@
             					<li><a href="#">로그아웃</a></li>
         					</ul>
     					</div>
-    				  </div>
+    				  </div> -->
     				 </form>
 				</div>
 
