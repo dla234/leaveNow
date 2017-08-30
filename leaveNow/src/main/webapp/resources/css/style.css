@@ -55,7 +55,7 @@ h1,.h1 {
 	font-size:27px;
 	line-height:55px;
 	font-weight:600;
-		font-family:Raleway;
+	font-family:Raleway;
 }
 a:focus,a:active,button {
 	outline:none;
@@ -566,8 +566,9 @@ input,button,select,textarea {
 .menu_bar {
 	height: 10px;
 	position:relative;
-	padding-bottom:90px;
-}
+	/* padding-bottom:90px; */
+	padding-bottom:60px;
+} 
 
 
 .whitebox {
@@ -824,6 +825,7 @@ input,button,select,textarea {
 			height:50px;
 			width:50px;
 			padding:5px;
+			
 	}
 }
 @media (max-width:319px) {
@@ -832,6 +834,7 @@ input,button,select,textarea {
 			height:40px;
 			width:40px;
 			padding:5px;
+			
 	}
 }
 .carousel-control.left {
@@ -883,10 +886,10 @@ input,button,select,textarea {
 	opacity:0;
 	filter:alpha(opacity=0);
 }
-/* .carousel.fadeing .active.item {
+ .carousel.fadeing .active.item {
 	opacity:1;
 	filter:alpha(opacity=100);
-} */
+} 
 .carousel.fadeing .active.left,.carousel.fadeing .active.right {
 	left:0;
 	z-index:2;
@@ -1507,14 +1510,16 @@ ul.social-icons li a:hover {
 @media (min-width:980px) and (max-width:991px)  {
 	
 	.menu_bar {
-		padding-bottom: 140px;
+		/* padding-bottom: 140px; */
+		padding-bottom: 121px 
+		
 	}
 }	
 		
 		
 		
 @media (max-width:979px) {
-		body {
+	body {
 						padding:0px;
 	}
 		.navbar-fixed-top {
@@ -1564,6 +1569,49 @@ ul.social-icons li a:hover {
 	
 	.boxservice {width:100%;border:1px solid rgba(255,255,255,0.3);}
 	.grid li {width:50%;}
-	.menu_bar {height: 0; padding-bottom: 0px;}
+	
+	.menu_bar {
+	height: 0; 
+	padding-bottom: 0px;
+	
+	}
 }
+
+
+
+/* 회원가입 */
+
+.btn span.fa {
+	opacity: 0;
+}
+.btn.active span.fa {
+	opacity: 1;
+}
+
+
+
+/* 페이지 이동 */
+
+body > section { display:none; }
+
+body.Home > section#Home,
+body.Best_Schedule > section#Best_Schedule,
+body.Hot_place > section#Hot_place,
+body.Schedule_insert > section#Schedule_insert,
+body.Schedule_method > section#Schedule_method { display:block; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
