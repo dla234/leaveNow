@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,16 +10,44 @@
 
 <!-- Le styles -->
 <!--<link href="assets/css/bootstrap.min.css" rel="stylesheet">-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="resources/css/font-awesome.min.css" rel="stylesheet">	
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="resources/css/font-awesome.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/animate.css" rel="stylesheet">
 <link href="resources/css/skin-blue.css" rel="stylesheet">
 <!-- Le fav -->
 <link rel="shortcut icon" href="resources/ico/favicon.png">
+<style>
+/* all sections are off by default */
+body > section { display:none; }
+
+body.BestSchedule           > section#BestSchedule,
+body.Hotplace    > section#Hotplace,
+body.Scheduleinsert    > section#Scheduleinsert,
+body.Schedulemethod    > section#Schedulemethod,
+
+/*
+<li class="active"><a href="#Home">Home</a></li>
+			<li><a href="#Best_Schedule">추천일정</a></li>
+			<li><a href="#Hot_place">가볼만한 장소</a></li>
+			<li><a href="#Schedule_insert">일정만들기</a></li>
+			<li><a href="#Schedule_method">이용방법</a></li>
+*/
+
+/* nav styling */
+/* nav     { background:#555; padding:10px 10px 0 10px; }
+nav > a { display:inline-block; color: white; padding:4px 10px; } */
+
+/* nav highlightion rules */
+/* body.about           > nav > a[href="#about"],
+body.contact-list    > nav > a[href="#contact-list"],
+body.contact-details > nav > a[href="#contact-details"] { background:white; color:black; } */
+</style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+
+<body data-target=".navbar">
 <nav id="topnav" class="navbar navbar-fixed-top navbar-default" role="navigation">
 <div class="container">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -36,8 +65,11 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 
 		<ul class="nav navbar-nav ">
-			<li class="active"><a href="#top-section">Home</a></li>
-			<li><a href="#Section-2">Schedule</a></li>
+			<li class="active"><a href="#Home">Home</a></li>
+			<li><a href="#BestSchedule">추천일정</a></li>
+			<li><a href="#Hotplace">가볼만한 장소</a></li>
+			<li><a href="#Scheduleinsert">일정만들기</a></li>
+			<li><a href="#Schedulemethod">이용방법</a></li>
 		</ul>
 
 		<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
@@ -64,17 +96,16 @@
 
 	<!-- /.navbar-collapse -->
 
-
-
 </div>
 </nav>
-<section>
-	<div class="menu_bar">
-	</div>
-	<div class="container" style="background-color: red;"><input type="text" size="30" ></div>
-</section>
+<div id="content">
 
-
+<section id="Home" src="resources/view/detail.html" style="/* background-color: blue; */ display: block;"></section>
+<section id="BestSchedule" src="resources/view/insertForm.html" style="/* background-color: green; */ display: none;"></section>
+<section id="Hotplace" src="resources/view/list.html" style="/* background-color: pink; */ display: none;"></section>
+<section id="Scheduleinsert" src="resources/view/mypage.html" style="/* background-color: */ yellow; display: none;"></section>
+<section id="Schedulemethod" src="resources/view/write.html" style="/* background-color: */ gray; display: none;"></section>
+</div>
 
 
 
@@ -112,13 +143,33 @@
 <!--<script src="assets/js/bootstrap.js"></script>-->
 <script src="resources/js/jquery.parallax.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-<script src="resources/js/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script>
-<script src="resources/js/jquery.scrollTo-1.4.6-min.js" type="text/javascript"></script>
+
 <script src="resources/js/jquery.bxslider.min.js"></script>
 <script src="resources/js/jquery.placeholder.js"></script>
 <script src="resources/js/modernizr.custom.js"></script>
 <script src="resources/js/toucheffects.js"></script>
 <script src="resources/js/animations.js"></script>
 <script src="resources/js/init.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/js/spapp.js"></script>
+
+<script>
+	$(".nav.navbar-nav li").click(function(){
+		// 사용자가 클릭한 li요소의 index 얻기
+        var idx = $(this).index();
+		//alert("click()"+idx);
+		
+		$(".nav.navbar-nav li").removeClass("active");
+		$(this).addClass("active");
+		//alert($(this).children().attr("href"));
+		var sel = $(this).children().attr("href");
+		
+		$("#content section").css("display", "none");
+		$(sel).css("display", "block");
+		
+	});
+</script>
+
 </body>
 </html>
