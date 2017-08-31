@@ -41,10 +41,12 @@
 				</div>
 				
 				<h4>여행기간</h4>
+				
 				<div id="slidecontainer">
-					<p>Value: <span id="demo"></span></p>
-  					<input type="range" min="1" max="48" value="3" class="trip_slider" id="myRange">
-  					
+					<p><span id="demo"></span></p>
+					<div id="trip_slider_div">
+  					<input type="range" min="1" max="50" value="3" class="slider" id="trip_slider">
+  					</div>
 				</div>
   				
 				<div id="range_apply_button" align="center">
@@ -224,9 +226,13 @@
 <script>
 
 //slider
-var slider = $("#trip_slider").val()
-console.log(slider);
+var slider = document.getElementById("trip_slider");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 
 //navbar active
