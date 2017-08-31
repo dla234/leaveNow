@@ -84,7 +84,7 @@ public class MemberCont {
 	 * 로그 아웃
 	 */
 	
-	@RequestMapping("logout")
+	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request,HttpServletResponse reponse,Model model) {
 		
 		HttpSession session=request.getSession();
@@ -99,7 +99,7 @@ public class MemberCont {
 	 * 2017.08.24 임은섭
 	 * 회원 가입
 	 */
-	@RequestMapping("join")
+	@RequestMapping("/join")
 	public String join(HttpServletRequest request,HttpServletResponse reponse,Model model,MemberDTO dto){
 		
 		logger.info("join:"+dto.toString());
@@ -201,8 +201,6 @@ public class MemberCont {
 			model.addAttribute("certification", "on");
 			model.addAttribute("code", code);
 			
-//			request.setAttribute("certification", "on");
-//			request.setAttribute("code", code);
 			return "member/loginForm";//로그인 창으로 이동
 		}
 		else if(service.certification(map)){
