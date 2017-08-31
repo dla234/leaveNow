@@ -115,51 +115,26 @@
 					<!-- 장소 검색 결과 -->  
 					<!-- **드래그 했을때 사진,글자만 끌어짐-->
 					<!-- **드래그 했을때 전체 크기 작아지게 -->
+					 
 					<div id="resultKeyword">
+						<!-- 
 						<div id="drag1" draggable="true" ondragstart="drag(event)"
 							class="outer">
 							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
+								<img src="resources/img/111.jpg">
 								<a href="#">장소이름</a>
+								<div class="line-clamp">장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명</div>
 							</div>
-						</div>
-						<div id="drag2" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
-								<a href="#">장소이름</a>
-							</div>
-						</div>
-						<div id="drag3" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
-								<a href="#">장소이름</a>
-							</div>
-						</div>
-						<div id="drag4" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
-								<a href="#">장소이름</a>
-							</div>
-						</div>
-						<div id="drag5" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
-								<a href="#">장소이름</a>
-							</div>
-						</div>
-						<div id="drag6" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
-								<a href="#">장소이름</a>
-							</div>
-						</div>
+						</div> 
+						-->
 						
-					</div>
+						
+						
+						
+					</div> 
+					
+					
+					
 				</div>
 			</div>
 		
@@ -214,9 +189,48 @@
 
 
 <script src="resources/js/bootstrap-datepicker.js"></script>
-<script src="resources/js/bootstrap-datepicker.kr.js"></script>
 <script src="resources/js/jquery-scrolltofixed.js"></script>
+<script src="resources/js/underscore.js"></script>
+
 <script>
+
+/* search 장소 불러오기  */
+var index=0;
+var documents=[];
+
+$("resultKeyword").append(function(index){
+	resultKeyword_add(idx, documents[index]);
+});
+
+$.getJSON("resources/json/map.json", function(data) {
+	 //console.log(data);
+	 //console.log($(data["documents"]));
+	 
+	 $(data["documents"]).each(
+	            function(idx, item) {
+	                documents.push(item);
+	            }
+	        );
+	 console.log($(documents[0]));
+});
+
+function resultKeyword_add(idx, item) {
+	
+	var resultKeyword_content = '<div id="drag'+(index+1)+'" draggable="true" ondragstart="drag(event)" class="outer">'+
+		'<div class="inner">'+
+			'<img src="resources/img/111.jpg">'+
+			'<a href="#">'+documents[index].place_name+'</a>'+
+			'<div class="line-clamp">'+documents[index].address_name+'</div>'+
+		'</div>'+
+	'</div>';
+
+	if(index<documents.length-1) index++;
+};
+
+
+
+
+
 /* 메인이미지 */
 
 $("#sch_Topimg img").hover(
@@ -706,6 +720,10 @@ $("#datepicker").datepicker({
 
 $iconEvent();
 });
+
+
+$(".w3-bar.w3-red.w3-card-2 a").eq(4).addClass("active");
+
 
 
 </script>

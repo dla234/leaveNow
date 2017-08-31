@@ -17,7 +17,7 @@
 
 <script>
 
-	$(".w3-bar.w3-red.w3-card-2 a").eq(4).addClass("active");
+	
 
 </script>
 
@@ -144,7 +144,7 @@
             <div class="col-sm-6" data-toggle="buttons">
               <label class="btn btn-warning active">
                 <input id="agree" type="checkbox" autocomplete="off" chacked/>
-                  <span class="fa fa-check"></span>
+                  <span class="fa fa-check-square"></span>
               </label>
               <a href="#" data-toggle="collapse" data-target="#demo">이용약관</a> 에 동의 합니다.
             </div>

@@ -35,17 +35,15 @@
         <!-- left -->
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-red2 w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars w3-xlarge  w3-padding w3-hover-red2"></i></a>
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-red w3-xxlarge w3-hover-red2">LEAVE NOW</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">가볼만한 장소</a>
+        <a href="recommend_sch.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
+        <a href="recommend_place.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">가볼만한 장소</a>
         <a href="sch_1.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">일정만들기</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">이용방법</a>
         
 
         <!-- right -->
         <div class="right" align="right"  style="padding-left: 0px;">
-            <a id="login_modal" data-toggle="modal" data-target="#modal_small" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-log-in"></i> 로그인</a>
-            
-            
+            <a data-toggle="modal" data-target="#login_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-log-in"></i> 로그인</a>
             <a data-toggle="modal" data-target="#signup_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-user"></i> 회원가입</a>
         </div>
     </div>
@@ -300,7 +298,7 @@
             </div>
         <!--</div>-->
         <div id="more_bt_1">
-          <center><a href="#">추천 일정 더보기&nbsp;&nbsp;<i class="fa fa-arrow-right"  style="font-size:20px"></i></a></center>
+          <center><a href="recommend_sch.jsp">추천 일정 더보기&nbsp;&nbsp;<i class="fa fa-arrow-right"  style="font-size:20px"></i></a></center>
         </div>
     </div>   
 </div>
@@ -500,7 +498,7 @@
             </div>
         <!--</div>-->
         <div id="more_bt_1">
-          <center><a href="#">장소 더보기&nbsp;&nbsp;<i class="fa fa-arrow-right"  style="font-size:20px"></i></a></center>
+          <center><a href="recommend_place.jsp">장소 더보기&nbsp;&nbsp;<i class="fa fa-arrow-right"  style="font-size:20px"></i></a></center>
         </div>
     </div>
 </div>
@@ -561,17 +559,7 @@
         dots[slideIndex-1].className += " w3-white";
     }
 
-    
-    //modal  =====================================
-    
-    //login
-    var LoginSrc = "resources/iframe/loginForm.jsp";
 
-    $("#login_modal").click(function(){
-     		alert(LoginSrc);
-            $("#modal_iframe").attr("src",LoginSrc);
-        
-    });
   
 
 </script>
@@ -583,16 +571,57 @@
 
 
 <!-- LoginForm modal  -->
-<div class="modal fade" id="modal_small" role="dialog">
+<div class="modal fade" id="login_modal" role="dialog">
 	<div class="modal-dialog modal-sm">
 
 		<div class="modal-content">
-			<iframe id="modal_iframe" src="" style="zoom:0.60" width="99.6%" height="250" frameborder="0"></iframe>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="font-size: 30px">로그인</h4>
+			</div>
+			<div class="modal-body">
+
+				<form id="loginfrm" action="login.do" method="post" onsubmit="alert('성공')">
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="email"
+							type="text" class="form-control" name="email"
+							placeholder="이메일 주소">
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input id="password"
+							type="password" class="form-control" name="password"
+							placeholder="비밀번호">
+					</div>
+					<br>
+					<div class="col-sm-12" data-toggle="buttons" style="position: relative; padding-left: 0px;">
+                                <label class="btn btn-warning active" style="border-radius: 3px">
+                                    <input id="agree" type="checkbox" autocomplete="off">
+                                    <span class="fa fa-check"></span>
+                                </label> &nbsp; 아이디 저장하기
+                    </div>
+					<br>
+					
+				</form>
+			</div>
+			<div class="modal-footer"
+				style="position: relative; padding-right: 75px;">
+				<button type="button" id="logint_submit" class="btn btn-default"
+					data-dismiss="modal" style="border-radius: 3px" data-toggle="modal"
+					data-target="#signup_modal">회원가입</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"
+					style="border-radius: 3px">로그인</button>
+			</div>
+			<div align="right"
+				style="position: relative; padding-right: 15px; padding-bottom: 8px;">
+				<a href="" style="color: #595959;">비밀번호 찾기</a>
+			</div>
 		</div>
 
 	</div>
 </div>
-
 
 
 
