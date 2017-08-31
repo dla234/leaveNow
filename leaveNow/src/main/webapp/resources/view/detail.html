@@ -1,0 +1,19 @@
+<!-- mypage.html -->
+<div class="section-divider"></div>
+<div style="text-align: center">
+    <div class="container" style="margin:0 auto;">
+            <div class="col-md-7">
+                <div class="thumbnail">
+                    <img src="poster/{{movie.poster}}" />
+                    <h3 class="title">{{movie.name}}</h3>
+                    <h5>감독 : {{movie.director}}</h5>
+                    <h5>개봉일 : {{movie.release|date:"yyyy년 M월 d일"}}</h5>
+                    <strong class="price">{{movie.price|currency:undefined:0}}</strong>
+                    <div class="rating">
+                        <button class="likes" ng-click="increaseLikes()">{{movie.likes}}</button>
+                        <button class="dislikes" ng-click="increaseDislikes()">{{movie.dislikes}}</button>
+                    </div><!--//rating-->
+                </div><!--//thumbnail-->
+            </div>
+    </div>
+</div>

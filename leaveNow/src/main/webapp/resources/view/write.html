@@ -1,0 +1,13 @@
+<!-- write.html -->
+<div class="section-divider"></div>
+<h2>할 일 입력</h2>
+<form ng-submit="writeTodo(title)">
+    <fieldset>
+        <legend>할일 입력폼</legend>
+        <label>할일 :
+            <input type="text" placeholder="할일 입력" ng-model="title"/>
+        </label>
+        <button>입력</button>
+    </fieldset>
+</form>
+<a href="#todo">목록으로</a>
