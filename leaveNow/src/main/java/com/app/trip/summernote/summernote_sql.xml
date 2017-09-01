@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.trip.summernote.Summernote_Mapper">
+	<!-- <select id="list" resultType="NoticeDTO">
+		SELECT noticeno, title, rname, rdate
+		FROM notice5
+		ORDER BY noticeno DESC
+	</select>
+	
+	<select id="read" resultType="NoticeDTO" parameterType="NoticeDTO">
+		SELECT noticeno, title, rname, rdate
+		FROM notice5
+		WHERE noticeno=#{noticeno}
+	</select> -->
+	
+	<select id="max_c_m_no" resultType="Summernote_DTO">
+		SELECT ifnull(max(c_m_no),0) AS c_m_no FROM summernote
+	</select>
+	
+	<insert id="insert_memo" parameterType="Summernote_DTO">
+		INSERT INTO summernote (c_m_no, c_id, c_m_content, c_m_active, c_m_rdate, c_m_rdate_update)
+		VALUES (
+			#{c_m_no}, #{c_id}, '', 'T',now(),now()
+		)
+		<!-- <selectKey keyProperty="c_m_no" resultType="int" order="BEFORE">
+			SELECT ifnull(max(c_m_no),0) FROM summernote
+		</selectKey> -->
+	</insert>
+	
+	<select id="read_memo" resultType="Summernote_DTO" parameterType="Summernote_DTO">
+		SELECT c_m_no, c_id, c_m_content, c_m_active, c_m_rdate, c_m_rdate_update
+		FROM summernote
+		WHERE c_m_no=#{c_m_no}
+	</select>
+	
+	<insert id="insert_image" parameterType="Summernote_Image_DTO">
+		INSERT INTO note_image (i_no, c_m_no, i_file, i_file_size, i_active, i_rdate, i_rdate_update)
+		VALUES (
+			#{i_no}+1, #{c_m_no}, #{i_file}, #{i_file_size}, 'T',now(),now()
+		)
+		<selectKey keyProperty="i_no" resultType="int" order="BEFORE">
+			SELECT ifnull(max(i_no),0) FROM note_image
+		</selectKey>
+	</insert>
+	
+	<update id="update_memo" parameterType="Summernote_DTO">
+		UPDATE summernote
+		SET c_m_content=#{c_m_content}, c_m_rdate_update=now()
+		WHERE c_m_no=#{c_m_no}
+	</update>
+	
+	<select id="list_image" resultType="Summernote_Image_DTO" parameterType="Summernote_DTO">
+		SELECT i_no, c_m_no, i_file, i_file_size, i_active, i_rdate, i_rdate_update
+		FROM note_image
+		WHERE c_m_no=#{c_m_no}
+	</select>
+	
+	<!-- <delete id="delete" parameterType="NoticeDTO">
+		DELETE FROM notice5
+		WHERE noticeno=#{noticeno}
+	</delete> -->
+	
+</mapper>
