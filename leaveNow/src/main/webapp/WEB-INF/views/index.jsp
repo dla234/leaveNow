@@ -18,23 +18,88 @@
 <link rel="shortcut icon" href="resources/ico/favicon.png">
 </head>
 
-<!-- /head-->
+
+
+<!-- ============================= /header ============================= -->
+
 <body data-spy="scroll" data-target=".navbar">
-<nav id="topnav" class="navbar navbar-fixed-top navbar-default" role="navigation">
-<div class="container">
-	<!-- Brand and toggle get grouped for better mobile display -->
-	<div class="navbar-header" style="margin-right: 20px;">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="#top-section">NOW LEAVE</a>
-	</div>
-	
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	<nav id="topnav" class="navbar navbar-fixed-top navbar-default"
+		role="navigation">
+		<div class="container">
+		
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header" style="margin-right: 20px;">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				
+				<!-- top_logo -->
+				<a class="navbar-brand" href="#top-section">LEAVE NOW</a>
+			</div>
+			
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<!-- top_right_menu -->
+				<ul class="nav navbar-nav ">
+					<li class="active"><a href="#top-section">Home</a></li>
+					<li><a href="#Section-2">추천일정</a></li>
+					<li><a href="#Section-3">가볼만한 장소</a></li>
+					<li><a href="#Schedule_insert">일정만들기</a></li>
+					<li><a href="#Schedule_method">이용방법</a></li>
+				</ul>
+				
+				<!-- top_left_menu -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
+				
+					 <!--  login_before -->
+					<ul class="nav navbar-nav ">
+						<li><a data-toggle="modal" data-target="#signup_modal"
+							href="#"><i class="glyphicon glyphicon-user"></i> Sign Up</a></li>
+						<li><a data-toggle="modal" data-target="#login_modal"
+							href="#"><span class="glyphicon glyphicon-log-in"></span>
+								 Login</a></li>
+					</ul>
+					
+					  
+					  
+    					
+    					
+    					 
+    					
+					 <!-- Search -->
+					<form class="navbar-form navbar-right">
+						<div class="input-group" style="margin-top: 5px;">
+							<input type="text" class="form-control" placeholder="Search"></input>
+							<div class="input-group-btn">
+								<button class="btn btn-default" type="submit" style="width:38px; height:34px; border-radius: 3px">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+
+						</div>
+					
+					
+					<!-- login after 
+					  <div class="nav navbar-nav ">
+					  	<div class="dropdown" style="height: 30px;">
+        					<button style=" margin-top: 2px; background-color: white; border-style: none;" type="button" class="glyphicon glyphicon-user" data-toggle="dropdown">
+        					MyPage 
+        					</button>
+        					<ul class="dropdown-menu" style=" margin-top: 3px;">
+            					<li><a href="#">My Page</a></li>
+            					<li class="divider"></li>
+            					<li><a href="#">내가만든일정</a></li>
+            					<li><a href="#">북마크</a></li>
+            					<li class="divider"></li>
+            					<li><a href="#">로그아웃</a></li>
+        					</ul>
+    					</div>
+    				  </div> -->
+    				 </form>
+				</div>
 
 		<ul class="nav navbar-nav ">
 			<li class="active"><a href="#top-section">Home</a></li>
