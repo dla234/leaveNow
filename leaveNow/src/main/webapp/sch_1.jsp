@@ -125,16 +125,16 @@
 								<a href="#">장소이름</a>
 								<div class="line-clamp">장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명</div>
 							</div>
-						</div> 
 						-->
-						
-						
-						
-						
+						<div id="drag1"  class="drag">
+							<div class="content">
+								<img src="resources/img/111.jpg" width="95px;" height="95px;" style="float: left;">
+								<a href="#">장소이름1</a>
+							</div>
+						</div>
+
 					</div> 
-					
-					
-					
+
 				</div>
 			</div>
 		
@@ -187,7 +187,8 @@
 
 </div><!-- end -->
 
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="resources/js/bootstrap-datepicker.js"></script>
 <script src="resources/js/jquery-scrolltofixed.js"></script>
 <script src="resources/js/underscore.js"></script>
@@ -195,8 +196,9 @@
 <script>
 
 /* search 장소 불러오기  */
-var index=0;
+/* var index=0;
 var documents=[];
+
 
 $("resultKeyword").append(function(index){
 	resultKeyword_add(idx, documents[index]);
@@ -226,10 +228,31 @@ function resultKeyword_add(idx, item) {
 
 	if(index<documents.length-1) index++;
 };
+ */
+ $("#keyword").keydown(function(key){
+	 //if(key.keyCode==13){
+	//	 $searchFunction();
+	 //}
+ });
 
-
-
-
+$searchFunction= function(){
+	$.ajax({
+		type:"POST",
+		//url:"http://172.16.4.23:9090/trip/local/keyword.do",
+		
+		//url:"./keyword.do",
+		//dataType: "json",
+		success:function(data){
+			alert("success");
+		},
+		error:function(request,status,error){
+		
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	})
+};
+	
 
 /* 메인이미지 */
 
@@ -309,10 +332,6 @@ uploadFile.on('change', function(){
     $(this).siblings('.fileName').val(filename);
 });
 
-
-
-
-
 /* 검색 스크롤 */
 $('#searchForm').scrollToFixed();
 
@@ -324,9 +343,6 @@ var options = { //지도를 생성할 때 필요한 기본 옵션
 };
 
 var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-
-
 
 /* sch_contant => active */
 $("#sch_category_BA input").click(function() {
@@ -343,112 +359,32 @@ $("#sch_category_ctg input").click(function() {
 	$(this).addClass("active_ctg");
 });
 
-
-
-
-
 /* 달력 */
 $('#datepicker').datepicker({
     format: 'yyyy-mm-dd'
 });
 
-
-
-
-
-
 /* searchbar X */
 $("#searchbar").css("display","none");
 
+/*
+ * 2017.08.30 임은섭 
+ * drag 이벤트 걸기
+ */
+$(".drag").draggable({
+
+	   drag: function(event, ui){
+        var drg = $(this);
+        drg.clone();
+    },
+    
+    revert: 'valid',
+    cursor: 'crosshair',
+    opacity: 0.35,
+    helper: 'clone'
+});
 
 
-function allowDrop(ev) {
-ev.preventDefault();
-//console.log("all");
-
-}
-//집을 때
-function drag(ev) {
-ev.dataTransfer.setData("content", ev.target.id);
-	console.log("drag:"+ev.dataTransfer.getData("content"));
-}
-
-function dragDiv(ev) {
-ev.dataTransfer.setData("content", ev.target.id);
-	console.log("dragDiv:"+ev.dataTransfer.getData("content"));
-}
-
-//검색된 결과를 복사하여서 붙이기
-function drop(ev) {
-
-var data = ev.dataTransfer.getData("content");
-	//console.log("data id:"+data);
-console.log("drop:"+data);
-
-var $target=$("#"+ev.target.id);
-	//console.log($target.children().html());
-var innerHeught=$target.height();
-
-
-//1. 일정에 기록된 장소가 아닌 경우
-	if(!data.includes("_")){
-		console.log("drop측정:"+data.includes("drag"));
-		var nodeCopy = document.getElementById(data).cloneNode(true);
-	    
-		nodeCopy.id=data+"_"+ev.target.id;
-	    
-	    ev.target.appendChild(nodeCopy);
-	 	
-	 	var $inner=$("#"+nodeCopy.id).children();
-	 	
-	 	
-	    $inner.css("resize","vertical").css("overflow","overlay").css("z-index","4");
-	    
-	    $inner.on("mouseup",function(){
-	    	//alert("wow");
-	    	console.log("높이:"+innerHeught);
-	    	var $height=$(this).height();
-	    	var xxx= Math.floor($height/innerHeught);
-	    	
-	    	console.log($(this).height());
-	    	console.log(xxx);
-	    	$(this).height((xxx+1)*innerHeught-1);
-	    	
-	    	console.log($(this).height());
-	    });
-	     
-	     
-	     
-	    //
-	    $inner.append("<i class='glyphicon glyphicon-remove'></i>");
-	 	$(".glyphicon-remove").on("click",function(){
-	 		
-	 		alert("삭제");
-	 		var $outer=$(this).parent().parent().parent();
-	 		$outer.children().remove("div");
-	 	});
-	}
-//2. 타겟에 div가 존재하는 경우(구현 해야함)
-/* 
-else if(){
-	alert("wow");
-	return false;
-}
-*/
-	else{
-		console.log("drop측정:"+data.includes("drag"));
-		ev.target.appendChild(document.getElementById(data));
-	}
-	 
-
-}
-
-function dropDiv(ev){
- 
- var data = ev.dataTransfer.getData("content");
- console.log("dropDiv");
- ev.target.appendChild(document.getElementById(data));
-}
 
 //24시 테이블 줄 작성
 function trCreate(day){
@@ -463,13 +399,13 @@ for(var i=1; i <= 49;i++){
 		tbody+=
 		("<tr ><th class='col-md-1' >"
 				+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
-				+"<td id="+day+"_"+i+" class='col-md-3' ondrop='drop(event)' ondragover='return false;' style='text-align: center;padding:0;'><i class='glyphicon glyphicon-plus' style='display:none'></i></td></tr>");
+				+"<td id="+day+"_"+i+" class='col-md-3 daytime' style='text-align: center;padding:0;'><i class='glyphicon glyphicon-plus' style='display:none'></i></td></tr>");
 		time+=1;
 	}
 	else{
 		tbody=tbody+("<tr><th class='col-md-1'>"
 				+leadingZeros(time, 2)+":"+leadingZeros(min, 2)+"</th>"
-				+"<td id="+day+"_"+i+" class='col-md-3' ondrop='drop(event)' ondragover='return false;' style='text-align: center;padding:0;'><i class='glyphicon glyphicon-plus' style='display:none; '></i></td></tr>");
+				+"<td id="+day+"_"+i+" class='col-md-3 daytime' style='text-align: center;padding:0;'><i class='glyphicon glyphicon-plus' style='display:none; '></i></td></tr>");
 	}
 	
 }
@@ -503,7 +439,7 @@ $tableCreate=function(day,date){
 				+"<table class='table'><thead class='thead-inverse'>"
 				+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody>"
 				+trCreate(day)
-				+"</tbody></table></div></div></div></div>");
+				+"</tbody><tfoot></tfoot></table></div></div></div></div>");
 		
 	}
 	else{
@@ -511,10 +447,92 @@ $tableCreate=function(day,date){
 				+"<table class='table'><thead class='thead-inverse'>"
 				+"<tr><th colspan='2'>"+day+"일 day["+pppp+"]</th></tr></thead><tbody>"
 				+trCreate(day)
-				+"</tbody></table></div></div></div></div>");		
+				+"</tbody><tfoot></tfoot></table></div></div></div></div>");		
 	}
+	//drop 이벤트 생성
+	$(".daytime").droppable({
+		 drop: function (event, ui) {
+			 
+		      var droppable = $(this);
+		      var draggable = ui.draggable;
+		      
+		      console.log(draggable.hasClass("drag"));
+		      if(draggable.hasClass("drag")){
 
-};
+					var atag= draggable.find("a").clone();
+					var moveicon="<i class='glyphicon glyphicon-remove'></i>";
+			      // Move draggable into droppable
+			      droppable.append("<div class='outer'><div class='inner'></div></div>");
+			      
+			      var $content=droppable.children();
+			      droppable.children().children().append(atag);
+			      droppable.children().children().append(moveicon);
+			      droppable.children().children().find(".glyphicon-remove").on("click",function(){
+			    	  droppable.children().remove();
+			    	  droppable.droppable("enable");
+			      });
+			      droppable.children().children().css("background-color","skyblue").css("border-radius","5px").css("border", "1px solid #a1a1a1");
+
+			      //resize 이벤트 생성
+			      $(".inner").resizable({
+			    	  handles:"s",
+			    	  grid: 37,
+			    	  stop:function(event,ui){
+			    		 
+						var t=ui.helper.height()/37;
+			    		 
+			    		  ui.helper.height(ui.helper.height()+parseInt(t)*2-(parseInt(t)-1)*2)
+			    		  var limit=$("tfoot").offset().top;
+			    		  var uiTop=$(this).find(".ui-resizable-s").offset().top;
+			    		  
+			    		  if(limit<uiTop){
+			    			  var original=ui.originalSize.height;
+			    			  $(this).height(original);
+			    		  }
+			    		  
+			    	  }
+			      });
+			      //outer 드레그 이벤트 재생성
+			      $content.draggable({
+			    	  revert: 'invalid',
+			    	  stop:function(event,ui){
+			    		  var draggable=ui;
+			    		  var uiTop=ui.helper.children().find(".ui-resizable-s").offset().top;
+			    		  var limit=$("tfoot").offset().top;
+
+			    		  $("td").each(function(index){
+			    			  
+			    			 if($(this).find("div").length>0){
+			    				 //console.log("존재"+index);
+			    			 }
+			    			 else{
+			    				 $(this).droppable().droppable("enable");
+			    			 }
+
+			    		  });
+			    		  
+			    		  if(limit<uiTop){
+			    			  ui.helper.children().height("37");
+			    		  }
+			    	  }
+			      });
+		      }//if end
+		      else{
+		    	  droppable.append(draggable);
+		    	  draggable.find(".glyphicon-remove").on("click",function(){
+		    		  draggable.remove();
+		    		  droppable.droppable("enable");
+		    	  });
+		    	  draggable.css("left","");
+		    	  draggable.css("top","");
+		      }//else end
+
+		      $(this).droppable("disable");
+		      
+		 }//drop end
+	});
+	
+};//일정 테이블 end
 
 //일수 만큼 테이블 생성
 $("#dayInput").click(function(){

@@ -40,6 +40,7 @@
 					<button id="tripthema_7">패키지 여행</button>
 				</div>
 				
+				 
 				<h4>여행기간</h4>
 				
 				<div id="slidecontainer">
@@ -49,6 +50,7 @@
   					</div>
 				</div>
   				
+  				 
 				<div id="range_apply_button" align="center">
 					<input  type="submit" value="적용">
 				</div>
