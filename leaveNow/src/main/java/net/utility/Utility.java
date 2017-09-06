@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 import java.util.StringTokenizer;
 
@@ -20,6 +22,9 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.swing.ImageIcon;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Utility {
   // 서비스시에는 도메인으로 변경됨.
@@ -1361,5 +1366,30 @@ public class Utility {
 
     return _str;
   }
+  
+  /*
+   * JSON 문자열로 쓸 String에 '/'(backslash)를 제거한다
+   * */
+  public static synchronized String remove_backslash(String str) {
+	  return str.replaceAll("\\\\", "");
+  }
+  
+  public static synchronized String timestamp_to_string(Timestamp timestamp) {
+	  SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	  return sfd.format(new Date(timestamp.getTime()));
+  }
+  
+  public static synchronized Timestamp string_to_timestamp (String strTime) {
+	  SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	  Timestamp timestamp;
+	  try {
+		  timestamp = new Timestamp(sfd.parse(strTime).getTime());
+	  } catch (Exception e) {
+		  timestamp=null;
+	  }
+	  return timestamp;
+  }
+  
 
+  
 }//class end

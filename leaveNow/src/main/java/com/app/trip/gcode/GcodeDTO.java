@@ -18,7 +18,7 @@ public class GcodeDTO {
 	private String roadaddress;
 	private String mapx;
 	private String mapy;
-	private Timestamp g_rdade;
+	private Timestamp g_rdate;
 	private Timestamp g_rdate_update;
 	private int distance;
 	public String getGcode() {
@@ -111,11 +111,11 @@ public class GcodeDTO {
 	public void setMapy(String mapy) {
 		this.mapy = mapy;
 	}
-	public Timestamp getG_rdade() {
-		return g_rdade;
+	public Timestamp getG_rdate() {
+		return g_rdate;
 	}
-	public void setG_rdade(Timestamp g_rdade) {
-		this.g_rdade = g_rdade;
+	public void setG_rdate(Timestamp g_rdate) {
+		this.g_rdate = g_rdate;
 	}
 	public Timestamp getG_rdate_update() {
 		return g_rdate_update;
@@ -135,7 +135,7 @@ public class GcodeDTO {
 				+ mainphoto + ", photoList=" + photoList + ", category=" + category + ", category_detail="
 				+ category_detail + ", g_score=" + g_score + ", detail_link=" + detail_link + ", homepage=" + homepage
 				+ ", phone=" + phone + ", address=" + address + ", roadaddress=" + roadaddress + ", mapx=" + mapx
-				+ ", mapy=" + mapy + ", g_rdade=" + g_rdade + ", g_rdate_update=" + g_rdate_update + ", distance="
+				+ ", mapy=" + mapy + ", g_rdate=" + g_rdate + ", g_rdate_update=" + g_rdate_update + ", distance="
 				+ distance + "]";
 	}
 	

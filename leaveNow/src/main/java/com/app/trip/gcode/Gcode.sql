@@ -1,4 +1,6 @@
 select * from gcode
+delete from gcode
+drop table gcode
 
 CREATE TABLE gcode (
 	gcode           VARCHAR(50)  character set utf8	NOT NULL, -- 장소코드
@@ -16,7 +18,7 @@ CREATE TABLE gcode (
 	roadaddress     VARCHAR(255) character set utf8	NULL,     -- 주소(도로명)
 	mapx            VARCHAR(20)  character set utf8	NOT NULL, -- 경도(x)
 	mapy            VARCHAR(20)  character set utf8	NOT NULL, -- 위도(y)
-	g_rdade         DATETIME     NOT NULL, -- 등록일
+	g_rdate         DATETIME     NOT NULL, -- 등록일
 	g_rdate_update  DATETIME     NOT NULL  -- 수정일
 );
 

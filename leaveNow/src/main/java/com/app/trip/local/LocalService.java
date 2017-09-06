@@ -6,5 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface LocalService {
-	public JSONArray name();
+	public JSONArray keword_search();
+	public JSONArray keword_search(Local_search_DTO local_search_DTO);
 }
