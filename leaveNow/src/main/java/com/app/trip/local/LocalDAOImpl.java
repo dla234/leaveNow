@@ -22,10 +22,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import com.app.trip.gcode.GcodeDTO;
-
-import net.utility.Utility;
-
 @Repository
 public class LocalDAOImpl implements LocalDAO {
 
@@ -34,8 +30,7 @@ public class LocalDAOImpl implements LocalDAO {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
-		HttpHeaders requestHeaders = //Local_util.get_requestHeaders(); 
-				new HttpHeaders();
+		HttpHeaders requestHeaders = new HttpHeaders();
 		requestHeaders.add("Authorization", "KakaoAK " + "57e5241a10a46db9a55a94bc5c2cf676");
 		MultiValueMap<String, String> postParams = new LinkedMultiValueMap<>();
 		postParams.add("category_group_code", "AT4");
@@ -43,8 +38,7 @@ public class LocalDAOImpl implements LocalDAO {
 
 		HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(postParams, requestHeaders);
 		
-		URI uri = //Local_util.get_uri("https://dapi.kakao.com/v2/local/search/category.json");
-				null;
+		URI uri = null;
 		try {
 			uri = new URL("https://dapi.kakao.com/v2/local/search/category.json").toURI();
 		} catch (MalformedURLException e1) {
@@ -52,13 +46,15 @@ public class LocalDAOImpl implements LocalDAO {
 		} catch (URISyntaxException e1) {
 			e1.printStackTrace();
 		}
+		
 		try {
 		    final ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.POST, httpEntity, String.class);
 		    String json_data = response.toString();
-		    //System.out.println(json_data.substring(8, json_data.lastIndexOf(",{Server")));
 		    json_data = json_data.substring(8, json_data.lastIndexOf(",{Server"));
 		    JSONObject json = (JSONObject) new JSONParser().parse(json_data);
 		    JSONArray documents = (JSONArray) json.get("documents");
+
+		    
 		    return documents;
 		} catch (final RestClientException e) {
 		    e.printStackTrace();
@@ -71,7 +67,8 @@ public class LocalDAOImpl implements LocalDAO {
 	public JSONObject search_daum(JSONObject document) {
 		
 		try {
-			String json_data = Jsoup.connect("http://place.map.daum.net/main/v/"+document.get("id").toString()).ignoreContentType(true).execute().body();
+			String url = "http://place.map.daum.net/main/v/"+document.get("id").toString()+".prx2.unblocksites.co";
+			String json_data = Jsoup.connect(url).ignoreContentType(true).execute().body();
 			JSONObject json = (JSONObject) new JSONParser().parse(json_data);
 			Map basicinfo = (Map) json.get("basicInfo");
 			//System.out.println(basicinfo.get("introduction").toString());
@@ -129,8 +126,12 @@ public class LocalDAOImpl implements LocalDAO {
 				
 			} catch (Exception e) {
 				System.out.println(document.get("place_name").toString()+"사진 리스트 없음");
+				document.put("mainphotourl", "");
 			}
-			document.put("photoList", outphotoList.toJSONString());
+			if(outphotoList.size()!=0)
+				document.put("photoList", outphotoList.toJSONString());
+			else
+				document.put("photoList", "");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -140,8 +141,6 @@ public class LocalDAOImpl implements LocalDAO {
 		return document;
 	}
 
-	
-	
 	@Override
 	public JSONArray keyword_search(Local_search_DTO local_search_DTO) {
 		JSONArray documents = null;
@@ -156,29 +155,4 @@ public class LocalDAOImpl implements LocalDAO {
 		}
 		return documents;
 	}// keyword_search() end
-
-	@Override
-	public GcodeDTO localDTO_to_GcodeDTO(LocalDTO localDTO) {
-		GcodeDTO gcodeDTO = new GcodeDTO();
-		
-		gcodeDTO.setGcode(localDTO.getId());
-		gcodeDTO.setGname(localDTO.getPlace_name());
-		gcodeDTO.setDescription(Utility.checkNull(localDTO.getIntroduction()));
-		gcodeDTO.setMainphoto(Utility.checkNull(localDTO.getMainphotourl()));
-		gcodeDTO.setPhotoList(Utility.checkNull(localDTO.getPhotoList()));
-		gcodeDTO.setCategory(Utility.checkNull(localDTO.getCategory_group_code()));
-		gcodeDTO.setCategory_detail(Utility.checkNull(localDTO.getCategory_name()));
-		gcodeDTO.setDetail_link(Utility.checkNull(localDTO.getPlace_url()));
-		gcodeDTO.setHomepage(Utility.checkNull(localDTO.getHomepage()));
-		gcodeDTO.setPhone(Utility.checkNull(localDTO.getPhone()));
-		gcodeDTO.setAddress(localDTO.getAddress_name());
-		gcodeDTO.setRoadaddress(localDTO.getRoad_address_name());
-		gcodeDTO.setMapx(localDTO.getX());
-		gcodeDTO.setMapy(localDTO.getY());
-		gcodeDTO.setDistance(localDTO.getDistance());
-		
-		return gcodeDTO;
-	}
-	
-	
 }

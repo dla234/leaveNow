@@ -39,7 +39,7 @@ public class Local_util {
 					localDAO.search_daum(jsonObject);
 					Map map = jsonObject;
 					ObjectMapper oMapper = new ObjectMapper();
-					gcodeDAO.insert_gcode(localDAO.localDTO_to_GcodeDTO(oMapper.convertValue(map, LocalDTO.class)));
+					gcodeDAO.insert_gcode(Local_util.localDTO_to_GcodeDTO(oMapper.convertValue(map, LocalDTO.class)));
 					gcodeDTO = gcodeDAO.read_gcode(jsonObject.get("id").toString());
 				} else {
 					System.out.println("DB founded");
@@ -52,7 +52,7 @@ public class Local_util {
 				oMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 				System.out.println(map.toString());
 				
-				gcodeDAO.insert_gcode(localDAO.localDTO_to_GcodeDTO(oMapper.convertValue(map, LocalDTO.class)));
+				gcodeDAO.insert_gcode(Local_util.localDTO_to_GcodeDTO(oMapper.convertValue(map, LocalDTO.class)));
 				gcodeDTO = gcodeDAO.read_gcode(jsonObject.get("id").toString());
 			}
 			String distance = Utility.checkNull(jsonObject.get("distance")).toString();
@@ -139,5 +139,27 @@ public class Local_util {
 		    e.printStackTrace();
 		}
 		return "";
+	}
+	
+	public static synchronized GcodeDTO localDTO_to_GcodeDTO(LocalDTO localDTO) {
+		GcodeDTO gcodeDTO = new GcodeDTO();
+		
+		gcodeDTO.setGcode(localDTO.getId());
+		gcodeDTO.setGname(localDTO.getPlace_name());
+		gcodeDTO.setDescription(Utility.checkNull(localDTO.getIntroduction()));
+		gcodeDTO.setMainphoto(Utility.checkNull(localDTO.getMainphotourl()));
+		gcodeDTO.setPhotoList(Utility.checkNull(localDTO.getPhotoList()));
+		gcodeDTO.setCategory(Utility.checkNull(localDTO.getCategory_group_code()));
+		gcodeDTO.setCategory_detail(Utility.checkNull(localDTO.getCategory_name()));
+		gcodeDTO.setDetail_link(Utility.checkNull(localDTO.getPlace_url()));
+		gcodeDTO.setHomepage(Utility.checkNull(localDTO.getHomepage()));
+		gcodeDTO.setPhone(Utility.checkNull(localDTO.getPhone()));
+		gcodeDTO.setAddress(localDTO.getAddress_name());
+		gcodeDTO.setRoadaddress(localDTO.getRoad_address_name());
+		gcodeDTO.setMapx(localDTO.getX());
+		gcodeDTO.setMapy(localDTO.getY());
+		gcodeDTO.setDistance(localDTO.getDistance());
+		
+		return gcodeDTO;
 	}
 }

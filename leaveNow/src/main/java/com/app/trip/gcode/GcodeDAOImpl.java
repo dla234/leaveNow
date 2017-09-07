@@ -47,12 +47,15 @@ public class GcodeDAOImpl implements GcodeDAO {
 		ObjectMapper oMapper = new ObjectMapper();
 		oMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		Map gcode_map = oMapper.convertValue(gcodeDTO, Map.class);
-		
-		try {
-			JSONArray json = (JSONArray) new JSONParser().parse(gcodeDTO.getPhotoList());
-			gcode_map.put("photoList", json);
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(!gcodeDTO.getPhotoList().isEmpty()) {
+			try {
+				JSONArray json = (JSONArray) new JSONParser().parse(gcodeDTO.getPhotoList());
+				gcode_map.put("photoList", json);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		} else {
+			gcode_map.put("photoList", "");
 		}
 		gcode_map.put("g_rdate", Utility.timestamp_to_string(gcodeDTO.getG_rdate()));
 		gcode_map.put("g_rdate_update", Utility.timestamp_to_string(gcodeDTO.getG_rdate_update()));

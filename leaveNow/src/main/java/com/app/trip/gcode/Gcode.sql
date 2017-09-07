@@ -1,6 +1,12 @@
 select * from gcode
+where gcode = '13287556'
 delete from gcode
+where gcode = '13287556'
+where photoList = ''
 drop table gcode
+update gcode
+set photoList = ''
+where photoList = '[]'
 
 CREATE TABLE gcode (
 	gcode           VARCHAR(50)  character set utf8	NOT NULL, -- 장소코드
