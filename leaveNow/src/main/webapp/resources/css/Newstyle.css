@@ -1,22 +1,21 @@
-
-html{box-sizing:border-box}					/* box-sizing:border-box : box안에 가로, 세로 모두 padding값과, border값을 포함한다. */
-*,*:before,*:after{box-sizing:inherit}		/* before & after : 요소의 컨텐츠 전&후에 내용을 삽입하고 삽입 된 내용의 스타일,  box-sizing:inherit : 부모속성을 따라간다. */
+html{box-sizing:border-box}					/* box-sizing:border-box : box�븞�뿉 媛�濡�, �꽭濡� 紐⑤몢 padding媛믨낵, border媛믪쓣 �룷�븿�븳�떎. */
+*,*:before,*:after{box-sizing:inherit}		/* before & after : �슂�냼�쓽 而⑦뀗痢� �쟾&�썑�뿉 �궡�슜�쓣 �궫�엯�븯怨� �궫�엯 �맂 �궡�슜�쓽 �뒪���씪,  box-sizing:inherit : 遺�紐⑥냽�꽦�쓣 �뵲�씪媛꾨떎. */
 
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-/* text-size-adjust : 자동으로 폰트 크기 조절 방지 (4가지 속성있음)
-   -webkit-text-size-adjust:auto;    => 화면의 폭에 맞게 텍스트 크기를 자동으로 조절한다.
-   -webkit-text-size-adjust:none;    => 텍스트 크기를 자동으로 조절하는 것을 방지한다(많이 사용).
-   -webkit-text-size-adjust:100%;    => 폰트크기를 명시적으로 지정해주는 것이다.
-   -webkit-text-size-adjust:inherit; => 부모요소의 속성값을 상속받아 적용되는 형식이다.
+/* text-size-adjust : �옄�룞�쑝濡� �룿�듃 �겕湲� 議곗젅 諛⑹� (4媛�吏� �냽�꽦�엳�쓬)
+   -webkit-text-size-adjust:auto;    => �솕硫댁쓽 �룺�뿉 留욊쾶 �뀓�뒪�듃 �겕湲곕�� �옄�룞�쑝濡� 議곗젅�븳�떎.
+   -webkit-text-size-adjust:none;    => �뀓�뒪�듃 �겕湲곕�� �옄�룞�쑝濡� 議곗젅�븯�뒗 寃껋쓣 諛⑹��븳�떎(留롮씠 �궗�슜).
+   -webkit-text-size-adjust:100%;    => �룿�듃�겕湲곕�� 紐낆떆�쟻�쑝濡� 吏��젙�빐二쇰뒗 寃껋씠�떎.
+   -webkit-text-size-adjust:inherit; => 遺�紐⑥슂�냼�쓽 �냽�꽦媛믪쓣 �긽�냽諛쏆븘 �쟻�슜�릺�뒗 �삎�떇�씠�떎.
 */
 
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}
-audio,canvas,progress,video{display:inline-block}							/* display:inline-block : inline 요소 속성이지만 폭과 높이를 가질 수 있다. */
-progress{vertical-align:baseline}											/* 행간 위치(속성여러가지) */
-audio:not([controls]){display:none;height:0}								/* audio:not  : audio요소가 아닌 모든 요소  */
-[hidden],template{display:none}												/* [target] 속성선택 */
-a{background-color:transparent;-webkit-text-decoration-skip:objects}		/* background-color:transparent : 배경색 투명 */
+audio,canvas,progress,video{display:inline-block}							/* display:inline-block : inline �슂�냼 �냽�꽦�씠吏�留� �룺怨� �넂�씠瑜� 媛�吏� �닔 �엳�떎. */
+progress{vertical-align:baseline}											/* �뻾媛� �쐞移�(�냽�꽦�뿬�윭媛�吏�) */
+audio:not([controls]){display:none;height:0}								/* audio:not  : audio�슂�냼媛� �븘�땶 紐⑤뱺 �슂�냼  */
+[hidden],template{display:none}												/* [target] �냽�꽦�꽑�깮 */
+a{background-color:transparent;-webkit-text-decoration-skip:objects}		/* background-color:transparent : 諛곌꼍�깋 �닾紐� */
 a:active,a:hover{outline-width:0}
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
 dfn{font-style:italic}
@@ -97,7 +96,7 @@ a{color:inherit}
 .w3-dropdown-hover:hover > .w3-button:first-child,.w3-dropdown-click:hover > .w3-button:first-child{background-color:#ccc;color:#000}
 .w3-dropdown-content{cursor:auto;color:#000;background-color:#fff;display:none;position:absolute;min-width:160px;margin:0;padding:0}
 .w3-check,.w3-radio{width:24px;height:24px;position:relative;top:6px}
-.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}						/* !important가 선언되어 있는 속성값이 가장 우선 */
+.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}						/* !important媛� �꽑�뼵�릺�뼱 �엳�뒗 �냽�꽦媛믪씠 媛��옣 �슦�꽑 */
 .w3-bar-block .w3-dropdown-hover,.w3-bar-block .w3-dropdown-click{width:100%}
 .w3-bar-block .w3-dropdown-hover .w3-dropdown-content,.w3-bar-block .w3-dropdown-click .w3-dropdown-content{min-width:100%}
 .w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
@@ -249,7 +248,7 @@ a{color:inherit}
 .w3-sepia-max,.w3-hover-sepia:hover{filter:sepia(100%)}
 .w3-sepia-min{filter:sepia(50%)}
 
-/* 글씨 크기 */
+/* 湲��뵪 �겕湲� */
 .w3-tiny{font-size:10px!important}
 .w3-small{font-size:12px!important}
 .w3-medium{font-size:15px!important}
@@ -367,7 +366,7 @@ a{color:inherit}
 
 
 
-/* 사용자 지정 */
+/* �궗�슜�옄 吏��젙 */
 #footer {
 	position:relative;
 	z-index: 6! important;
@@ -382,7 +381,7 @@ a{color:inherit}
 }
 
 
-/* modal padding-right값 X */
+/* modal padding-right媛� X */
 body.modal-open {
     overflow: auto;
 }
@@ -391,7 +390,7 @@ body.modal-open[style] {
 }
 
 
-/* 로그인 & 회원가입 */
+/* 濡쒓렇�씤 & �쉶�썝媛��엯 */
 .btn span.fa {
 	opacity: 0!important;
 }
@@ -953,7 +952,8 @@ body.modal-open[style] {
 
 div.outer {
 		width: 100%;
-		height: 100px; 
+		height: 37px;
+		/* height:95px; */
 		border: 1px solid #fff;
 		position: relative;
 		/* background-color: red; */
@@ -962,18 +962,26 @@ div.outer {
 div.inner {
 	    overflow: visible;
 		width: 100%;
-		height: 95px; 
+		height: 37px;
 		background-color: #fff;
 		position: relative;
 	}
 	
-div.inner >img {
+div.drag {
+		width: 100%;
+		height: 100px; 
+		border: 1px solid #fff;
+		position: relative;
+		/* background-color: red; */
+	}	
+	
+div.drag>img {
 	width:95px; 
 	height:95px;
 	float: left;
 }
 	
-div.inner>a {
+div.drag>a {
 	position:absolute;
 	color: #000;
 	font-size:15px;
@@ -982,8 +990,16 @@ div.inner>a {
 	
 	
 	text-align: left;
-}	
-
+}
+	
+div.inner>a {
+	/* position:absolute; */
+	color: #000;
+	font-size:15px;
+	text-align: center;
+	/* margin:30px 0 0 3px; */
+}
+/*
 div.inner>div{
 	border-top: solid 1px #000;
 	width: 135px;
@@ -994,8 +1010,8 @@ div.inner>div{
 	color: #ccc;
 	font-size: 12px;
 }
-
-/* 글이 넘어갈때 ... 으로 표시 */
+ */
+/* 넘어간 글 ... 으로 표시 */
 .line-clamp {
     overflow : hidden;
     text-overflow: ellipsis;
@@ -1009,6 +1025,14 @@ div.inner>div{
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp_2 {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
@@ -1138,6 +1162,67 @@ td {
 	margin-top: 18px;
 }
 
+
+
+#slidecontainer {
+	position: relative;
+	padding: 0 10px 0 10px;
+    width:250px;
+    height: 40px;
+}
+
+#slidecontainer>p {
+	text-align:center;
+	width:30px;
+    background-color:#fff;
+    border:solid 1px #000;
+	float: left;
+	display: block;
+	margin-right: 15px;
+}
+
+#trip_slider_div {
+	padding-top:3px;
+	height: 30px
+	
+}
+
+#trip_slider {
+	width: 180px;
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #fff;
+    outline: none;
+    /* border: solid 1px #000; */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f44336;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f44336;
+    cursor: pointer;
+}
+
+
+
+
 #range_apply_button>input {
 	width: 203px;
 	height: 40px;
@@ -1235,3 +1320,147 @@ td {
 }
 
 /* ============================= recommend_place.jsp ============================= */
+
+#right_content {
+	border-radius: 5px;
+	height: 640px;
+	margin-top: 20px;
+}
+
+#right_content_map {
+	max-height:160px;
+	margin-bottom: 40px;
+}
+
+#right_content_map>a>img {
+	border-radius: 5px;
+	width: 100%;
+}
+
+#right_content_list {
+	height: 250px;
+	background-color: #f1f1f1
+	
+}
+
+#right_content_list>ul {
+	list-style-type: none;
+	margin-left:0px;
+	margin:0px;
+	padding: 0px;
+}
+
+#right_content_list_1 {
+	padding: 15px 0 15px 0;
+	width: 263px;
+}
+
+#right_content_list_2, #right_content_list_3, #right_content_list_4, #right_content_list_5 {
+	padding: 15px 0 15px 0;
+	border-top: solid 1px #ccc;
+}
+
+#right_content_list>ul>li>a>span {
+	color: #000;
+	font-weight: bold; 
+	margin-left: 30px;
+}
+
+#right_content_list>ul>li>a:HOVER {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#right_content_list>ul>li>a>span:HOVER {
+	color: #f44336;
+}
+
+#left_content {
+	margin-top:20px;
+	height: 1530px;
+}
+
+#left_content>div {
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+#left_content_1 {
+	margin-left:20px;
+	height: 180px;
+	border: solid 1px #ccc;
+}
+
+#left_content_1>a>img {
+	margin:0;
+	padding:0;
+	width: 200px;
+	height: 179px;
+	float: left;
+	
+}
+
+#left_content_text{
+	width: 100%;
+	height: 179px;
+}
+
+#left_content_text>h3{
+	margin: 0;
+	padding: 20px 15px 0 20px;
+}
+
+#left_content_text>h3>a{
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#left_content_text>p {
+	padding: 15px 10px 0 20px;
+	font-size: 16px;
+	height: 58px;
+	color: #a6a6a6;
+}
+
+#left_content_text>div {
+	margin: 25px 20px 0 220px;
+	height: 50px;
+	border-top: solid 1px #ccc;
+	position: relative;
+}
+
+#left_content_text>div>input {
+	margin-top: 10px;
+	background-color: #fff;
+	padding:5px 5px 5px 5px;
+	border-radius: 3px;
+	border: solid 1px #ccc;
+	font-size: 12px;
+}
+
+#left_content_text>div>a {
+	position:absolute;
+	width: 90px;
+	margin-top:10px;
+	margin-left: 10px;
+	border: solid 1px #ccc;
+	padding: 4px 5px 4px 5px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+
+#wish_count_num {
+	font-size: 12px;
+}
+
+#left_content_text>div>a>span>i {
+	color: #000;
+	font-size: 12px;
+}
+
+#left_content_2 {
+	margin-left:20px;
+	height: 180px;
+	border: solid 1px #ccc;
+}

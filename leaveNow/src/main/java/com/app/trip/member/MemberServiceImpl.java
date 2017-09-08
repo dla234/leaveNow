@@ -94,7 +94,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO getMember(String email) {
 		
-		return null;
+		return dao.getMember(email);
+	}
+	
+	/*
+	 * 2017.09.04 임은섭
+	 * 이메일 존재여부 확인
+	 */
+	@Override
+	public boolean getEmail(String email) {
+		// TODO Auto-generated method stub
+		String check=dao.getEmail(email);
+		if(check.isEmpty()){
+			return true;
+		}
+		return false;
 	}
 	
 }

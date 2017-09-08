@@ -19,5 +19,8 @@ public interface MemberService {
 	public boolean modify(MemberDTO dto);
 	public boolean reM_check(HashMap<String, Object> map);
 	public String getM_check(String email);
+	public boolean getEmail(String email);
+	
+	
 	
 }

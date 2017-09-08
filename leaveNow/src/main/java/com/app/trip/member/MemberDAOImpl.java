@@ -156,4 +156,14 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(namespace+"selectMember", email);
 	}
 	
+	/*
+	 * 2017.09.04 임은섭
+	 * 이메일 존재여부 확인
+	 */
+	@Override
+	public String getEmail(String email) {
+		// TODO Auto-generated method stub
+		
+		return Utility.checkNull(sqlSession.selectOne(namespace+"selectEmail", email));
+	}
 }

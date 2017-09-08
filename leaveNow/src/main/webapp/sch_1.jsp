@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 
 <!-- 배경색 -->
 <div id="sch_background">
@@ -729,4 +729,4 @@ $(".w3-bar.w3-red.w3-card-2 a").eq(4).addClass("active");
 </script>
 
 
-<%@ include file="footer.jsp" %>
+<%@ include file="../footer.jsp" %>

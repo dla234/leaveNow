@@ -21,5 +21,5 @@ public interface MemberDAO {
 	public boolean modify(MemberDTO dto); 
 	public boolean updateM_check(HashMap<String, Object> map);
 	public String getM_check(String email);
-	
+	public String getEmail(String email);
 }

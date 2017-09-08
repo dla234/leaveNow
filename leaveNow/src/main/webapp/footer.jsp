@@ -37,19 +37,17 @@
 			</div>
 			<div class="modal-body">
 
-				<form id="loginfrm" action="login.do" method="post" onsubmit="alert('성공')">
+				<form id="loginfrm" action="member/login?url=${pageContext.request.servletPath }" method="post" onsubmit="alert('성공')">
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input id="email"
-							type="text" class="form-control" name="email"
-							placeholder="이메일 주소">
+							class="glyphicon glyphicon-user"></i></span> 
+							<input id="email" type="text" class="form-control" name="email"placeholder="이메일 주소">
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-lock"></i></span> <input id="password"
-							type="password" class="form-control" name="password"
-							placeholder="비밀번호">
+							class="glyphicon glyphicon-lock"></i></span> 
+							<input id="password" type="password" class="form-control" name="password" placeholder="비밀번호">
 					</div>
 					<br>
 					<div class="col-sm-12" data-toggle="buttons" style="position: relative; padding-left: 0px;">
@@ -68,7 +66,7 @@
 					data-dismiss="modal" style="border-radius: 3px" data-toggle="modal"
 					data-target="#signup_modal">회원가입</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal"
-					style="border-radius: 3px">로그인</button>
+					style="border-radius: 3px" onclick="loginModal()">로그인</button>
 			</div>
 			<div align="right"
 				style="position: relative; padding-right: 15px; padding-bottom: 8px;">
@@ -101,18 +99,20 @@
    <div>
     <div class="col-md-12">
        
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="member/join" id="joinForm">
             <br>
         <div class="form-group">
           <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
         <div class="col-sm-6">
           <div class="input-group">
-                <input class="form-control" id="inputEmail" type="email" placeholder="이메일" />
+                <input class="form-control" id="inputEmail" name="email" type="email" placeholder="이메일" onkeyup="emailCheck(this)"/>
+                <!-- 
                 <span class="input-group-btn">
                     <button class="btn btn-success">이메일 인증<i class="fa fa-mail-forward spaceLeft"></i></button>
                 </span>
+                 -->
             </div>
-            <p class="help-block">이메일을 인증해 주세요.</p>
+            <p class="help-block" id="resultCheck">이메일을 인증해 주세요.</p>
         </div>
         </div>
           
@@ -127,7 +127,7 @@
           <div class="form-group">
               <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
              <div class="col-sm-6">
-              <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인">
+              <input class="form-control" id="inputPasswordCheck" name="password" type="password" placeholder="비밀번호 확인">
                 <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
              </div>
           </div>
@@ -135,7 +135,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label" for="inputName">이름</label>
           <div class="col-sm-6">
-            <input class="form-control" id="inputName" type="text" placeholder="이름">
+            <input class="form-control" id="inputName" name="m_name" type="text" placeholder="이름">
           </div>
         </div>
             
@@ -169,10 +169,59 @@
                 <div class="modal-footer">
                     <div class="col-sm-12 text-center">
                         <button class="btn btn-primary" type="submit" style="border-radius: 3px">회원가입<i class="fa fa-check spaceLeft"></i></button>
-                    </div>
+                    </div>	
                 </div>
                 </div>
             </div>
         </div>
     </div>
+    
+<script>
 
+/*
+ * 2017.09.04 임은섭
+ * 로그인,로그아웃,이메일 중복 확인
+ */
+
+function loginModal(){
+	var loginForm=document.getElementById("loginfrm");
+	loginForm.submit();
+	
+}
+function joinMember(){
+	var joinForm=document.getElementById("joinForm");
+	joinForm.submit();
+}
+
+var regExp=/[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+
+function emailCheck(f){
+	jQuery.noConflict();
+	console.log(f.value);
+	if(!f.value.match(regExp)){
+		jQuery("#resultCheck").text("이메일 형식에 맞게 쓰세요.");
+		jQuery("#resultCheck").css("color","Coral");
+	}
+	else{
+		jQuery.ajax({
+			url:"./member/emailCheck",
+			data:"email="+f.value,
+			success:function(data){
+				if(data=="allow"){
+					jQuery("#resultCheck").text("이메일 사용가능");
+					jQuery("#resultCheck").css("color","skyblue");
+				}
+				else{
+					jQuery("#resultCheck").text("이메일 사용불가");
+					jQuery("#resultCheck").css("color","red");
+				}
+
+			},
+			error:function(){
+				alert("오류");
+			}
+		});
+	}
+	
+}
+</script>

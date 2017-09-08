@@ -19,12 +19,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.trip.utility.MailSendServer;
 
 
 @Controller
-@RequestMapping("/views/member")
+@RequestMapping("/member")
 public class MemberCont {
 
 	@Autowired
@@ -39,14 +40,21 @@ public class MemberCont {
 	 * 로그인
 	 */
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request,HttpServletResponse reponse,Model model) {
+	public String login(HttpServletRequest request,HttpServletResponse reponse, ModelAndView mv,Model model) {
 		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
 		String certification = request.getParameter("certification");
+		//String url=request.getRequestURL().toString();
+//		String url=request.getRequestURL().toString();
+//		String url=request.getAttribute("javax.servlet.forward.request_uri").toString();
 		
-		logger.info(certification+":"+request.getParameter("code"));
+//		String[] url=request.getParameter("url").split(".jsp");
+		String url=request.getParameter("url");
 		
+		
+//		logger.info(certification+":"+request.getParameter("code"));
+		logger.info(url+":"+mv.getViewName());
 		// 회원 인증 여부
 		if(certification != null){
 			if(certification.equals("on")){
@@ -73,7 +81,8 @@ public class MemberCont {
 			session.setAttribute("email", dto.getEmail());
 			session.setAttribute("m_code", dto.getM_code());
 			
-			return "success";
+			return "redirect:"+url;
+//			return "recommend_place";
 		}
 		
 	
@@ -87,13 +96,15 @@ public class MemberCont {
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request,HttpServletResponse reponse,Model model) {
 		
+		String url=request.getParameter("url");
+		
 		HttpSession session=request.getSession();
 		session.removeAttribute("email");
 		session.removeAttribute("m_code");
 		
 		String webURI=request.getRequestURI();
 		logger.info(webURI);
-		return "member/loginForm";
+		return "redirect:"+url;
 	}
 	/*
 	 * 2017.08.24 임은섭
@@ -244,4 +255,37 @@ public class MemberCont {
 		
 	}
 	
+	
+	
+	/*
+	 * 2017.09.04 임은섭
+	 * 이메일 중복 확인
+	 */
+	@RequestMapping("/emailCheck")
+	public void emailCheck(HttpServletRequest request,HttpServletResponse reponse){
+		String email=request.getParameter("email");
+		
+		PrintWriter out;
+		
+		try {
+			out = reponse.getWriter();
+			
+			if(email==null){
+				out.print("not");
+			}
+			else{
+				if(service.getEmail(email)){
+					
+					out.print("allow");
+				}
+				else{
+					out.print("not");
+				}
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
