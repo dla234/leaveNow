@@ -553,6 +553,7 @@ $tableCreate=function(day,date){
 			      droppable.children().children().data("x",x);
 			      droppable.children().children().data("y",y);
 			      droppable.children().children().data("startTime",droppable.attr("id"));
+			     
 			      //console.log(droppable.attr("id").substring(10));
 			      
 			      droppable.children().children().find(".glyphicon-th-list").on("click",function(){
@@ -919,13 +920,20 @@ var edit = function() {
 	  $('#summernote').summernote({
 		  focus: true,
 		  code:markup.data('text'),
+		  
 		  callbacks:{
-			  onImageUpload:function(file){
+			  onImageUpload:function(files){
 			  
-	              sendFile(file, this);
+	              sendFile(files[0], this);
 	            
-			  }
+			  },
+			  onMediaDelete : function($target, editor, $editable) {
+		          console.log(":"+$target); // img 
+		          alert("삭제");
+		         //$target.remove();
+		    }
 		  }
+		 
 	});
 	  
 	  $('#summernote').summernote('code',markup.data('text'));
@@ -951,24 +959,26 @@ var save = function() {
 	
 	function sendFile(file, el) {
 	      var form_data = new FormData();
-	      form_data.append('file', file);
+	      console.log(file);
+	      form_data.append("file", file);
 	      $.ajax({
 	        data: form_data,
 	        type: "POST",
-	        url: '../image',
+	        url: 'upload/summernote',
 	        cache: false,
 	        contentType: false,
 	        enctype: 'multipart/form-data',
 	        processData: false,
-	        success: function(url) {
-	        	console.log("전송");
+	        success: function(fullpath) {
+	        	$('#summernote').summernote('insertImage', fullpath);
+	        	console.log(fullpath);
 	          //$(el).summernote('editor.insertImage', url);
 	          //$('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
 	          
 	        },
-	        error: function(jqXHR, textStatus, errorThrown) {
-	            console.log(textStatus+" "+errorThrown);
-	            console.log(url);
+	        error: function(error) {
+	            console.log(error);
+	            
 	           }
 	      });
 	    };
