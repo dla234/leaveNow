@@ -71,6 +71,11 @@ public class ImageCont {
 		
 		return fullpath;
 	}
-
-
+	
+	@ResponseBody
+	@RequestMapping(value="/upload/summernote", method=RequestMethod.POST)
+	public String image(HttpServletRequest req) throws Exception{
+		
+		return "false";
+	}
 }

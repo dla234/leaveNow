@@ -915,18 +915,20 @@ function movePostion(f){
 
 var edit = function() {
 		//$('#summernote').summernote('reset');
-		//dfgdfgdfgdfgdfgdfg
-	  //dfgdfgdfgdfg
+	
 	  $('#summernote').summernote({
 		  focus: true,
 		  code:markup.data('text'),
 		  
 		  callbacks:{
+			  /* 
+		  
 			  onImageUpload:function(files){
 			  
-	              sendFile(files[0], this);
-	            
+	              //sendFile(files[0], this);
+	            console.log(files[0]);
 			  },
+			  */ 
 			  onMediaDelete : function($target, editor, $editable) {
 		          console.log(":"+$target); // img 
 		          alert("삭제");
@@ -948,7 +950,9 @@ var save = function() {
 	  //var mark = $('#summernote').summernote('code');
 	  //console.log(mark);
 	  //console.log(mark);
+	  var find=mark.find("img");
 	  markup.data("text",mark);
+	  console.log(find.length);
 	  //console.log(markup.data("text"));
 	  //$("#summernote").find("p").children().remove();
 	  //$("#summernote").find("p").append("실험");

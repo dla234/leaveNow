@@ -6,6 +6,8 @@
 
 package com.app.trip.schedule;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,13 @@ public class ScheduleCont {
 	public String create() {
 		logger.info("create()");
 		
+		return "";
+	}
+	@RequestMapping(value="/sch/create.do",method=RequestMethod.POST)
+	public String moveForm(HttpServletRequest req) {
+		logger.info("moveForm()");
+		String email=(String)req.getSession().getAttribute("email");
+		String savePath="resoures/"+email+"/temp";
 		return "";
 	}
 	
