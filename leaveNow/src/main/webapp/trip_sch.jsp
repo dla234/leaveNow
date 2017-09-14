@@ -209,6 +209,7 @@ function drop(ev) {
    	//console.log("data id:"+data);
     console.log("drop:"+data);
     
+
     var $target=$("#"+ev.target.id);
    	//console.log($target.children().html());
     var innerHeught=$target.height();

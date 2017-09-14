@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="schedule.mapper">
+
+  	<insert id="insertSchdule">
+  		insert into 
+  		trip_schedule(email,s_subject,s_content,s_idate,s_idate_update,s_image,s_image_size,s_score,after,s_active,s_sdate,s_day)
+  		values(#{email},#{s_subject},#{s_content},now(),now(),#{s_image},#{s_image_size},#{s_score},#{after},#{s_active},#{s_sdate},#{s_day}) 
+  	</insert>
+  	
+  	<select id="selectSchdule" resultType="com.app.trip.schedule.ScheduleDTO">
+  		select * from trip_schedule where s_id=#{s_id} 
+  	</select>
+  	
+  	<select id="selectSchduleList" resultType="com.app.trip.schedule.ScheduleDTO">
+  		select * from trip_schedule 
+  	</select>	
+  </mapper>

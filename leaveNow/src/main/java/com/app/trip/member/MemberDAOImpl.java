@@ -49,9 +49,16 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public boolean secession() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean secession(MemberDTO dto) {
+		dto.setM_code("XX");
+		int res=sqlSession.update(namespace+"secession",dto);
+		
+		if(res == 1){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	/*

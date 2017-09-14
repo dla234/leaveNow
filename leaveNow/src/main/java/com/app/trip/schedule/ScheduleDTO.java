@@ -11,6 +11,7 @@ import java.util.Date;
 public class ScheduleDTO {
 
 	int s_id;
+	String email;
 	String s_subject;
 	String s_content;
 	Date s_rdate;
@@ -20,6 +21,32 @@ public class ScheduleDTO {
 	double s_score;
 	char after;
 	char s_active;
+	
+	Date s_sdate;
+	int s_day;
+	
+	public int getS_day() {
+		return s_day;
+	}
+	public void setS_day(int s_day) {
+		this.s_day = s_day;
+	}
+	
+	
+	public Date getS_sdate() {
+		return s_sdate;
+	}
+	
+	public void setS_sdate(Date s_sdate) {
+		this.s_sdate = s_sdate;
+	}
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	public int getS_id() {
 		return s_id;

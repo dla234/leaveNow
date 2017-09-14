@@ -86,7 +86,7 @@ public class LocalDAOImpl implements LocalDAO {
 			//System.out.println(basicinfo.get("introduction").toString());
 			//System.out.println(basicinfo.get("mainphotourl").toString());
 			
-			System.out.println("====daum search==="+document.get("place_name"));
+			//System.out.println("====daum search==="+document.get("place_name"));
 			boolean description = true;
 			boolean mainphoto = true;
 			try {
@@ -96,7 +96,7 @@ public class LocalDAOImpl implements LocalDAO {
 				document.put("description", "");
 				//System.out.println(document.get("place_name").toString()+" 설명 없음");
 			}
-			if(description) System.out.println("설명 : "+document.get("description"));
+			if(description) //System.out.println("설명 : "+document.get("description"));
 			
 			try {
 				document.put("mainphotourl", basicinfo.get("mainphotourl").toString());
@@ -105,7 +105,7 @@ public class LocalDAOImpl implements LocalDAO {
 				document.put("description", "");
 				//System.out.println(document.get("place_name").toString()+" 사진 없음");
 			}
-			if(mainphoto) System.out.println("사진 : "+document.get("mainphoto"));
+			//if(mainphoto) //System.out.println("사진 : "+document.get("mainphoto"));
 			
 			
 			

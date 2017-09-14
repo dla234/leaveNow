@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>LEAVE NOW</title>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="resources/css/Newstyle.css?">
+    <link rel="stylesheet" href="resources/css/Newstyle.css?1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,14 +38,20 @@
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-red w3-xxlarge w3-hover-red2">LEAVE NOW</a>
         <a href="recommend_sch.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
         <a href="place_recommend.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">가볼만한 장소</a>
-        <a href="sch_2.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">일정만들기</a>
+        <a href="create" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">일정만들기</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">이용방법</a>
         
 
         <!-- right -->
         <div class="right" align="right"  style="padding-left: 0px;">
-            <a data-toggle="modal" data-target="#login_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-log-in"></i> 로그인</a>
-            <a data-toggle="modal" data-target="#signup_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-user"></i> 회원가입</a>
+            <c:if test="${empty sessionScope.email }">
+       		 <a data-toggle="modal" data-target="#login_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-log-in"></i> 로그인</a>
+             <a data-toggle="modal" data-target="#signup_modal" href="#" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="glyphicon glyphicon-user"></i> 회원가입</a>
+	       	</c:if>
+	        <c:if test="${not empty sessionScope.email }">
+	        	<a href="mypage.jsp" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium"><i class="fa fa-user-circle-o" style="font-size:18px;"></i>&nbsp;&nbsp; ${m_name }님</a>
+	        	<a href="member/logout?url=${pageContext.request.servletPath }" class="w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">로그아웃</a>
+	        </c:if>
         </div>
     </div>
 

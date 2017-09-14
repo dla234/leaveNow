@@ -5,11 +5,16 @@
 
 package com.app.trip.schedule;
 
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public interface ScheduleDAO {
 
-	public boolean create() ;
-	public boolean modified() ;
+	public boolean create(ScheduleDTO dto) ;
+	public boolean modified(ScheduleDTO dto) ;
 	public boolean delete() ;
-	public boolean name();
+	public List<ScheduleDTO> list();
 	
 }

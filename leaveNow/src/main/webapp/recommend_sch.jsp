@@ -2,7 +2,7 @@
 <%@ include file="../header.jsp" %>
 
 <!-- 배경색 -->
-<div style="background: #fff;">
+<div id="sch_background">
 <div class="container" style="position: relative;">
 	<div class="row">
 		<div class="col-md-3">

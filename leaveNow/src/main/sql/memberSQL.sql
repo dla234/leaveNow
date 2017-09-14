@@ -5,7 +5,7 @@
 create table m_level(
 	m_code CHAR(2) PRIMARY KEY,
 	m_detail VARCHAR(255)
-	)
+	);
 	
 create table member(
 	email VARCHAR(40) PRIMARY KEY,
@@ -16,7 +16,7 @@ create table member(
 	m_code CHAR(2),
 	rdate DATE,
 	rdate_update DATE
-);
+)DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE member_mail_check(
 	email VARCHAR(40) PRIMARY KEY,
@@ -36,7 +36,7 @@ insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_up
 values(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update);
 
 insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update) 
-			values('dms1tjq@naver.com','1234',' 임은섭','0101','png','FF',now(),now())
+			values('dms1tjq@naver.com','1234',' 임은섭','010111','png','M1',now(),now())
 
 delete from member where email='dms1tjq@naver.com';		
 
@@ -52,4 +52,6 @@ select * from member_mail_check
 where m_check='y7874Qu!7(-4KeAk';
 
 update member set m_code='M1' where email='email';
+
+delete from member where email='dms1tjq@naver1.com';
 

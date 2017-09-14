@@ -25,7 +25,7 @@
 		<div class="col-md-offset-3 col-md-6 col-md-offset-3"">
     		<div id="mainSubject">
     			<div id="afterMainSubject" >
-    				<a id="s_subject_a">메인제목</a>
+    				<a id="s_subject_a">${param.s_subject }</a>
     				<button class="fa fa-pencil-square-o"></button>
     			</div>
     			<div id="changeMainSubject">
@@ -45,7 +45,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div id="SC_button">
-			  	<input type="submit" id="save_button" value="저장하기">
+			  	<input type="button" id="save_button" value="저장하기">
 			  	<input type="button" id="x_button" value="취소" onclick="window.location.href='./Newindex.jsp'">
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 		<div class="col-md-9">
 			<div class="col-md-12" id="sch_contant">
 				<div id="sch_subject" class="row">
-					<input id="contant_sch_subject" class="form-control plan-brief" type="text" placeholder="여행의 제목을 적어 주세요.">
+					<input id="contant_sch_subject" class="form-control plan-brief" type="text" placeholder="여행의 제목을 적어 주세요." value="${param.s_subject }">
 				</div>
 				<div id="sch_note" class="row">
 					<textarea class="form-control"  placeholder="당신의 여행 스토리를 적어주세요." maxlength="10000"></textarea>
@@ -62,11 +62,11 @@
 					<div class="col-sm-3" id="sch_category_date">
 						<div id="sch_category_date_input">
 							<h6>여행시작일</h6>
-							<input type="text" id="datepicker" readonly="readonly">
+							<input type="text" id="datepicker" readonly="readonly" value="${s_sdate }">
 						</div>
 						<div  id="sch_category_date_day">
 							<h6>일</h6>
-							<input type="text" id="num-day" value="4">
+							<input type="text" id="num-day" value="${param.sday }">
 							
 							<!-- ******인트로화면 만들기 -->
 							<input type="button" value="입" id="dayInput"/>   
@@ -196,7 +196,7 @@
         </div>
         <div class="modal-body">
           <p>Some text in the modal.</p>
-          <img class="mainImg" style="width: 598px;height: 100px"></img>
+          <img class="mainImg" style="width: 568px;height: 400px"></img>
           	<button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
 		  	<button id="save" class="btn btn-primary" onclick="save()" type="button">Save 2</button>
           <div id="summernote"></div>
@@ -266,8 +266,8 @@ $searchFunction= function(){
 				$(".drag").eq(i).children().find("img").css("height","95px");
 				$(".drag").eq(i).children().find("img").css("float","left");
 				$(".drag").eq(i).children().append("<a herf='detail_link'>"+data[i].gname+"</a>");
-				$(".drag").eq(i).children().data("x",data[i].mapx);
-				$(".drag").eq(i).children().data("y",data[i].mapy);
+				$(".drag").eq(i).children().data("x",data[i].x);
+				$(".drag").eq(i).children().data("y",data[i].y);
 				//console.log($(".drag").eq(i).children());
 				/* 
 				$(".drag").eq(i).children().append("<img src=''></img>");
@@ -917,13 +917,22 @@ var edit = function() {
 		//$('#summernote').summernote('reset');
 	
 	  $('#summernote').summernote({
+		  
+		  toolbar: [
+			    // [groupName, [list of button]]
+			    ['style', ['bold', 'italic', 'underline', 'clear']],
+			    ['font', ['strikethrough', 'superscript', 'subscript']],
+			    ['fontsize', ['fontsize']],
+			    ['color', ['color']],
+			    ['para', ['ul', 'ol', 'paragraph']],
+			    ['height', ['height']]
+			  ],
 		  focus: true,
-		  code:markup.data('text'),
+		  //code:markup.data('text'),
 		  
 		  callbacks:{
 			  /* 
-		  
-			  onImageUpload:function(files){
+		  	  onImageUpload:function(files){
 			  
 	              //sendFile(files[0], this);
 	            console.log(files[0]);
@@ -950,7 +959,7 @@ var save = function() {
 	  //var mark = $('#summernote').summernote('code');
 	  //console.log(mark);
 	  //console.log(mark);
-	  var find=mark.find("img");
+	 
 	  markup.data("text",mark);
 	  console.log(find.length);
 	  //console.log(markup.data("text"));
@@ -991,13 +1000,15 @@ $(document).ready(function() {
 	
 	var index=$("#num-day").val(); 
 		
-	var now = new Date().format("yy-mm-dd");
+	//var now = new Date().format("yy-mm-dd");
+	var now= "${param.s_sdate}"
 	
 	var toNow=now.toString()
 	//console.log("ready:"+now.toString());
 	
 	var nowDate=$("#datepicker").val(toNow);
-	
+	//var nowDate=$("#datepicker").val();
+	//alert(nowDate);
 	var acountDate=new Date(nowDate.val());
 	
 	for(var i=1;i<=index;i++){
@@ -1025,6 +1036,23 @@ $(document).ready(function() {
 	createClickTr();
 	saveToday(acountDate);
 	
+	$("#save_button").on("click",function(){
+		alert("저장하기");
+		var formArray=[];
+		$("#table-test").find(".inner").each(function(){
+			var formObject={
+					startTime:$(this).data("startTime"),
+					endTime:$(this).data("endTime"),
+					content:$(this).data("text"),
+					x:$(this).data("x"),
+					y:$(this).data("y")
+					
+			};
+			
+			formArray.push(formObject);
+		});
+		
+	});
 	
 });
 

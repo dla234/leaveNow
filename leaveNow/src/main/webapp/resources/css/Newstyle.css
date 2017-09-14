@@ -1,21 +1,21 @@
-html{box-sizing:border-box}					/* box-sizing:border-box : box�븞�뿉 媛�濡�, �꽭濡� 紐⑤몢 padding媛믨낵, border媛믪쓣 �룷�븿�븳�떎. */
-*,*:before,*:after{box-sizing:inherit}		/* before & after : �슂�냼�쓽 而⑦뀗痢� �쟾&�썑�뿉 �궡�슜�쓣 �궫�엯�븯怨� �궫�엯 �맂 �궡�슜�쓽 �뒪���씪,  box-sizing:inherit : 遺�紐⑥냽�꽦�쓣 �뵲�씪媛꾨떎. */
+html{box-sizing:border-box}					/* box-sizing:border-box : box안에 가로, 세로 모두 padding값과, border값을 포함한다. */
+*,*:before,*:after{box-sizing:inherit}		/* before & after : 요소의 컨텐츠 전&후에 내용을 삽입하고 삽입 된 내용의 스타일,  box-sizing:inherit : 부모속성을 따라간다. */
 
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-/* text-size-adjust : �옄�룞�쑝濡� �룿�듃 �겕湲� 議곗젅 諛⑹� (4媛�吏� �냽�꽦�엳�쓬)
-   -webkit-text-size-adjust:auto;    => �솕硫댁쓽 �룺�뿉 留욊쾶 �뀓�뒪�듃 �겕湲곕�� �옄�룞�쑝濡� 議곗젅�븳�떎.
-   -webkit-text-size-adjust:none;    => �뀓�뒪�듃 �겕湲곕�� �옄�룞�쑝濡� 議곗젅�븯�뒗 寃껋쓣 諛⑹��븳�떎(留롮씠 �궗�슜).
-   -webkit-text-size-adjust:100%;    => �룿�듃�겕湲곕�� 紐낆떆�쟻�쑝濡� 吏��젙�빐二쇰뒗 寃껋씠�떎.
-   -webkit-text-size-adjust:inherit; => 遺�紐⑥슂�냼�쓽 �냽�꽦媛믪쓣 �긽�냽諛쏆븘 �쟻�슜�릺�뒗 �삎�떇�씠�떎.
+/* text-size-adjust : 자동으로 폰트 크기 조절 방지 (4가지 속성있음)
+   -webkit-text-size-adjust:auto;    => 화면의 폭에 맞게 텍스트 크기를 자동으로 조절한다.
+   -webkit-text-size-adjust:none;    => 텍스트 크기를 자동으로 조절하는 것을 방지한다(많이 사용).
+   -webkit-text-size-adjust:100%;    => 폰트크기를 명시적으로 지정해주는 것이다.
+   -webkit-text-size-adjust:inherit; => 부모요소의 속성값을 상속받아 적용되는 형식이다.
 */
 
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}
-audio,canvas,progress,video{display:inline-block}							/* display:inline-block : inline �슂�냼 �냽�꽦�씠吏�留� �룺怨� �넂�씠瑜� 媛�吏� �닔 �엳�떎. */
-progress{vertical-align:baseline}											/* �뻾媛� �쐞移�(�냽�꽦�뿬�윭媛�吏�) */
-audio:not([controls]){display:none;height:0}								/* audio:not  : audio�슂�냼媛� �븘�땶 紐⑤뱺 �슂�냼  */
-[hidden],template{display:none}												/* [target] �냽�꽦�꽑�깮 */
-a{background-color:transparent;-webkit-text-decoration-skip:objects}		/* background-color:transparent : 諛곌꼍�깋 �닾紐� */
+audio,canvas,progress,video{display:inline-block}							/* display:inline-block : inline 요소 속성이지만 폭과 높이를 가질 수 있다. */
+progress{vertical-align:baseline}											/* 행간 위치(속성여러가지) */
+audio:not([controls]){display:none;height:0}								/* audio:not  : audio요소가 아닌 모든 요소  */
+[hidden],template{display:none}												/* [target] 속성선택 */
+a{background-color:transparent;-webkit-text-decoration-skip:objects}		/* background-color:transparent : 배경색 투명 */
 a:active,a:hover{outline-width:0}
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
 dfn{font-style:italic}
@@ -96,7 +96,7 @@ a{color:inherit}
 .w3-dropdown-hover:hover > .w3-button:first-child,.w3-dropdown-click:hover > .w3-button:first-child{background-color:#ccc;color:#000}
 .w3-dropdown-content{cursor:auto;color:#000;background-color:#fff;display:none;position:absolute;min-width:160px;margin:0;padding:0}
 .w3-check,.w3-radio{width:24px;height:24px;position:relative;top:6px}
-.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}						/* !important媛� �꽑�뼵�릺�뼱 �엳�뒗 �냽�꽦媛믪씠 媛��옣 �슦�꽑 */
+.w3-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}						/* !important가 선언되어 있는 속성값이 가장 우선 */
 .w3-bar-block .w3-dropdown-hover,.w3-bar-block .w3-dropdown-click{width:100%}
 .w3-bar-block .w3-dropdown-hover .w3-dropdown-content,.w3-bar-block .w3-dropdown-click .w3-dropdown-content{min-width:100%}
 .w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
@@ -248,7 +248,7 @@ a{color:inherit}
 .w3-sepia-max,.w3-hover-sepia:hover{filter:sepia(100%)}
 .w3-sepia-min{filter:sepia(50%)}
 
-/* 湲��뵪 �겕湲� */
+/* 글씨 크기 */
 .w3-tiny{font-size:10px!important}
 .w3-small{font-size:12px!important}
 .w3-medium{font-size:15px!important}
@@ -366,7 +366,7 @@ a{color:inherit}
 
 
 
-/* �궗�슜�옄 吏��젙 */
+/* 사용자 지정 */
 #footer {
 	position:relative;
 	z-index: 6! important;
@@ -381,7 +381,7 @@ a{color:inherit}
 }
 
 
-/* modal padding-right媛� X */
+/* modal padding-right값 X */
 body.modal-open {
     overflow: auto;
 }
@@ -390,14 +390,14 @@ body.modal-open[style] {
 }
 
 
-/* 濡쒓렇�씤 & �쉶�썝媛��엯 */
+
+/* 로그인 & 회원가입  modal */
 .btn span.fa {
 	opacity: 0!important;
 }
 .btn.active span.fa {
 	opacity: 1!important;
 }
-
 
 
 /* search_css */
@@ -573,10 +573,10 @@ body.modal-open[style] {
 
 
 
-/* ============================= sch_1.jsp ============================= */
+/* ============================= sch_create.jsp ============================= */
 
 #sch_background {
-	background-color: #f1f1f1;
+	background-color: #d9dad8;
 	max-width: 1920px;
 }
 
@@ -590,11 +590,14 @@ body.modal-open[style] {
 #sch_Topimg>img {
 	/* height: 480px; */
 	opacity: 1;
+	overflow: hidden;
+	width: 100%;
+	height: 480px;
 }
 
 .fileBox {
 	position: absolute;
-	margin-left: 250px;
+	margin-left: 200px;
 	margin-top: -100px;
 }
 
@@ -644,7 +647,7 @@ body.modal-open[style] {
 }
 
 #afterMainSubject {
-	margin-left: 220px;
+	margin-left: 150px;
 }
 
 #afterMainSubject>button {
@@ -822,18 +825,27 @@ body.modal-open[style] {
 }
 
 #dayInput {
-	margin-left:3px;
+	background-color:green;
+	height:20px;
+	position:relative;
+	margin-left:0px;
+	margin-top:0px;
 	padding:4px 6px 4px 6px;
 	background-color: #fff;
-	border: solid 1px #bbb;
+	border: solid 1px #fff;
     color:#bbb;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    font-size: 25px;
+}
+#dayInput>i {
+	position: absolute;
+	margin-top-5px;
 }
 #dayInput:HOVER {
-	border-color:#f44336;
+	border-color:#fff;
 	background-color: #fff;
 	color: #f44336;
 }
@@ -1011,6 +1023,8 @@ div.inner>div{
 	font-size: 12px;
 }
  */
+ 
+ 
 /* 넘어간 글 ... 으로 표시 */
 .line-clamp {
     overflow : hidden;
@@ -1092,10 +1106,81 @@ td {
 
 
 
+/* ============================= sch_detail.jsp ============================= */
+#sch_update_btn {
+	border: solid 1px #fff;
+	border-radius: 5px;
+	padding: 10px 0 10px 0;
+	background-color: #fff;
+	margin-bottom: 10px;
+	width: 100%
+}
+
+#sch_update_btn>input {
+	background-color: #fff;
+	border: solid 1px #fff;
+	font-size: 20px;
+	color: #a6a6a6;
+	margin-top: 5px;
+}
+
+#writer_info{
+	border: solid 1px #fff;
+	border-radius: 5px;
+	padding: 10px 0 10px 0;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+#writer_info>h3>a {
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+#writer_info>h3>a:HOVER {
+	cursor: pointer;
+}
+
+#sch_detail_content {
+	min-height:250px;
+	background-color: #fff;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#sch_detail_subject {
+	margin: 20px 10px 0 10px;
+}
+
+#sch_detail_subject>p {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#sch_detail_note {
+	margin: 5px 10px 0 10px;
+}
+
+#sch_detail_note>p {
+	font-size: 20px;
+	color: #a6a6a6;
+}
+
+#sch_detail_category {
+	margin: 5px 0 0 10px;
+	height: 35px;
+}
+
+#sch_detail_category>a {
+	font-size: 17px;
+	text-decoration: none;
+	color: #a6a6a6;
+}
 
 
-
-/* ============================= recommend_sch.jsp ============================= */
+/* ============================= sch_recommend.jsp ============================= */
 
 
 #range {
@@ -1319,12 +1404,12 @@ td {
 	color:#f44336;
 }
 
-/* ============================= recommend_place.jsp ============================= */
+/* ============================= place_recommend.jsp ============================= */
 
 #right_content {
 	border-radius: 5px;
 	height: 640px;
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 #right_content_map {
@@ -1338,7 +1423,7 @@ td {
 }
 
 #right_content_list {
-	height: 250px;
+	height: 510px;
 	background-color: #f1f1f1
 	
 }
@@ -1355,29 +1440,33 @@ td {
 	width: 263px;
 }
 
-#right_content_list_2, #right_content_list_3, #right_content_list_4, #right_content_list_5 {
+#right_content_list_2, #right_content_list_3, #right_content_list_4, #right_content_list_5, #right_content_list_6, #right_content_list_7, #right_content_list_8, #right_content_list_9, #right_content_list_10 {
 	padding: 15px 0 15px 0;
 	border-top: solid 1px #ccc;
 }
 
-#right_content_list>ul>li>a>span {
+#right_content_list>ul>a>li>span {
 	color: #000;
 	font-weight: bold; 
 	margin-left: 30px;
 }
 
-#right_content_list>ul>li>a:HOVER {
+#right_content_list>ul>a:HOVER {
+	text-decoration: none;
+}
+
+#right_content_list>ul>a>li:HOVER {
 	cursor: pointer;
 	text-decoration: none;
 }
 
-#right_content_list>ul>li>a>span:HOVER {
+#right_content_list>ul>a>li>span:HOVER {
 	color: #f44336;
 }
 
 #left_content {
-	margin-top:20px;
-	height: 1530px;
+	/* margin-top:20px; */
+	/* height: 1530px; */
 }
 
 #left_content>div {
@@ -1464,3 +1553,375 @@ td {
 	height: 180px;
 	border: solid 1px #ccc;
 }
+
+
+
+/* ============================= mypage.jsp ============================= */
+
+#mainprofile {
+	position: absolute;
+	margin-top: -370px;
+	height: 250px;
+	margin-left: 200px;
+}
+
+#mypage_Top {
+	max-width: 1920px; 
+	min-width:1210px;
+}
+
+#mypage_Top_img {
+	position: relative; 
+	height: 480px; 
+	overflow:hidden; 
+	width: 100%
+}
+
+#mainprofile_img {
+	position: absolute;
+	
+}
+
+#mainprofile>a {
+	height:20px;
+	margin-top: 230px;
+	margin-left: 63px;
+	font-size: 25px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#mainprofile>p {
+	margin-left: 30px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+#mainprofile_img {
+	position: absolute;
+	margin-left: 45px;
+	margin-top: -100px;
+}
+
+#mainprofile_img .fileName {
+	display:none;
+}
+
+#mainprofile_img .mainprofile_img_btn_file {
+	display:none;
+	border:1px solid #f44336;
+	width:120px;
+	height:40px;
+	font-size:15px;
+	line-height:30px;
+	text-align:center;
+	vertical-align:middle;
+	cursor: pointer;
+	padding-top:4px;
+	z-index: 4;
+	background-color: #f44336;
+	border-radius: 3px;
+	color: #fff;
+
+}
+
+#mainprofile_img .mainprofile_img_btn_file:HOVER {
+	color: #f44336;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+#mainprofile_img input[type="file"] {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0
+}
+
+#my_sch_con {
+	border-radius: 5px;
+	height: 1530px;
+	margin-bottom: 20px;
+}
+
+.my_sch_con_inner_1 {
+	height: 280px;
+	margin: 20px 0 0 20px;
+	
+}
+
+.my_sch_con_inner_1>a {
+	color: #000;
+}
+
+.my_sch_con_inner_1>a:HOVER {
+	text-decoration: none;
+	color: #000;
+}
+
+.my_sch_con_inner_1>a>img {
+	height:150px;
+	width: 100%;
+}
+
+
+.my_sch_con_inner_2 {
+	height: 280px;
+	margin: 20px 20px 0 0;
+}
+
+.my_sch_con_inner_2>a {
+	color: #000;
+}
+
+.my_sch_con_inner_2>a:HOVER {
+	text-decoration: none;
+	color: #000;
+}
+
+.my_sch_con_inner_2>a>img {
+	height:150px;
+	width: 100%;
+}
+
+#my_sch_con_inner_subject {
+	height: 40px; 
+	overflow: hidden;
+}
+
+#my_sch_con_inner_subject>p {
+	padding-top: 8px; 
+	font-size: 20px;
+}
+
+#my_sch_con_inner_content {
+	height:60px; 
+	overflow: hidden;
+}
+
+#my_sch_con_inner_content>p {
+	color: #a6a6a6;
+	/* color: #ccc; */
+}
+
+#my_sch_con_inner_BA {
+	border-top:solid 1px #ccc;
+	height: 30px; 
+}
+
+#my_sch_con_inner_BA>p {
+	padding-top: 4px;
+	color: #a6a6a6;
+}
+
+#my_wich {
+	margin-top:20px;
+	height: 1600px;
+}
+
+#my_wich>div {
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+
+/* ============================= place_recommend.jsp ============================= */
+#informationForm{
+	margin-top: 96px;
+	margin-bottom: 96px;
+}
+
+#informationForm>h1 {
+	
+}
+
+#informationForm_inner {
+	height: 300px;
+	width: 500px;
+	font-size: 20px;
+}
+#informationForm_inner>div {
+	margin-bottom: 15px;
+}
+
+#informationForm_inner>div>label {
+	font-size: 20px;
+}
+
+#informationForm_inner>div>input {
+	border: solid 1px #ccc;
+	border-radius:5px;
+	width: 300px;
+	height: 40px;
+	padding-left: 10px
+}
+
+#informationForm_inner>div>p {
+	font-size: 15px;
+	color: #ccc;
+	margin-left: 150px;
+	margin-top: 3px;
+}
+
+#informationForm_but {
+	margin-left: -40px;
+}
+
+#informationForm_but>input {
+	margin-left: 10px;
+	margin-top:20px;
+	width: 100px;
+	height: 50px;
+	font-size: 15px;
+	background-color: #fff;
+	border: solid 1px #ccc;
+	border-radius:5px;
+}
+
+#informationForm_but>input:HOVER {
+	border: solid 1px #f44336;
+	color: #f44336;
+}
+
+/* ============================= place_detail.jsp ============================= */
+#place_main_img {
+	height: 420px;
+	width: 100%;
+	background-color: red;
+	display: block;
+	overflow:hidden;
+}
+
+#place_main_map {
+	height: 420px;
+	width: 100%;
+	background-color: green;
+	display: none;
+}
+
+
+/* ============================= sch_intro.jsp ============================= */
+
+#sch_intro {
+	/* border: solid 1px #ccc; */
+	height: 350px;
+	padding-left:0px ! important;
+}
+
+#sch_intro_header {
+	height:50px;
+	width: 100%;
+	height: 100px;
+	padding: 0 10px 0 10px;
+}	
+
+#sch_intro_header>h3 {
+	height:50px;
+	border-bottom: solid 1px #ccc;
+	margin-left:0px ! important;
+	margin: 30px;
+	position: absolute;
+	text-align: center;
+	width: 96%;
+}
+
+#main_subject_div {
+	width: 100%; 
+	margin-top: 30px;
+}
+
+#main_subject {
+	width: 99%; 
+	height:60px; 
+	font-size: 20px; 
+	margin-left:10px;
+	padding-left: 10px;
+	border: solid 1px #ccc;
+}
+
+#trip_date_div {
+	margin-top: 10px; 
+	margin-left:10px;
+	width: 100%;
+}
+
+#trip_date_num {
+	text-align:center; 
+	width: 23%; 
+	height:60px; 
+	font-size: 20px; 
+	border: solid 1px #ccc;
+}
+
+#sch_intro_footer {
+	width:100%; 
+	margin: 45px 0 10px 0; 
+	padding: 0 50px 0 50px;
+}
+
+/* ============================= sch_login.jsp ============================= */
+
+#sch_login {
+	/* border: solid 1px #ccc; */
+	height: 350px;
+	padding-left:0px ! important;
+}
+
+#sch_login_header {
+	height:50px;
+	width: 100%;
+	height: 100px;
+	padding: 0 10px 0 10px;
+}	
+
+#sch_login_header>h3 {
+	height:50px;
+	border-bottom: solid 1px #ccc;
+	margin-left:0px ! important;
+	margin: 30px;
+	position: absolute;
+	text-align: center;
+	width: 96%;
+}
+
+#sch_login_content {
+	
+}
+
+#sch_login_content_div {
+	width: 100%; 
+	margin-top: 30px;
+}
+
+#sch_login_content_div>input {
+	width: 99%; 
+	height:60px; 
+	font-size: 20px; 
+	margin-left:10px;
+	padding-left: 10px;
+	border: solid 1px #ccc;
+	margin-bottom: 10px;
+}
+
+
+
+#sch_login_footer>button{
+	margin-top:30px;
+	width: 83%; 
+	height:60px; 
+	font-size: 20px; 
+	margin-left:10px;
+	padding-left: 10px;
+	background-color: #f44336; 
+	border: solid 1px #f44336; 
+	font-size: 20px; 
+	color: #fff;
+}
+

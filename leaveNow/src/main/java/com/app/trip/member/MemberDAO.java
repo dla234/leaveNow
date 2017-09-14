@@ -15,7 +15,7 @@ public interface MemberDAO {
 	public MemberDTO login(HashMap<String, Object> map) ;
 	public MemberDTO getMember(String email) ;
 	public boolean join(MemberDTO dto) ;
-	public boolean secession();
+	public boolean secession(MemberDTO dto);
 	public String codeCreate(String email);
 	public boolean certification(HashMap<String, Object> map);
 	public boolean modify(MemberDTO dto); 

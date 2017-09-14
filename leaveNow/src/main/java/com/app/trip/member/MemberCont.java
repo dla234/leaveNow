@@ -48,7 +48,7 @@ public class MemberCont {
 		//String url=request.getRequestURL().toString();
 //		String url=request.getRequestURL().toString();
 //		String url=request.getAttribute("javax.servlet.forward.request_uri").toString();
-		
+		String webURI=request.getRequestURI();
 //		String[] url=request.getParameter("url").split(".jsp");
 		String url=request.getParameter("url");
 		
@@ -80,13 +80,38 @@ public class MemberCont {
 			HttpSession session=request.getSession();
 			session.setAttribute("email", dto.getEmail());
 			session.setAttribute("m_code", dto.getM_code());
-			
+			session.setAttribute("m_name",dto.getM_name());
 			return "redirect:"+url;
 //			return "recommend_place";
 		}
 		
+		
 	
 	}
+	
+	/*
+	 * 2017.09.13 임은섭
+	 * 일정 관련 로그인
+	 */
+	@RequestMapping("/loginsch")
+	public String login(HttpServletRequest request) {
+		logger.info("loginsch");
+		String email=request.getParameter("email");
+		String password=request.getParameter("password");
+		
+		HashMap<String, Object> map=new HashMap<>();
+		map.put("email", email);
+		map.put("password", password);
+		MemberDTO dto =service.login(map);
+		
+		HttpSession session=request.getSession();
+		session.setAttribute("email", dto.getEmail());
+		session.setAttribute("m_name",dto.getM_name());
+		session.setAttribute("m_code", dto.getM_code());
+		
+		return "redirect:"+"../create";
+	}
+	
 	
 	/*
 	 * 2017.08.28 임은섭
@@ -104,6 +129,14 @@ public class MemberCont {
 		
 		String webURI=request.getRequestURI();
 		logger.info(webURI);
+		logger.info(url);
+		
+		if(url.equals("/sch_intro.jsp")){
+			return "redirect:"+"../create";
+		}
+		else if(url.equals("/mypage.jsp")){
+			return "redirect:"+"../Newindex.jsp";
+		}
 		return "redirect:"+url;
 	}
 	/*
@@ -141,15 +174,22 @@ public class MemberCont {
 	 */
 	
 	@RequestMapping("/secession")
-	public String secession(HttpServletRequest request,HttpServletResponse reponse,Model model){
+	public String secession(HttpServletRequest request,HttpServletResponse reponse,Model model,MemberDTO dto){
 		//탈퇴 요청
+		boolean res=false;
 		HttpSession session=request.getSession();
 		String email=(String)session.getAttribute("email");
-		String password=request.getParameter("password");
 		
-		service.secession();
+		dto.setEmail(email);
+		res = service.secession(dto);
 		
-		return "";
+		if(res== true){
+			return "redirect:"+"../Newindex.jsp";
+		}
+		else{
+			return "error";
+		}
+		
 	}
 	
 	/*

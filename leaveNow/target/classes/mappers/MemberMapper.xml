@@ -14,7 +14,7 @@
   	</select>
   	
   	<select id="login" resultType="com.app.trip.member.MemberDTO">
-  		select email,m_code from member where email=#{email} and password=#{password}
+  		select email,m_code,m_name from member where email=#{email} and password=#{password}
   	
   	</select>
   

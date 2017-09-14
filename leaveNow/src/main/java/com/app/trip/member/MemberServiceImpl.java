@@ -36,9 +36,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean secession() {
+	public boolean secession(MemberDTO dto) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.secession(dto);
 	}
 
 	
