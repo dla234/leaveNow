@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="member.mapper">
   	<insert id="memberJoin" parameterType="com.app.trip.member.MemberDTO">
-  		insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update) 
-			values(#{email},#{password},#{m_name},#{teil},#{m_image},'FF',now(),now())
+  		insert into member(email,password,m_name,telephone,m_code,rdate,rdate_update) 
+			values(#{email},#{password},#{m_name},#{teil},'FF',now(),now())
   	</insert>
   	
   	<insert id="codeCreate" parameterType="java.util.HashMap">
@@ -35,9 +35,9 @@
   	
   	<update id="modify">
   		update member set password=#{password},m_name=#{m_name},telephone=#{teil},
-  		<if test= 'm_image != null'>
+  		<!-- <if test= 'm_image != null'>
   			m_image=#{m_image},
-  		</if>
+  		</if> -->
 
   		rdate_update=now() where email=#{email}
   	</update>
@@ -54,7 +54,7 @@
   		select * from member where email=#{email}
   	</select>
   	
-  	<update id="secession">
-  		update member set m_code=${m_code} where email=#{email}
+  	<update id="secession" parameterType="com.app.trip.member.MemberDTO">
+  		update member set m_code=#{m_code} where email=#{email}
   	</update>
   </mapper>

@@ -15,7 +15,9 @@ ${email },${m_code}
 <form action="./logout">
 	<input type="submit" value="로그아웃"/>
 </form>
+
 <a href="./modifyMemberForm.jsp">정보수정</a>
+<a href="secession">회원탈퇴</a>
 </c:if>
 
 <c:if test="${m_code == 'FF'}">

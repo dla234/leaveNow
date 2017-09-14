@@ -13,7 +13,6 @@ public class MemberDTO {
 	String password;
 	String m_name;
 	String teil;
-	String m_image;
 	String m_code;
 	Date rdate;
 	Date rdate_update;
@@ -27,8 +26,8 @@ public class MemberDTO {
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String passwd) {
-		this.password = passwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getM_name() {
 		return m_name;
@@ -41,12 +40,6 @@ public class MemberDTO {
 	}
 	public void setTeil(String teil) {
 		this.teil = teil;
-	}
-	public String getM_image() {
-		return m_image;
-	}
-	public void setM_image(String m_image) {
-		this.m_image = m_image;
 	}
 	public String getM_code() {
 		return m_code;
@@ -70,10 +63,7 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [email=" + email + ", password=" + password + ", m_name=" + m_name + ", teil=" + teil
-				+ ", m_image=" + m_image + ", m_code=" + m_code + ", rdate=" + rdate + ", rdate_update=" + rdate_update
-				+ "]";
-	}
-	
-	
+				+ ", m_code=" + m_code + ", rdate=" + rdate + ", rdate_update=" + rdate_update + "]";
+	}	
 	
 }

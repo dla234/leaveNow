@@ -12,7 +12,6 @@ create table member(
 	password VARCHAR(40),
 	m_name VARCHAR(50),
 	telephone VARCHAR(30) UNIQUE,
-	m_image VARCHAR(255),
 	m_code CHAR(2),
 	rdate DATE,
 	rdate_update DATE
@@ -25,6 +24,10 @@ CREATE TABLE member_mail_check(
 );
 
 select * from member;
+select * from member_mail_check;
+delete from member where email='tomato3357@daum.net';
+delete from member_mail_check where email='tomato3357@daum.net';
+
 
 alter table member add constraint fk_m_level foreign key(m_code)
 references m_level(m_code) ON UPDATE CASCADE;
@@ -35,8 +38,8 @@ references member(email) ON UPDATE CASCADE;
 insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update) 
 values(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update);
 
-insert into member(email,password,m_name,telephone,m_image,m_code,rdate,rdate_update) 
-			values('dms1tjq@naver.com','1234',' 임은섭','0101','png','FF',now(),now())
+insert into member(email,password,m_name,telephone,m_code,rdate,rdate_update) 
+			values('dms1tjq@naver.com','1234',' 임은섭','0101','FF',now(),now())
 
 delete from member where email='dms1tjq@naver.com';		
 

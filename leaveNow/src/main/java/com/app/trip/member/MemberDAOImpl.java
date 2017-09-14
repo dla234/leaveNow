@@ -36,6 +36,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public boolean join(MemberDTO dto) {
 		logger.info("join():");
+		logger.info("DTO VALUE :" + dto.toString());
 		
 		dto.setM_code("FF");
 		int i=sqlSession.insert(namespace+"memberJoin",dto);
@@ -49,9 +50,16 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public boolean secession() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean secession(MemberDTO dto) {
+		dto.setM_code("XX");
+		int res=sqlSession.update(namespace+"secession",dto);
+		
+		if(res == 1){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	/*

@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.app.trip.utility.MailSendServer;
 
@@ -99,18 +100,24 @@ public class MemberCont {
 	 * 2017.08.24 임은섭
 	 * 회원 가입
 	 */
-	@RequestMapping("/join")
+	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String join(HttpServletRequest request,HttpServletResponse reponse,Model model,MemberDTO dto){
 		
-		logger.info("join:"+dto.toString());
+		String email=request.getParameter("email");
+		String password=request.getParameter("password");
+		String name=request.getParameter("name");
+		String phone=request.getParameter("phone");
 		
-		//boolean check= service.join(dto);
-		/*
-		if(check== false){
-			model.addAttribute("msg","회원가입 실패");
-			
-		}
-		*/
+		logger.info("email: " + email);
+		logger.info("password: " + password);
+		logger.info("name: " + name);
+		logger.info("phone: " + phone);
+		
+		dto.setEmail(email);
+		dto.setPassword(password);
+		dto.setM_name(name);
+		dto.setTeil(phone);
+		
 		String code=service.join(dto);
 		if(code!="f"){
 			logger.info("join success");
@@ -130,15 +137,22 @@ public class MemberCont {
 	 */
 	
 	@RequestMapping("/secession")
-	public String secession(HttpServletRequest request,HttpServletResponse reponse,Model model){
+	public String secession(HttpServletRequest request,HttpServletResponse reponse,Model model,MemberDTO dto){
 		//탈퇴 요청
+		boolean res=false;
 		HttpSession session=request.getSession();
 		String email=(String)session.getAttribute("email");
-		String password=request.getParameter("password");
 		
-		service.secession();
+		dto.setEmail(email);
+		res = service.secession(dto);
 		
-		return "";
+		if(res== true){
+			return "member/loginForm";
+		}
+		else{
+			return "error";
+		}
+		
 	}
 	
 	/*
@@ -152,15 +166,20 @@ public class MemberCont {
 		boolean res=false;
 		HttpSession session=request.getSession();
 		String email=(String)session.getAttribute("email");
+		String password=request.getParameter("password");
+		String name=request.getParameter("name");
+		String phone=request.getParameter("phone");
+		
 		dto.setEmail(email);
+		dto.setPassword(password);
+		dto.setM_name(name);
+		dto.setTeil(phone);
+		
 		logger.info(dto.toString());
 		
 		if(dto.getPassword() != null && dto.getTeil() != null && dto.getM_name() != null){
 			
 			res= service.modify(dto);
-		}
-		else if(dto.getM_image() != null){
-			
 		}
 		else{
 			model.addAttribute("error", "빈값 입력");
