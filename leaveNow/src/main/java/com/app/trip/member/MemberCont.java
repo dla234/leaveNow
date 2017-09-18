@@ -137,6 +137,9 @@ public class MemberCont {
 		else if(url.equals("/mypage.jsp")){
 			return "redirect:"+"../Newindex.jsp";
 		}
+		else if(url.equals("/sch_2.jsp")){
+			return "redirect:"+"../Newindex.jsp";
+		}
 		return "redirect:"+url;
 	}
 	/*
@@ -287,6 +290,7 @@ public class MemberCont {
 		try {
 			PrintWriter out=reponse.getWriter();
 			out.print(res);
+			out.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -7,7 +7,10 @@
 package com.app.trip.schedule;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
@@ -15,10 +18,11 @@ import org.springframework.stereotype.Service;
 public interface ScheduleService {
 
 	
-	public boolean createSchedule(ScheduleDTO dto);
+	public HashMap<String, Integer> createSchedule(ScheduleDTO dto);
 	public boolean saveSchedule(ScheduleDTO dto);
 	public boolean modifiedSchedule(ScheduleDTO dto);	
 	public ArrayList<String> getSchedule();
 	public boolean deleteSchedule();
 	public List<ScheduleDTO> getList();
+	public List<ScheduleDTO> getList(HttpServletRequest req);
 }

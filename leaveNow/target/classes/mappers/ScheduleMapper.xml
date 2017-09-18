@@ -10,11 +10,27 @@
   		values(#{email},#{s_subject},#{s_content},now(),now(),#{s_image},#{s_image_size},#{s_score},#{after},#{s_active},#{s_sdate},#{s_day}) 
   	</insert>
   	
+  	<select id="selectS_id"  resultType="java.lang.Integer">
+  		select MAX(s_id) from trip_schedule where email=#{email}
+  	</select>
+  	
+  	
   	<select id="selectSchdule" resultType="com.app.trip.schedule.ScheduleDTO">
   		select * from trip_schedule where s_id=#{s_id} 
   	</select>
   	
   	<select id="selectSchduleList" resultType="com.app.trip.schedule.ScheduleDTO">
   		select * from trip_schedule 
+  		<if test="email != null">
+  			where email=#{email}
+  		</if>
   	</select>	
+  	
+  	
+  	<update id="updateSch">
+  		update trip_schedule set s_subject=#{s_subject},
+  		s_content=#{s_content},s_idate_update=now(),after=#{after}
+  		where s_id=#{s_id} and email=#{email}
+  	</update>
+  	
   </mapper>

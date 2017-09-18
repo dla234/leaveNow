@@ -53,23 +53,27 @@
 		<div class="col-md-9">
 			<div class="col-md-12" id="sch_contant">
 				<div id="sch_subject" class="row">
-					<input id="contant_sch_subject" class="form-control plan-brief" type="text" placeholder="여행의 제목을 적어 주세요.">
+					<!-- <input id="contant_sch_subject" class="form-control plan-brief" type="text" placeholder="여행의 제목을 적어 주세요."> -->
+					하이
 				</div>
 				<div id="sch_note" class="row">
-					<textarea class="form-control"  placeholder="당신의 여행 스토리를 적어주세요." maxlength="10000"></textarea>
+					<!-- <textarea class="form-control"  placeholder="당신의 여행 스토리를 적어주세요." maxlength="10000"></textarea> -->
+					운도 없지 
+					다음에는 잘하자...
 				</div>
 				<div id="sch_category" class="row">
 					<div class="col-sm-3" id="sch_category_date">
 						<div id="sch_category_date_input">
 							<h6>여행시작일</h6>
-							<input type="text" id="datepicker" readonly="readonly">
+							<!-- <input type="text" id="datepicker" readonly="readonly"> -->
+							2017-08-12
 						</div>
 						<div  id="sch_category_date_day">
 							<h6>일</h6>
-							<input type="text" id="num-day" value="4">
-							
+							<!-- <input type="text" id="num-day" value="4"> -->
+							<P>4일</P>
 							<!-- ******인트로화면 만들기 -->
-							<input type="button" value="입" id="dayInput"/>   
+							<!-- <input type="button" value="입" id="dayInput"/>  -->  
 							
 						</div>
 					</div>
@@ -117,20 +121,7 @@
 					<!-- **드래그 했을때 전체 크기 작아지게 -->
 					 
 					<div id="resultKeyword">
-						<!-- 
-						<div id="drag1" draggable="true" ondragstart="drag(event)"
-							class="outer">
-							<div class="inner">
-								<img src="resources/img/111.jpg">
-								<a href="#">장소이름</a>
-								<div class="line-clamp">장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명장소설명</div>
-							</div>
-						</div> 
-						-->
-						
-						
-						
-						
+	
 					</div> 
 					
 					
@@ -314,7 +305,7 @@ uploadFile.on('change', function(){
 
 
 /* 검색 스크롤 */
-$('#searchForm').scrollToFixed();
+
 
 /* 지도 */
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스

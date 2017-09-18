@@ -37,13 +37,15 @@ public class MemberDAOImpl implements MemberDAO {
 	public boolean join(MemberDTO dto) {
 		logger.info("join():");
 		
+		//dto.setM_code("FF");
 		dto.setM_code("FF");
+		
 		int i=sqlSession.insert(namespace+"memberJoin",dto);
 		
 		if(i==1){
 			return true;
 		}
-
+		
 		// TODO Auto-generated method stub
 		return false;
 	}

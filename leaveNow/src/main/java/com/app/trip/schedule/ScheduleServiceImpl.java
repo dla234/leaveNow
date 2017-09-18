@@ -7,7 +7,10 @@
 package com.app.trip.schedule;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +22,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 	private ScheduleDAO dao;
 	
 	@Override
-	public boolean createSchedule(ScheduleDTO dto) {
+	public HashMap<String, Integer> createSchedule(ScheduleDTO dto) {
 		
 		return dao.create(dto);
 	}
@@ -36,7 +39,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 	@Override
 	public boolean modifiedSchedule(ScheduleDTO dto) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.modified(dto);
 	}
 	@Override
 	public boolean saveSchedule(ScheduleDTO dto) {
@@ -48,5 +51,12 @@ public class ScheduleServiceImpl implements ScheduleService{
 	public List<ScheduleDTO> getList() {
 		
 		return dao.list();
+	}
+	@Override
+	public List<ScheduleDTO> getList(HttpServletRequest req) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<>();
+		map.put("email", (String)req.getSession().getAttribute("email"));
+		return dao.list(map);
 	}
 }

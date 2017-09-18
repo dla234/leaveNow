@@ -596,7 +596,45 @@ $("#right_content_list_4_a").click(function() {
 	$("#my_information").css("display", "block");
 });
 
+var $sch=function(){
+	
+	$.ajax({
+		url:"./schList",
+		success:function(data){
+			$("#my_sch_con").children().remove();
+			var index=Math.round( data.length/2);
+			
+			for(var i=0;i<index;i++){
+				$("#my_sch_con").append("<div class='row sch_row'></div>");
+			}
+			var y=0;
+			for(y;y<data.length;y++){
+				var i=0;
+			
+				if(y/2!=1){
+					$("#my_sch_con").eq(i).append("<div class='col-md-6'><div class='my_sch_con_inner_1'>"+
+					"<a href='sch_read.jsp?s_id="+data[y].s_id+"'><img alt='' src='resources/img/Tulips.jpg'></img><div id='my_sch_con_inner_subject' class='line-clamp_1'><p>"+
+					data[y].s_subject+"</p></div><div id='my_sch_con_inner_content' class='line-clamp'>"+data[y].s_content+"</div>"+
+					"<div id='my_sch_con_inner_BA'><p>"+data[y].after+"</p></div></a></div></div>");
+					
+				}
+				else if(y/2==1){
+					i=i+1;
+					continue;
+				}
+				
+			}
 
+			
+		}
+	});
+	
+	
+}
+
+$(document).ready(function(){
+	$sch();
+});
 </script>
 
 <%@ include file="footer.jsp" %>

@@ -33,7 +33,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c4ed0ef3ccb8671cd6e217b1b7062a85&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2d82256f83da971e91a822a329e22d"></script>
 
 <script>
     // Used to toggle the menu on small screens when clicking on the menu button
@@ -56,7 +56,7 @@
         <!-- left -->
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-red2 w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars w3-xlarge  w3-padding w3-hover-red2"></i></a>
         <a href="Newindex.jsp" class="w3-bar-item w3-button w3-padding-large w3-red w3-xxlarge w3-hover-red2">LEAVE NOW</a>
-        <a href="recommend_sch.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
+        <a href="sch_recommend.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
         <a href="place_recommend.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">가볼만한 장소</a>
         <a href="create" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">일정만들기</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">이용방법</a>

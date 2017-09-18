@@ -1,13 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="../header.jsp" %>
+<%@ include file="header.jsp" %>
 
 <!-- 배경색 -->
-<div id="sch_background">
-
+<div style="background: #fff;">
 <div class="container" style="position: relative;">
 	<div class="row">
 		<div class="col-md-3">
-			<div id="range">
+			<div id="range" >
 			
 				<h4 style="padding-top: 20px;">검색범위 및 정렬방식</h4>
 				<div align="center">
@@ -43,9 +42,10 @@
 				
 				<h4>여행기간</h4>
 				<div id="slidecontainer">
-					<p>Value: <span id="demo"></span></p>
-  					<input type="range" min="1" max="48" value="3" class="trip_slider" id="myRange">
-  					
+					<p><span id="demo"></span></p>
+					<div id="trip_slider_div">
+  						<input type="range" min="1" max="50" value="3" class="slider" id="trip_slider">
+  					</div>
 				</div>
   				
 				<div id="range_apply_button" align="center">
@@ -56,12 +56,11 @@
 		
 		<div class="col-md-9">
 			<div id="recommend_sch_con">
-			
 				<div class="row">
 					<div class="col-md-6">
 						<div class="recommend_sch_con_inner_1">
 							<a href="#">
-								<img alt="" src="resources/img/jeju_1.gif"/>
+								<img alt="" src="resources/img/jeju__1.gif"/>
 								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행 입니다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅣㅏㅏㅏㅏㅏㅏㅏㅏㅏ</p></div>
 								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -71,7 +70,53 @@
 					<div class="col-md-6">
 						<div class="recommend_sch_con_inner_2">
 							<a href="#">
-								<img alt="" src="resources/img/jeju_1.gif"/>
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-md-6" style="">
+						<div class="recommend_sch_con_inner_1">
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="recommend_sch_con_inner_2">
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div  class="row" style="margin-top: 10px;">
+					<div class="col-md-6">
+						<div class="recommend_sch_con_inner_1">
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="recommend_sch_con_inner_2">
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
 								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -84,7 +129,30 @@
 					<div class="col-md-6">
 						<div class="recommend_sch_con_inner_1">
 							<a href="#">
-								<img alt="" src="resources/img/jeju_1.gif"/>
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="recommend_sch_con_inner_2"> 
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
+								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
+								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-md-6">
+						<div class="recommend_sch_con_inner_1">
+							<a href="#">
+								<img alt="" src="resources/img/jeju__1.gif"/>
 								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -94,7 +162,7 @@
 					<div class="col-md-6">
 						<div class="recommend_sch_con_inner_2">
 							<a href="#">
-								<img alt="" src="resources/img/jeju_1.gif"/>
+								<img alt="" src="resources/img/jeju__1.gif"/>
 								<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 								<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -103,13 +171,10 @@
 					</div>
 				</div>
 				
-				
-				
 			
 				
-			</div><!--recommend_sch_con end  -->
-		</div><!-- col-md-9 end -->
-		
+			</div>
+		</div>
 	</div>
 	
 	
@@ -131,7 +196,7 @@
 		<div class="col-md-6">
 			<div class="recommend_sch_con_inner_1">
 				<a href="#">
-					<img alt="" src="resources/img/jeju_1.gif"/>
+					<img alt="" src="resources/img/jeju__1.gif"/>
 					<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
 					<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 					<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -141,7 +206,7 @@
 		<div class="col-md-6">
 			<div class="recommend_sch_con_inner_2">
 				<a href="#">
-					<img alt="" src="resources/img/jeju_1.gif"/>
+					<img alt="" src="resources/img/jeju__1.gif"/>
 					<div id="recommend_sch_con_inner_subject" class="line-clamp_1"><p>제주도 여행</p></div>
 					<div id="recommend_sch_con_inner_content" class="line-clamp"><p>제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행제주도 여행</p></div>
 					<div id="recommend_sch_con_inner_BA"><p>여행 전</p></div>
@@ -160,9 +225,13 @@
 <script>
 
 //slider
-var slider = $("#trip_slider").val()
-console.log(slider);
+var slider = document.getElementById("trip_slider");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 
 //navbar active
@@ -233,31 +302,8 @@ $('#topBtn').click(function() {
 	$('html, body' ).stop().animate( { scrollTop : '0' } )
 
 });
-	
-$(document).ready(function(){
-	/* 
-	$.ajax({
-		url:"./sch/getList",
-		success:function(data){
-			
-			var row=$("div").addClass("row");
-			var col=$("div").addClass("col-md-6");
-			var inner1=$("div").addClass("recommend_sch_con_inner_1");
-			var inner2=$("div").addClass("recommend_sch_con_inner_2");
-			
-			
-			
-			col.append(inner1).append(inner2);
-			row.append(col);
-			
-			$("#recommend_sch_con");
-		}
-	});
-	 */
-});
-
 
 </script>
 
 
-<%@ include file="../footer.jsp" %>
+<%@ include file="footer.jsp" %>

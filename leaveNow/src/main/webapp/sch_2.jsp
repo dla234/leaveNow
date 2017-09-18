@@ -42,10 +42,11 @@
 <div class="container" style="margin-top: 10px;">
 
 	<!-- 저장하기, 취소, 여행제목, 여행설명, 카테고리 -->
+	<!-- 2555 -->
 	<div class="row">
 		<div class="col-md-3">
 			<div id="SC_button">
-			  	<input type="button" id="save_button" value="저장하기">
+			  	<input type="button" id="save_button" value="저장하기" onclick="schModified()">
 			  	<input type="button" id="x_button" value="취소" onclick="window.location.href='./Newindex.jsp'">
 			</div>
 		</div>
@@ -56,7 +57,7 @@
 					<input id="contant_sch_subject" class="form-control plan-brief" type="text" placeholder="여행의 제목을 적어 주세요." value="${param.s_subject }">
 				</div>
 				<div id="sch_note" class="row">
-					<textarea class="form-control"  placeholder="당신의 여행 스토리를 적어주세요." maxlength="10000"></textarea>
+					<textarea class="form-control" id="sch_content" placeholder="당신의 여행 스토리를 적어주세요." maxlength="10000"></textarea>
 				</div>
 				<div id="sch_category" class="row">
 					<div class="col-sm-3" id="sch_category_date">
@@ -996,8 +997,44 @@ var save = function() {
 	      });
 	    };
 
-$(document).ready(function() {
+/* 2555
+ * 2017.09.15 임은섭
+ * 스케쥴 저장 1차 
+ */
+var s_id="${param.s_id}";
+function schModified(){
+	alert("저장하기 시도");
+	var s_sdate=$("#datepicker").val();
+	var s_day=$("#num-day").val();
+	var s_subject=$("#contant_sch_subject").val();
+	var s_content=$("#sch_content").val();
+	var after=$(".active_BA").val();
+	if(after=="여행 전"){
+		after='B';
+	}
+	else if(after=="여행 후"){
+		after='A';
+	}
+	$.ajax({
+		url:"./sch/modified",
+		type : "POST",
+		data:{
+			"s_id":s_id,
+			"s_sdate":new Date(s_sdate),
+			"after":after,
+			"s_day":s_day,
+			"s_subject":s_subject,
+			"s_content":s_content},
+		success:function(data){
+			console.log(data);
+		}
+	});
 	
+}
+	    
+	    
+$(document).ready(function() {
+	console.log(s_id);
 	var index=$("#num-day").val(); 
 		
 	//var now = new Date().format("yy-mm-dd");

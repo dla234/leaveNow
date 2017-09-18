@@ -6,6 +6,7 @@
 
 package com.app.trip.schedule;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,23 +22,35 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 	 
 	private String namespace="schedule.mapper.";
 	@Override
-	public boolean create(ScheduleDTO dto) {
+	public HashMap<String, Integer> create(ScheduleDTO dto) {
+		HashMap<String, Integer> map=new HashMap<>();
 		
 		dto.setS_active('Y');
 		dto.setS_score(0);
+		
 		int rs=sqlSession.insert(namespace+"insertSchdule",dto);
+		
 		if(rs==1){
-			return true;
+			int s_id=(int)sqlSession.selectOne(namespace+"selectS_id", dto.getEmail());
+			map.put("OX", rs);
+			map.put("s_id", s_id);
+			return map;
 		}
 		else if(rs==0){
-			return false;
+			map.put("OX", rs);
+			return map;
 		}
-		return false;
+		return map;
 	}
 
 	@Override
 	public boolean modified(ScheduleDTO dto) {
 		// TODO Auto-generated method stub
+		int rs=sqlSession.update(namespace+"updateSch", dto);
+		if(rs==1){
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -54,5 +67,11 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		return list;
 	}
 	
+	@Override
+	public List<ScheduleDTO> list(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		List<ScheduleDTO> list=sqlSession.selectList(namespace+"selectSchduleList",map);
+		return list;
+	}
 
 }

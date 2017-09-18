@@ -6,10 +6,8 @@
 
 package com.app.trip.schedule;
 
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,12 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -42,9 +38,7 @@ public class ScheduleCont {
 		
 		String email=(String)req.getSession().getAttribute("email");
 		ModelAndView model=new ModelAndView();
-		
-		
-		
+
 		if(email==(null)){
 			
 			model.setViewName("/sch_login");
@@ -74,11 +68,13 @@ public class ScheduleCont {
 		dto.setS_day(Integer.parseInt(sday));
 		logger.info(""+dto.getS_sdate());
 		
-		
-		if(service.createSchedule(dto)){
+		HashMap<String, Integer> map=service.createSchedule(dto);
+		if(map.get("OX")==1){
 			redirectAttributes.addAttribute("s_sdate", s_sdate);
 			redirectAttributes.addAttribute("sday", sday);
 			redirectAttributes.addAttribute("s_subject",s_subject);
+			redirectAttributes.addAttribute("s_id",map.get("s_id"));
+			
 			return "redirect: ../sch_2.jsp";
 		}
 		else{
@@ -92,10 +88,12 @@ public class ScheduleCont {
 	
 	
 	@RequestMapping(value="/sch/save",method=RequestMethod.POST)
-	public String save(HttpServletRequest req) {
+	@ResponseBody
+	public HashMap<String, String> save(HttpServletRequest req) {
 		logger.info("save()");
+		HashMap<String, String> map =new HashMap<>();
 		
-		return "";
+		return  map;
 	}
 	
 	@RequestMapping(value="/sch/get",method=RequestMethod.POST)
@@ -111,17 +109,38 @@ public class ScheduleCont {
 		 //response.setContentType("text/plain");
 		 response.setCharacterEncoding("UTF-8");
 		 
-		 return service.getList().get(0).getS_subject();
+		 return service.getList();
 		
 	}
-	
+	@RequestMapping(value="/schList")
+	public @ResponseBody Object getSchList(HttpServletResponse response,HttpServletRequest req) throws Exception{
+		logger.info("getSchList()");
+		response.setCharacterEncoding("UTF-8");
+		
+		
+		 return service.getList(req);
+		
+	}
 	
 	@RequestMapping(value="/sch/modified",method=RequestMethod.POST)
-	public String modified(){
+	@ResponseBody
+	public HashMap<String, String> modified(HttpServletRequest req,ScheduleDTO dto){
 		logger.info("modified()");
+		logger.info("dto:"+dto.toString());
+		HashMap<String, String> map=new HashMap<>();
+		String email=(String)req.getSession().getAttribute("email");
+		dto.setEmail(email);
+		boolean result= service.modifiedSchedule(dto);
+		if(result==true){
+			map.put("success", "success");
+		}
+		else{
+			map.put("success", "false");
+		}
 		
-		return "";
+		return map;
 	}
+	
 	@RequestMapping(value="/sch/delete",method=RequestMethod.POST)
 	public String delete(){
 		logger.info("delete()");

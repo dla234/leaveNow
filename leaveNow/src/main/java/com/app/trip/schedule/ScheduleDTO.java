@@ -108,6 +108,13 @@ public class ScheduleDTO {
 	public void setS_active(char s_active) {
 		this.s_active = s_active;
 	}
+	@Override
+	public String toString() {
+		return "ScheduleDTO [s_id=" + s_id + ", email=" + email + ", s_subject=" + s_subject + ", s_content="
+				+ s_content + ", s_rdate=" + s_rdate + ", s_rdate_update=" + s_rdate_update + ", s_image=" + s_image
+				+ ", s_image_size=" + s_image_size + ", s_score=" + s_score + ", after=" + after + ", s_active="
+				+ s_active + ", s_sdate=" + s_sdate + ", s_day=" + s_day + "]";
+	}
 	
     
 }

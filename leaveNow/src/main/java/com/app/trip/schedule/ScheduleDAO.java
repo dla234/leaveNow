@@ -5,6 +5,7 @@
 
 package com.app.trip.schedule;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -12,9 +13,10 @@ import org.springframework.stereotype.Component;
 @Component
 public interface ScheduleDAO {
 
-	public boolean create(ScheduleDTO dto) ;
+	public HashMap<String, Integer> create(ScheduleDTO dto) ;
 	public boolean modified(ScheduleDTO dto) ;
 	public boolean delete() ;
 	public List<ScheduleDTO> list();
+	public List<ScheduleDTO> list(HashMap<String, String> map);
 	
 }
