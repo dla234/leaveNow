@@ -25,4 +25,5 @@ public interface ScheduleService {
 	public boolean deleteSchedule();
 	public List<ScheduleDTO> getList();
 	public List<ScheduleDTO> getList(HttpServletRequest req);
+	public boolean saveContent(List<Object> list);
 }

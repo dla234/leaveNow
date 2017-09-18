@@ -73,5 +73,19 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		List<ScheduleDTO> list=sqlSession.selectList(namespace+"selectSchduleList",map);
 		return list;
 	}
+	
+	@Override
+	public boolean save(List<Object> list) {
+		// TODO Auto-generated method stub
+		int rs=0;
+		for (Object demo : list) {
+			rs=sqlSession.insert(namespace+"insertContent", demo);
+		}
+		if(rs==1){
+			return true;
+		}
+		
+		return false;
+	}
 
 }

@@ -269,6 +269,7 @@ $searchFunction= function(){
 				$(".drag").eq(i).children().append("<a herf='detail_link'>"+data[i].gname+"</a>");
 				$(".drag").eq(i).children().data("x",data[i].x);
 				$(".drag").eq(i).children().data("y",data[i].y);
+				$(".drag").eq(i).children().data("gcode",data[i].id);
 				//console.log($(".drag").eq(i).children());
 				/* 
 				$(".drag").eq(i).children().append("<img src=''></img>");
@@ -517,7 +518,7 @@ $tableCreate=function(day,date){
 		      var draggable = ui.draggable;
 		      var x=draggable.children().data("x");
 		      var y=draggable.children().data("y");
-		      
+		      var gcode=draggable.children().data("gcode");
 		      //console.log(draggable.children().data("x"));
 		      //console.log(draggable.children().data("y"));
 		     // console.log(droppable.attr("id"));
@@ -553,6 +554,7 @@ $tableCreate=function(day,date){
 			      droppable.children().children().data("title",atag.text())
 			      droppable.children().children().data("x",x);
 			      droppable.children().children().data("y",y);
+			      droppable.children().children().data("gcode",gcode);
 			      droppable.children().children().data("startTime",droppable.attr("id"));
 			     
 			      //console.log(droppable.attr("id").substring(10));
@@ -1032,7 +1034,7 @@ function schModified(){
 	
 }
 	    
-	    
+    
 $(document).ready(function() {
 	console.log(s_id);
 	var index=$("#num-day").val(); 
@@ -1074,7 +1076,7 @@ $(document).ready(function() {
 	saveToday(acountDate);
 	
 	$("#save_button").on("click",function(){
-		alert("저장하기");
+		alert("content 저장하기");
 		var formArray=[];
 		$("#table-test").find(".inner").each(function(){
 			var formObject={
@@ -1082,12 +1084,25 @@ $(document).ready(function() {
 					endTime:$(this).data("endTime"),
 					content:$(this).data("text"),
 					x:$(this).data("x"),
-					y:$(this).data("y")
-					
+					y:$(this).data("y"),
+					gcode:$(this).data("gcode"),
+					s_id:s_id
 			};
 			
 			formArray.push(formObject);
 		});
+		
+		$.ajax({
+			url:"./contnet/save",
+			method:"POST",
+			dataType : "json",
+			data: JSON.stringify(formArray),
+			contentType : 'application/json',
+			success:function(data){
+				alert(data);
+			}
+		});
+		
 		
 	});
 	

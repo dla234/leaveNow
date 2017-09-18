@@ -59,4 +59,10 @@ public class ScheduleServiceImpl implements ScheduleService{
 		map.put("email", (String)req.getSession().getAttribute("email"));
 		return dao.list(map);
 	}
+	
+	@Override
+	public boolean saveContent(List<Object> list) {
+		// TODO Auto-generated method stub
+		return dao.save(list);
+	}
 }

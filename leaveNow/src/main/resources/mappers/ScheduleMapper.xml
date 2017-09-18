@@ -10,6 +10,13 @@
   		values(#{email},#{s_subject},#{s_content},now(),now(),#{s_image},#{s_image_size},#{s_score},#{after},#{s_active},#{s_sdate},#{s_day}) 
   	</insert>
   	
+  	<insert id="insertContent">
+  		insert into
+  		trip_content(s_id,start_Time,end_Time,c_content,gcode,c_rdate,c_rdate_update,c_active,end_purpose)
+  		values(#{s_id},#{startTime},#{endTime},#{content},#{gcode},now(),now(),'Y','PL')
+  	</insert>
+  	
+  	
   	<select id="selectS_id"  resultType="java.lang.Integer">
   		select MAX(s_id) from trip_schedule where email=#{email}
   	</select>

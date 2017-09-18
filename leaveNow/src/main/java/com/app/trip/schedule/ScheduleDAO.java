@@ -18,5 +18,5 @@ public interface ScheduleDAO {
 	public boolean delete() ;
 	public List<ScheduleDTO> list();
 	public List<ScheduleDTO> list(HashMap<String, String> map);
-	
+	public boolean save(List<Object> list);
 }
