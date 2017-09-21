@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +13,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 	
+	<!-- 이미지 슬라이더 -->
+	<link rel="stylesheet" href="resources/css/jquery.bxslider.css">
     <style>
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -39,7 +40,7 @@
         <a href="sch_recommend.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">추천일정</a>
         <a href="place_recommend.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">가볼만한 장소</a>
         <a href="create" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">일정만들기</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">이용방법</a>
+        <a href="sch_method.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-xlarge w3-hover-white w3-medium">이용방법</a>
         
 
         <!-- right -->
@@ -59,10 +60,10 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium ">
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">추천일정</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">가볼만한 장소</a>
+        <a href="place_recommend.jsp" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">가볼만한 장소</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">일정만들기</a>
         <hr>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">이용방법</a>
+        <a href="sch_method.jsp" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">이용방법</a>
         <a data-toggle="modal" data-target="#login_modal" href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red2">로그인</a>
     </div>
 </div>
@@ -89,19 +90,13 @@
 <div id="All_contant">
 <header>
     <!-- images slide -->
-    <div class="w3-content w3-display-container animate" style="max-width:1920px">
-        <a href=""><img class="mySlides" src="resources/img/jeju_1.gif" style="width:100%; min-width:1210px; min-height: 300px;"></a>
-        <a href=""><img class="mySlides" src="resources/img/busan_2.gif" style="width:100%; min-width:1210px; min-height: 300px;"></a>
-        <a href=""><img class="mySlides" src="resources/img/seoul_3.gif" style="width:100%; min-width:1210px; min-height: 300px;"></a>
-        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-        </div>
-    </div>
-    
+    <div class="slide_area">
+		<ul class="slide_v1">
+			<li><img src="resources/img/jeju_1_4.gif" alt="slide"></li>
+			<li><img src="resources/img/busan_2.gif" alt="slide"></li>
+			<li><img src="resources/img/seoul_3.gif" alt="slide"></li>
+		</ul>
+	</div>
     
     <!-- search -->    
  
@@ -526,6 +521,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebdba1d92f001c45adfbf8e887c0fa2"></script>
+<script src="resources/js/jquery.bxslider.js"></script>
 <script>
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() {
@@ -538,35 +534,17 @@
     }
 
 
-    /* slide */
-    var slideIndex = 1;
-    showDivs(slideIndex);
+   
 
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
-
-    function currentDiv(n) {
-        showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" w3-white", "");
-        }
-        x[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " w3-white";
-    }
-
-
+/* 이미지 슬라이더 */
+ $(document).ready(function(){
+	$('.slide_v1').bxSlider({
+		mode: 'horizontal',
+		auto: true,
+		speed: 500,
+		pause: 7000
+	});
+});
   
 
 </script>
@@ -588,7 +566,7 @@
 			</div>
 			<div class="modal-body">
 
-				<form id="loginfrm" action="views/member/login" method="post" onsubmit="alert('성공')">
+				<form id="loginfrm" action="member/login?url=${pageContext.request.servletPath }" method="post" onsubmit="alert('성공')">
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="email"
@@ -619,7 +597,7 @@
 					data-dismiss="modal" style="border-radius: 3px" data-toggle="modal"
 					data-target="#signup_modal">회원가입</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal"
-					style="border-radius: 3px">로그인</button>
+					style="border-radius: 3px" onclick="loginModal()">로그인</button>
 			</div>
 			<div align="right"
 				style="position: relative; padding-right: 15px; padding-bottom: 8px;">
@@ -730,5 +708,54 @@
             </div>
         </div>
     </div>
+    
+<script>
 
+/*
+ * 2017.09.04 임은섭
+ * 로그인,로그아웃,이메일 중복 확인
+ */
+
+function loginModal(){
+	var loginForm=document.getElementById("loginfrm");
+	loginForm.submit();
+	
+}
+function joinMember(){
+	var joinForm=document.getElementById("joinForm");
+	joinForm.submit();
+}
+
+var regExp=/[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+
+function emailCheck(f){
+	jQuery.noConflict();
+	console.log(f.value);
+	if(!f.value.match(regExp)){
+		jQuery("#resultCheck").text("이메일 형식에 맞게 쓰세요.");
+		jQuery("#resultCheck").css("color","Coral");
+	}
+	else{
+		jQuery.ajax({
+			url:"./member/emailCheck",
+			data:"email="+f.value,
+			success:function(data){
+				if(data=="allow"){
+					jQuery("#resultCheck").text("이메일 사용가능");
+					jQuery("#resultCheck").css("color","skyblue");
+				}
+				else{
+					jQuery("#resultCheck").text("이메일 사용불가");
+					jQuery("#resultCheck").css("color","red");
+				}
+
+			},
+			error:function(){
+				alert("오류");
+			}
+		});
+	}
+	
+}
+</script>
 

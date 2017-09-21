@@ -1,0 +1,60 @@
+/**
+ * bxSlider v4.2.12
+ * Copyright 2013-2015 Steven Wanderski
+ * Written while drinking Belgian ales and listening to jazz
+ * Licensed under MIT (http://opensource.org/licenses/MIT)
+ */
+
+/** RESET AND LAYOUT
+===================================*/
+.bx-wrapper { position:relative; padding:0; *zoom:1 }
+.bx-wrapper img { display:block; max-width:100% }
+.bx-viewport { -webkit-transform: translatez(0) } /*fix other elements on the page moving (on Chrome)*/
+
+/** THEME
+===================================*/
+.bx-wrapper { background:#fff }
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto { position:absolute; bottom:0; width:100% }
+
+/* LOADER */
+.bx-wrapper .bx-loading { position:absolute; top:0; left:0; width:100%; height:100%; min-height:50px; background:#ffffff url(../images/bx_loader.gif) no-repeat 50% 50%; z-index:100 }
+
+/* PAGER */
+.bx-wrapper .bx-pager { padding-bottom:20px; text-align:center; font-size:.85em; font-family:Arial; font-weight:bold; color:#666 }
+.bx-wrapper .bx-pager.bx-default-pager a { display:block; width:10px; height:10px; margin:0 5px; background:#666; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; text-indent:-9999px }
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active,
+.bx-wrapper .bx-pager.bx-default-pager a:focus { background:#000 }
+.bx-wrapper .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item { display:inline-block; vertical-align:bottom; *zoom:1; *display:inline }
+.bx-wrapper .bx-pager-item { font-size:0; line-height:0 }
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev { left:10px; background:url(../images/controls.png) no-repeat 0 -32px }
+.bx-wrapper .bx-prev:hover,
+.bx-wrapper .bx-prev:focus { background-position:0 0 }
+.bx-wrapper .bx-next { right:10px; background:url(../images/controls.png) no-repeat -43px -32px }
+.bx-wrapper .bx-next:hover,
+.bx-wrapper .bx-next:focus { background-position:-43px 0 }
+.bx-wrapper .bx-controls-direction a { position:absolute; top:50%; width:32px; height:32px; margin-top:-16px; text-indent:-9999px; z-index:999 }
+.bx-wrapper .bx-controls-direction a.disabled { display:none }
+
+/* AUTO CONTROLS (START / STOP) */
+.bx-wrapper .bx-controls-auto { text-align:center }
+.bx-wrapper .bx-controls-auto .bx-start { display:block;  width:10px; height:11px; margin:0 3px; background:url(../images/controls.png) no-repeat -86px -11px; text-indent:-9999px }
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active,
+.bx-wrapper .bx-controls-auto .bx-start:focus { background-position:-86px 0 }
+.bx-wrapper .bx-controls-auto .bx-stop { display:block; width:9px; height:11px; margin:0 3px; background:url(../images/controls.png) no-repeat -86px -44px; text-indent:-9999px }
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active,
+.bx-wrapper .bx-controls-auto .bx-stop:focus { background-position:-86px -33px }
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager { width:80%; text-align:left }
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto { right:0; width:35px }
+
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption { position:absolute; left:0; bottom:0; width:100%; background:rgba(80, 80, 80, 0.75) }
+.bx-wrapper .bx-caption span { display: block; padding:10px; font-family:Arial; font-size:.85em; color:#fff }

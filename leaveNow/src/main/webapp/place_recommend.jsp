@@ -75,10 +75,10 @@
 			</div>
 		
 			<div class="col-md-9">
-				<div id="left_content">
+				<div id="left_content" style="margin-top: 75px;">
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
 							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
@@ -95,10 +95,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">석촌호수</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -112,10 +112,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">덕수궁</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -129,10 +129,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">남산골한옥마을</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -146,10 +146,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">숭례문</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -163,10 +163,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">청계천</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -180,10 +180,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">인사동문화의거리</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -197,10 +197,10 @@
 					
 					<div class="col-md-12" id="left_content_1">
 						<a href="#">
-							<img alt="" src="resources/img/lotteworld.jpg">
+							<img alt="" src="resources/img/Tulips.jpg">
 						</a>
 						<div id="left_content_text">
-							<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
+							<h3 class="line-clamp_1"><a href="#">광화문</a></h3>
 							<p class="line-clamp_2">장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.장소 설명입니다.</p>
 							<div>
 								<input type="button" onclick="" value="관광명소">
@@ -229,7 +229,7 @@
 <script type="text/template" id="Inner_content">
 	<div class="col-md-12" id="left_content_1">
 		<a href="#">
-			<img alt="" src="resources/img/lotteworld.jpg">
+			<img alt="" src="resources/img/Tulips.jpg">
 		</a>
 			<div id="left_content_text">
 			<h3 class="line-clamp_1"><a href="#">롯데월드(lotte world)</a></h3>
@@ -300,6 +300,49 @@ $('#topBtn').click(function() {
 
 });
 
+var h3 = document.querySelectorAll('h3');
+
+function gomap(idx){
+	h3[idx].onclick = function(){
+        //alert(idx);
+        if(idx==0){
+        	var address = "서울특별시 송파구 올림픽로 240 롯데월드";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;
+		}else if(idx==1){
+			var address = "서울 송파구 잠실동 47";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==2){
+			var address = "서울 중구 정동 5-1";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==3){
+			var address = "서울 중구 퇴계로34길 28";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==4){
+			var address = "서울 중구 세종대로 40";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==5){
+			var address = "서울 종로구 서린동 148";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==6){
+			var address = "서울 종로구 인사동10길 11-4";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}else if(idx==7){
+			var address = "서울 종로구 사직로 161";
+			var url = "place_detail.jsp?address="+address;
+			location.href=url;		
+		}
+    };
+}
+for(var i=0; i<h3.length; i++){
+	gomap(i);  
+}
 
 
 

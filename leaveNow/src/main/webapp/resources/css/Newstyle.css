@@ -380,6 +380,10 @@ a{color:inherit}
 	color: #000;
 }
 
+/* 이미지 슬라이더 */
+.slide_area { position:relative; max-width:1920px; margin:0 auto 30px; letter-spacing:-0.06em }
+.slide_v1>li>img {width: 100%;}
+
 
 /* modal padding-right값 X */
 body.modal-open {
@@ -1185,7 +1189,7 @@ td {
 
 #range {
 	border-radius: 5px;
-	background-color: #f1f1f1;
+	background-color: #cccdce;
 	height: 640px;
 	margin-top: 20px;
 }
