@@ -19,4 +19,7 @@ public interface ScheduleDAO {
 	public List<ScheduleDTO> list();
 	public List<ScheduleDTO> list(HashMap<String, String> map);
 	public boolean save(List<Object> list);
+	
+	public ScheduleDTO getSch(int s_id);
+	public List<ContentDTO> getCon(int s_id);
 }

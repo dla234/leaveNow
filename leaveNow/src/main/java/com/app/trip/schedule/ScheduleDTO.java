@@ -21,7 +21,7 @@ public class ScheduleDTO {
 	double s_score;
 	char after;
 	char s_active;
-	
+	String category;
 	Date s_sdate;
 	int s_day;
 	
@@ -31,7 +31,12 @@ public class ScheduleDTO {
 	public void setS_day(int s_day) {
 		this.s_day = s_day;
 	}
-	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	
 	public Date getS_sdate() {
 		return s_sdate;

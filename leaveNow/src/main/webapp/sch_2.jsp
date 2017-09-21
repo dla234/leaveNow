@@ -1002,6 +1002,8 @@ var save = function() {
 /* 2555
  * 2017.09.15 임은섭
  * 스케쥴 저장 1차 
+ * 2017.09.20 임은섭
+ * 스케쥴 저장 2차
  */
 var s_id="${param.s_id}";
 function schModified(){
@@ -1011,12 +1013,15 @@ function schModified(){
 	var s_subject=$("#contant_sch_subject").val();
 	var s_content=$("#sch_content").val();
 	var after=$(".active_BA").val();
+	var category=$(".active_ctg").val();
+	
 	if(after=="여행 전"){
 		after='B';
 	}
 	else if(after=="여행 후"){
 		after='A';
 	}
+
 	$.ajax({
 		url:"./sch/modified",
 		type : "POST",
@@ -1026,7 +1031,9 @@ function schModified(){
 			"after":after,
 			"s_day":s_day,
 			"s_subject":s_subject,
-			"s_content":s_content},
+			"s_content":s_content,
+			"category":category
+			},
 		success:function(data){
 			console.log(data);
 		}
@@ -1040,9 +1047,9 @@ $(document).ready(function() {
 	var index=$("#num-day").val(); 
 		
 	//var now = new Date().format("yy-mm-dd");
-	var now= "${param.s_sdate}"
+	var now= "${param.s_sdate}";
 	
-	var toNow=now.toString()
+	var toNow=now.toString();
 	//console.log("ready:"+now.toString());
 	
 	var nowDate=$("#datepicker").val(toNow);
@@ -1100,6 +1107,8 @@ $(document).ready(function() {
 			contentType : 'application/json',
 			success:function(data){
 				alert(data);
+				alert("저장이 완료되었습니다.");
+				location.replace("Newindex.jsp");  
 			}
 		});
 		

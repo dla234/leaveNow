@@ -11,8 +11,8 @@ public class ContentDTO {
 	
 	int c_id;
 	String gcode;
-	Date start_time;
-	Date end_time;
+	String start_time;
+	int end_time;
 	String c_content;
 	double c_score;
 	String c_image;
@@ -34,16 +34,16 @@ public class ContentDTO {
 	public void setGcode(String gcode) {
 		this.gcode = gcode;
 	}
-	public Date getStart_time() {
+	public String getStart_time() {
 		return start_time;
 	}
-	public void setStart_time(Date start_time) {
+	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
-	public Date getEnd_time() {
+	public int getEnd_time() {
 		return end_time;
 	}
-	public void setEnd_time(Date end_time) {
+	public void setEnd_time(int end_time) {
 		this.end_time = end_time;
 	}
 	public String getC_content() {

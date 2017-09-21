@@ -65,4 +65,15 @@ public class ScheduleServiceImpl implements ScheduleService{
 		// TODO Auto-generated method stub
 		return dao.save(list);
 	}
+	
+	@Override
+	public ScheduleDTO getSch(int s_id) {
+		// TODO Auto-generated method stub
+		return dao.getSch(s_id);
+	}
+	@Override
+	public List<ContentDTO> getCon(int s_id) {
+		// TODO Auto-generated method stub
+		return dao.getCon(s_id);
+	}
 }

@@ -15,8 +15,8 @@ create table trip_schedule(
 	after character(1),
 	s_active character(1),
 	s_sdate date,
-	s_day int
-
+	s_day int,
+	category VARCHAR(20)
 );
 
 alter table trip_schedule add constraint fk_member foreign key(email)

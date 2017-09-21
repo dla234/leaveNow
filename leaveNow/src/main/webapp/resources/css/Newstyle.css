@@ -1925,3 +1925,79 @@ td {
 	color: #fff;
 }
 
+/*스케쥴 디테일 용 
+*/
+/* ============================= sch_detail.jsp ============================= */
+#sch_update_btn {
+	border: solid 1px #fff;
+	border-radius: 5px;
+	padding: 10px 0 10px 0;
+	background-color: #fff;
+	margin-bottom: 10px;
+	width: 100%
+}
+
+#sch_update_btn>input {
+	background-color: #fff;
+	border: solid 1px #fff;
+	font-size: 20px;
+	color: #a6a6a6;
+	margin-top: 5px;
+}
+
+#writer_info{
+	border: solid 1px #fff;
+	border-radius: 5px;
+	padding: 10px 0 10px 0;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+#writer_info>h3>a {
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+#writer_info>h3>a:HOVER {
+	cursor: pointer;
+}
+
+#sch_detail_content {
+	min-height:250px;
+	background-color: #fff;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#sch_detail_subject {
+	margin: 20px 10px 0 10px;
+}
+
+#sch_detail_subject>p {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#sch_detail_note {
+	margin: 5px 10px 0 10px;
+}
+
+#sch_detail_note>p {
+	font-size: 20px;
+	color: #a6a6a6;
+}
+
+#sch_detail_category {
+	margin: 5px 0 0 10px;
+	height: 35px;
+}
+
+#sch_detail_category>a {
+	font-size: 17px;
+	text-decoration: none;
+	color: #a6a6a6;
+}
+
+

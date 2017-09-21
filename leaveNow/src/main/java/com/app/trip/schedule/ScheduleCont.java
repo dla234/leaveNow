@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -103,7 +104,7 @@ public class ScheduleCont {
 	@ResponseBody
 	public HashMap<String,String> saveContent(HttpServletRequest req,@RequestBody  List<Object> list){
 		
-		logger.info(list.get(0)+"");
+		//logger.info(list.get(0)+"");
 		
 		HashMap<String, String> map =new HashMap<>();
 		boolean OX=service.saveContent(list);
@@ -134,6 +135,10 @@ public class ScheduleCont {
 		 return service.getList();
 		
 	}
+	/*
+	 * 한 회원의 스케쥴 리스트
+	 */
+
 	@RequestMapping(value="/schList")
 	public @ResponseBody Object getSchList(HttpServletResponse response,HttpServletRequest req) throws Exception{
 		logger.info("getSchList()");
@@ -143,7 +148,9 @@ public class ScheduleCont {
 		 return service.getList(req);
 		
 	}
-	
+	/*
+	 * 스케쥴 수정
+	 */
 	@RequestMapping(value="/sch/modified",method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, String> modified(HttpServletRequest req,ScheduleDTO dto){
@@ -153,6 +160,7 @@ public class ScheduleCont {
 		String email=(String)req.getSession().getAttribute("email");
 		dto.setEmail(email);
 		boolean result= service.modifiedSchedule(dto);
+		
 		if(result==true){
 			map.put("success", "success");
 		}
@@ -163,11 +171,42 @@ public class ScheduleCont {
 		return map;
 	}
 	
+	/*
+	 * 스케쥴 삭제
+	 */
 	@RequestMapping(value="/sch/delete",method=RequestMethod.POST)
 	public String delete(){
 		logger.info("delete()");
 		
 		return "";
 	}
+	
+	/*
+	 * 스케쥴 하나만 가져오기 s-id
+	 */
+	@RequestMapping(value="/getSch",method=RequestMethod.GET)
+	public String getsch(HttpServletRequest req,Model model){
+		
+		int s_id=Integer.parseInt(req.getParameter("s_id"));
+		ScheduleDTO dto=service.getSch(s_id);
+		
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+		String sdate=format.format(dto.getS_sdate());
+		logger.info(""+sdate);
+		model.addAttribute("schdedule", dto);
+		model.addAttribute("sdate", sdate);
+		return "sch_detail";
+	}
+	
+	/*
+	 * 세부 일정 표시하기
+	 */
+	@RequestMapping(value="/getCon",method=RequestMethod.GET)
+	public @ResponseBody Object getCon(HttpServletRequest req) throws Exception{
+		int s_id=Integer.parseInt(req.getParameter("s_id")) ;
+		
+		return service.getCon(s_id);
+	}
+	
 	
 }

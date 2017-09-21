@@ -88,4 +88,21 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		return false;
 	}
 
+	@Override
+	public ScheduleDTO getSch(int s_id) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> map=new HashMap<>();
+		map.put("s_id", s_id);
+		return sqlSession.selectOne(namespace+"selectSchdule", map);
+		
+	}
+	
+	@Override
+	public List<ContentDTO> getCon(int s_id) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> map=new HashMap<>();
+		map.put("s_id", s_id);
+		
+		return sqlSession.selectList("content.mapper.selectContentList", map);
+	}
 }

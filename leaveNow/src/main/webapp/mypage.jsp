@@ -610,12 +610,12 @@ var $sch=function(){
 			var y=0;
 			for(y;y<data.length;y++){
 				var i=0;
-			
+				console.log(data[y].s_content);
 				if(y/2!=1){
 					$("#my_sch_con").eq(i).append("<div class='col-md-6'><div class='my_sch_con_inner_1'>"+
-					"<a href='sch_read.jsp?s_id="+data[y].s_id+"'><img alt='' src='resources/img/Tulips.jpg'></img><div id='my_sch_con_inner_subject' class='line-clamp_1'><p>"+
+					"<a href='getSch?s_id="+data[y].s_id+"'><img alt='' src='resources/img/Tulips.jpg'></img><div id='my_sch_con_inner_subject' class='line-clamp_1'><p>"+
 					data[y].s_subject+"</p></div><div id='my_sch_con_inner_content' class='line-clamp'>"+data[y].s_content+"</div>"+
-					"<div id='my_sch_con_inner_BA'><p>"+data[y].after+"</p></div></a></div></div>");
+					"<div id='my_sch_con_inner_BA'><p>"+data[y].after+"</p><p>"+data[y].category+"</p></div></a></div></div>");
 					
 				}
 				else if(y/2==1){

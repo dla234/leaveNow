@@ -26,4 +26,7 @@ public interface ScheduleService {
 	public List<ScheduleDTO> getList();
 	public List<ScheduleDTO> getList(HttpServletRequest req);
 	public boolean saveContent(List<Object> list);
+	
+	public ScheduleDTO getSch(int s_id);
+	public List<ContentDTO> getCon(int s_id);
 }

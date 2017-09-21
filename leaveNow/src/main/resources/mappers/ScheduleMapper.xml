@@ -15,8 +15,7 @@
   		trip_content(s_id,start_Time,end_Time,c_content,gcode,c_rdate,c_rdate_update,c_active,end_purpose)
   		values(#{s_id},#{startTime},#{endTime},#{content},#{gcode},now(),now(),'Y','PL')
   	</insert>
-  	
-  	
+
   	<select id="selectS_id"  resultType="java.lang.Integer">
   		select MAX(s_id) from trip_schedule where email=#{email}
   	</select>
@@ -36,7 +35,7 @@
   	
   	<update id="updateSch">
   		update trip_schedule set s_subject=#{s_subject},
-  		s_content=#{s_content},s_idate_update=now(),after=#{after}
+  		s_content=#{s_content},s_idate_update=now(),after=#{after},category=#{category}
   		where s_id=#{s_id} and email=#{email}
   	</update>
   	

@@ -14,8 +14,8 @@ ${param.s_id }
 <script src="resources/js/jquery-scrolltofixed.js"></script>
 <script>
 
-//navbar active
-$(".w3-bar.w3-red.w3-card-2 a").eq(3).addClass("active");
+
+
 
 </script>
 
